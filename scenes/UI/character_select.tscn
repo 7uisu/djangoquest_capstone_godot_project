@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckuu086ojms1m"]
+
+[ext_resource type="Script" uid="uid://bgqrvrdgkomvy" path="res://scripts/UI/character_selection.gd" id="1_0dtwr"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="CharacterSelectUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0dtwr")
+
+[node name="MaleButton" type="Button" parent="CharacterSelectUI"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 127.0
+offset_right = 192.0
+offset_bottom = 158.0
+text = "Male"
+
+[node name="FemaleButton" type="Button" parent="CharacterSelectUI"]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 125.0
+offset_right = 340.0
+offset_bottom = 156.0
+text = "Female"
+
+[node name="SelectionLabel" type="Label" parent="CharacterSelectUI"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 51.0
+offset_right = 320.0
+offset_bottom = 74.0
+text = "Select a Character"
+
+[connection signal="pressed" from="CharacterSelectUI/MaleButton" to="CharacterSelectUI" method="_on_male_button_pressed"]
+[connection signal="pressed" from="CharacterSelectUI/FemaleButton" to="CharacterSelectUI" method="_on_female_button_pressed"]

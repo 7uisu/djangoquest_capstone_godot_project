@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
-const movement_speed = 100.0 # Corrected variable name
+const movement_speed = 100.0
 var animated_sprite : AnimatedSprite2D
 var animation_player : AnimationPlayer
 var current_dir : String = "down"
+
+# Declare character_data as an autoload.
+@onready var character_data = get_node("/root/CharacterData")
 
 func _ready():
 	# Initialize onready variables inside _ready()
@@ -14,7 +17,7 @@ func _process(_delta):
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 
-	velocity = direction * movement_speed # Corrected variable name
+	velocity = direction * movement_speed
 
 	# Determine current direction for animation
 	if direction.x > 0 and direction.y == 0:
@@ -26,31 +29,41 @@ func _process(_delta):
 	elif direction.y < 0 and direction.x == 0:
 		current_dir = "up"
 	elif direction.x == 0 and direction.y == 0:
-		pass #keep the last direction
-
-	pass
+		if current_dir == "":
+			current_dir = "down"  # fallback default direction
 
 func _physics_process(_delta):
 	move_and_slide()
-
 	# Animation control
 	if velocity == Vector2.ZERO:
 		if current_dir == "up":
-			animated_sprite.play("female_idle_up")
+			play_idle_animation("up")
 		elif current_dir == "down":
-			animated_sprite.play("female_idle_down")
+			play_idle_animation("down")
 		elif current_dir == "left":
-			animated_sprite.play("female_idle_left")
+			play_idle_animation("left")
 		elif current_dir == "right":
-			animated_sprite.play("female_idle_right")
+			play_idle_animation("right")
 		else:
-			animated_sprite.play("female_idle_down")
+			play_idle_animation("down")
 	else:
 		if current_dir == "up":
-			animated_sprite.play("female_walking_up")
+			play_walk_animation("up")
 		elif current_dir == "down":
-			animated_sprite.play("female_walking_down")
+			play_walk_animation("down")
 		elif current_dir == "left":
-			animated_sprite.play("female_walking_left")
+			play_walk_animation("left")
 		elif current_dir == "right":
-			animated_sprite.play("female_walking_right")
+			play_walk_animation("right")
+
+func play_idle_animation(direction):
+	if character_data.selected_gender == "male":
+		animated_sprite.play("male_idle_" + direction)
+	else:
+		animated_sprite.play("female_idle_" + direction)
+
+func play_walk_animation(direction):
+	if character_data.selected_gender == "male":
+		animated_sprite.play("male_walking_" + direction)
+	else:
+		animated_sprite.play("female_walking_" + direction)

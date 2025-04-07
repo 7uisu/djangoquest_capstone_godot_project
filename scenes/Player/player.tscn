@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cp2ii5erusfuk"]
+[gd_scene load_steps=22 format=3 uid="uid://cp2ii5erusfuk"]
 
 [ext_resource type="Script" uid="uid://cw30w8xqouty8" path="res://scripts/Player/player.gd" id="1_1kbk7"]
 [ext_resource type="SpriteFrames" uid="uid://drsil5pv62mvl" path="res://animations/Player/player_animation.tres" id="2_gqjuk"]
@@ -126,6 +126,126 @@ tracks/0/keys = {
 "values": [&"female_walking_up"]
 }
 
+[sub_resource type="Animation" id="Animation_1kbk7"]
+resource_name = "Male_idle_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"male_idle_down"]
+}
+
+[sub_resource type="Animation" id="Animation_c4h5g"]
+resource_name = "Male_idle_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"male_idle_left"]
+}
+
+[sub_resource type="Animation" id="Animation_uiqp4"]
+resource_name = "Male_idle_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"male_idle_right"]
+}
+
+[sub_resource type="Animation" id="Animation_gqjuk"]
+resource_name = "Male_idle_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"male_idle_up"]
+}
+
+[sub_resource type="Animation" id="Animation_hvfru"]
+resource_name = "Male_walking_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"male_walking_down"]
+}
+
+[sub_resource type="Animation" id="Animation_dl1wr"]
+resource_name = "Male_walking_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"male_walking_left"]
+}
+
+[sub_resource type="Animation" id="Animation_wwtew"]
+resource_name = "Male_walking_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"male_walking_right"]
+}
+
+[sub_resource type="Animation" id="Animation_a06cl"]
+resource_name = "Male_walking_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"male_walking_up"]
+}
+
 [sub_resource type="Animation" id="Animation_m8u5f"]
 length = 0.001
 tracks/0/type = "value"
@@ -151,6 +271,14 @@ _data = {
 &"Female_walking_left": SubResource("Animation_pi42a"),
 &"Female_walking_right": SubResource("Animation_h1jm5"),
 &"Female_walking_up": SubResource("Animation_pio1y"),
+&"Male_idle_down": SubResource("Animation_1kbk7"),
+&"Male_idle_left": SubResource("Animation_c4h5g"),
+&"Male_idle_right": SubResource("Animation_uiqp4"),
+&"Male_idle_up": SubResource("Animation_gqjuk"),
+&"Male_walking_down": SubResource("Animation_hvfru"),
+&"Male_walking_left": SubResource("Animation_dl1wr"),
+&"Male_walking_right": SubResource("Animation_wwtew"),
+&"Male_walking_up": SubResource("Animation_a06cl"),
 &"RESET": SubResource("Animation_m8u5f")
 }
 
@@ -164,7 +292,6 @@ shape = SubResource("CircleShape2D_wt17y")
 position = Vector2(0, -5)
 sprite_frames = ExtResource("2_gqjuk")
 animation = &"female_idle_down"
-frame_progress = 0.20707
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
