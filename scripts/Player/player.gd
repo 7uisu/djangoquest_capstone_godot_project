@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 100.0 # Corrected variable name
+const movement_speed = 100.0 # Corrected variable name
 var animated_sprite : AnimatedSprite2D
 var animation_player : AnimationPlayer
 var current_dir : String = "down"
@@ -14,7 +14,7 @@ func _process(_delta):
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
 
-	velocity = direction * SPEED # Corrected variable name
+	velocity = direction * movement_speed # Corrected variable name
 
 	# Determine current direction for animation
 	if direction.x > 0 and direction.y == 0:
@@ -36,21 +36,21 @@ func _physics_process(_delta):
 	# Animation control
 	if velocity == Vector2.ZERO:
 		if current_dir == "up":
-			animated_sprite.play("Idle_up")
+			animated_sprite.play("female_idle_up")
 		elif current_dir == "down":
-			animated_sprite.play("Idle_down")
+			animated_sprite.play("female_idle_down")
 		elif current_dir == "left":
-			animated_sprite.play("Idle_left")
+			animated_sprite.play("female_idle_left")
 		elif current_dir == "right":
-			animated_sprite.play("Idle_right")
+			animated_sprite.play("female_idle_right")
 		else:
-			animated_sprite.play("Idle_down")  # Default
+			animated_sprite.play("female_idle_down")
 	else:
 		if current_dir == "up":
-			animated_sprite.play("walk_up")
+			animated_sprite.play("female_walking_up")
 		elif current_dir == "down":
-			animated_sprite.play("walk_down")
+			animated_sprite.play("female_walking_down")
 		elif current_dir == "left":
-			animated_sprite.play("walk_left")
+			animated_sprite.play("female_walking_left")
 		elif current_dir == "right":
-			animated_sprite.play("walk_right")
+			animated_sprite.play("female_walking_right")
