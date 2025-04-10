@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://cp2ii5erusfuk"]
+[gd_scene load_steps=23 format=3 uid="uid://cp2ii5erusfuk"]
 
 [ext_resource type="Script" uid="uid://cw30w8xqouty8" path="res://scripts/Player/player.gd" id="1_1kbk7"]
+[ext_resource type="Texture2D" uid="uid://djuvjwtbdmts2" path="res://textures/Player/Sprites/The Adventurer - Free/Female/Shadow.png" id="2_c4h5g"]
 [ext_resource type="SpriteFrames" uid="uid://drsil5pv62mvl" path="res://animations/Player/player_animation.tres" id="2_gqjuk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wt17y"]
-radius = 9.0
+radius = 5.0
 
 [sub_resource type="Animation" id="Animation_is3ju"]
 resource_name = "Female_idle_down"
@@ -19,6 +20,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"female_idle_down"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"shadow"]
 }
 
 [sub_resource type="Animation" id="Animation_o00ia"]
@@ -283,6 +296,10 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_mask = 17
+motion_mode = 1
+wall_min_slide_angle = 0.174533
 script = ExtResource("1_1kbk7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -293,7 +310,13 @@ position = Vector2(0, -5)
 sprite_frames = ExtResource("2_gqjuk")
 animation = &"female_idle_down"
 
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = ExtResource("2_c4h5g")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_te8jg")
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]

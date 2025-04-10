@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://b33excqov3blo"]
+
+[ext_resource type="Texture2D" uid="uid://chb13kwpmmeko" path="res://textures/Nature & village pack/Nature/Logs & Stumbs.png" id="1_syrdg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2yo0f"]
+texture = ExtResource("1_syrdg")
+1:1/0 = 0
+2:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+10:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3i8ot"]
+sources/0 = SubResource("TileSetAtlasSource_2yo0f")
+
+[node name="Logs-stubs-01" type="TileMapLayer"]
+tile_set = SubResource("TileSet_3i8ot")

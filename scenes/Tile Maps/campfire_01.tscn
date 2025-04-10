@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsny15ujh5qf2"]
+
+[ext_resource type="Texture2D" uid="uid://cgitybxbaf577" path="res://textures/Nature & village pack/containers & tents/Campfire.png" id="1_oewk6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ois1x"]
+texture = ExtResource("1_oewk6")
+0:1/animation_columns = 6
+0:1/animation_separation = Vector2i(1, 0)
+0:1/animation_speed = 5.0
+0:1/animation_frame_0/duration = 1.0
+0:1/animation_frame_1/duration = 1.0
+0:1/animation_frame_2/duration = 1.0
+0:1/animation_frame_3/duration = 1.0
+0:1/animation_frame_4/duration = 1.0
+0:1/animation_frame_5/duration = 1.0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.449647, 2.42809, -5.12597, -8, 8, -8, 8, 6.02527)
+1:1/animation_columns = 6
+1:1/animation_separation = Vector2i(1, 0)
+1:1/animation_speed = 5.0
+1:1/animation_frame_0/duration = 1.0
+1:1/animation_frame_1/duration = 1.0
+1:1/animation_frame_2/duration = 1.0
+1:1/animation_frame_3/duration = 1.0
+1:1/animation_frame_4/duration = 1.0
+1:1/animation_frame_5/duration = 1.0
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.42809, 0.449647, -8, 5.12597, -8, -8, 6.02527, -8)
+1:0/animation_columns = 6
+1:0/animation_separation = Vector2i(1, 0)
+1:0/animation_speed = 5.0
+1:0/animation_frame_0/duration = 1.0
+1:0/animation_frame_1/duration = 1.0
+1:0/animation_frame_2/duration = 1.0
+1:0/animation_frame_3/duration = 1.0
+1:0/animation_frame_4/duration = 1.0
+1:0/animation_frame_5/duration = 1.0
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.449647, -2.42809, 5.12597, 8, -8, 8, -8, -6.02527)
+0:0/animation_columns = 6
+0:0/animation_separation = Vector2i(1, 0)
+0:0/animation_speed = 5.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.42809, -0.449647, 8, -5.12597, 8, 8, -6.02527, 8)
+
+[sub_resource type="TileSet" id="TileSet_o25mu"]
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_ois1x")
+
+[node name="Campfire-01" type="TileMapLayer"]
+tile_set = SubResource("TileSet_o25mu")

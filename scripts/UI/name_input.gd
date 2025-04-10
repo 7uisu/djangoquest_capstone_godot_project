@@ -7,7 +7,7 @@ extends Control
 @onready var character_data = get_node("/root/CharacterData")
 
 # Declare the next scene to load after this one.
-@export var next_scene : String = "res://scenes/Player/player.tscn"
+@export var next_scene : String = "res://playground.tscn"
 
 func _ready():
 	# No need to manually connect signals, it's done in the editor

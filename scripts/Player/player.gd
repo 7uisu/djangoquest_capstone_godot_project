@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const movement_speed = 100.0
+const movement_speed = 120.0
 var animated_sprite : AnimatedSprite2D
 var animation_player : AnimationPlayer
 var current_dir : String = "down"

@@ -1,8 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1vqvdygxdpmw"]
+[gd_scene load_steps=12 format=4 uid="uid://c1vqvdygxdpmw"]
 
 [ext_resource type="PackedScene" uid="uid://cp2ii5erusfuk" path="res://scenes/Player/player.tscn" id="1_rupst"]
+[ext_resource type="PackedScene" uid="uid://cssep2upmne2w" path="res://scenes/Tile Maps/tree_normal_01.tscn" id="4_pio1y"]
+[ext_resource type="PackedScene" uid="uid://d0q501e8rh04w" path="res://scenes/Tile Maps/tree_mini_01.tscn" id="5_te8jg"]
+[ext_resource type="PackedScene" uid="uid://djkpdkvamaf7q" path="res://scenes/Tile Maps/flowers_plants_01.tscn" id="6_pio1y"]
+[ext_resource type="PackedScene" uid="uid://jd1r7n16jnly" path="res://scenes/Tile Maps/tree_large_01.tscn" id="6_yjl7g"]
+[ext_resource type="PackedScene" uid="uid://b33excqov3blo" path="res://scenes/Tile Maps/logs_stubs_01.tscn" id="7_f7pug"]
+[ext_resource type="PackedScene" uid="uid://b2y0pl1rcds37" path="res://scenes/Tile Maps/ground_01.tscn" id="7_pio1y"]
+[ext_resource type="PackedScene" uid="uid://bcdiucldj0any" path="res://scenes/Tile Maps/water_01.tscn" id="8_pio1y"]
+[ext_resource type="PackedScene" uid="uid://02536ng8w6ic" path="res://scenes/Tile Maps/rocks_01.tscn" id="9_te8jg"]
+[ext_resource type="PackedScene" uid="uid://c62us7g8hetvm" path="res://scenes/Tile Maps/cliff_01.tscn" id="10_yjl7g"]
+[ext_resource type="PackedScene" uid="uid://bsny15ujh5qf2" path="res://scenes/Tile Maps/campfire_01.tscn" id="11_pio1y"]
 
 [node name="Playground" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_rupst")]
 position = Vector2(242, 134)
+collision_mask = 16
+
+[node name="Ground-01" parent="." instance=ExtResource("7_pio1y")]
+z_index = -1
+
+[node name="Water-01" parent="." instance=ExtResource("8_pio1y")]
+
+[node name="Tree-normal-01" parent="." instance=ExtResource("4_pio1y")]
+tile_map_data = PackedByteArray("AAASAAQAAAAAAAYAAAASAAUAAAAAAAcAAAASAAYAAAAAAAgAAAASAAcAAAAAAAkAAAATAAQAAAABAAYAAAATAAUAAAABAAcAAAATAAYAAAABAAgAAAATAAcAAAABAAkAAAAUAAQAAAACAAYAAAAUAAUAAAACAAcAAAAUAAYAAAACAAgAAAAUAAcAAAACAAkAAAA=")
+
+[node name="Tree-mini-01" parent="." instance=ExtResource("5_te8jg")]
+
+[node name="Tree-large-01" parent="." instance=ExtResource("6_yjl7g")]
+
+[node name="Logs-stubs-01" parent="." instance=ExtResource("7_f7pug")]
+
+[node name="Flowers-plants-01" parent="." instance=ExtResource("6_pio1y")]
+tile_map_data = PackedByteArray("AAAMAAsAAAADAAMAAAAUAAsAAAADAAMAAAAPAAwAAAAFAAUAAAAJAAwAAAAFAAUAAAA=")
+
+[node name="Rocks-01" parent="." instance=ExtResource("9_te8jg")]
+
+[node name="Cliff-01" parent="." instance=ExtResource("10_yjl7g")]
+
+[node name="Campfire-01" parent="." instance=ExtResource("11_pio1y")]
+z_index = -1
+tile_map_data = PackedByteArray("AAAHAAgAAAAAAAAAAAAHAAkAAAAAAAEAAAAIAAgAAAABAAAAAAAIAAkAAAABAAEAAAA=")
