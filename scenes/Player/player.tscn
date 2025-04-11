@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cp2ii5erusfuk"]
+[gd_scene load_steps=39 format=3 uid="uid://cp2ii5erusfuk"]
 
 [ext_resource type="Script" uid="uid://cw30w8xqouty8" path="res://scripts/Player/player.gd" id="1_1kbk7"]
 [ext_resource type="Texture2D" uid="uid://djuvjwtbdmts2" path="res://textures/Player/Sprites/The Adventurer - Free/Female/Shadow.png" id="2_c4h5g"]
@@ -21,17 +21,35 @@ tracks/0/keys = {
 "update": 1,
 "values": [&"female_idle_down"]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
+
+[sub_resource type="Animation" id="Animation_cctgl"]
+resource_name = "Female_idle_down_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"shadow"]
+"values": [&"female_idle_down_left"]
+}
+
+[sub_resource type="Animation" id="Animation_an8q1"]
+resource_name = "Female_idle_down_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"female_idle_down_right"]
 }
 
 [sub_resource type="Animation" id="Animation_o00ia"]
@@ -79,6 +97,36 @@ tracks/0/keys = {
 "values": [&"female_idle_up"]
 }
 
+[sub_resource type="Animation" id="Animation_hxkm2"]
+resource_name = "Female_idle_up_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"female_idle_up_left"]
+}
+
+[sub_resource type="Animation" id="Animation_18ciy"]
+resource_name = "Female_idle_up_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"female_idle_up_right"]
+}
+
 [sub_resource type="Animation" id="Animation_v7dth"]
 resource_name = "Female_walking_down"
 tracks/0/type = "value"
@@ -92,6 +140,36 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"female_walking_down"]
+}
+
+[sub_resource type="Animation" id="Animation_x8khf"]
+resource_name = "Female_walking_down_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"female_walking_down_left"]
+}
+
+[sub_resource type="Animation" id="Animation_aciub"]
+resource_name = "Female_walking_down_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"female_walking_down_right"]
 }
 
 [sub_resource type="Animation" id="Animation_pi42a"]
@@ -139,6 +217,36 @@ tracks/0/keys = {
 "values": [&"female_walking_up"]
 }
 
+[sub_resource type="Animation" id="Animation_43ckd"]
+resource_name = "Female_walking_up_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"female_walking_up_left"]
+}
+
+[sub_resource type="Animation" id="Animation_hk2ix"]
+resource_name = "Female_walking_up_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"female_walking_up_right"]
+}
+
 [sub_resource type="Animation" id="Animation_1kbk7"]
 resource_name = "Male_idle_down"
 tracks/0/type = "value"
@@ -152,6 +260,36 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"male_idle_down"]
+}
+
+[sub_resource type="Animation" id="Animation_uxo23"]
+resource_name = "Male_idle_down_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"male_idle_down_left"]
+}
+
+[sub_resource type="Animation" id="Animation_n7rn1"]
+resource_name = "Male_idle_down_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"male_idle_down_right"]
 }
 
 [sub_resource type="Animation" id="Animation_c4h5g"]
@@ -199,6 +337,36 @@ tracks/0/keys = {
 "values": [&"male_idle_up"]
 }
 
+[sub_resource type="Animation" id="Animation_jxtnq"]
+resource_name = "Male_idle_up_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"male_idle_up_left"]
+}
+
+[sub_resource type="Animation" id="Animation_7tfl1"]
+resource_name = "Male_idle_up_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"male_idle_up_right"]
+}
+
 [sub_resource type="Animation" id="Animation_hvfru"]
 resource_name = "Male_walking_down"
 tracks/0/type = "value"
@@ -212,6 +380,36 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"male_walking_down"]
+}
+
+[sub_resource type="Animation" id="Animation_t6q27"]
+resource_name = "Male_walking_down_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"male_walking_down_left"]
+}
+
+[sub_resource type="Animation" id="Animation_wyey8"]
+resource_name = "Male_walking_down_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"male_walking_down_right"]
 }
 
 [sub_resource type="Animation" id="Animation_dl1wr"]
@@ -259,6 +457,36 @@ tracks/0/keys = {
 "values": [&"male_walking_up"]
 }
 
+[sub_resource type="Animation" id="Animation_1bwnf"]
+resource_name = "Male_walking_up_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"male_walking_up_left"]
+}
+
+[sub_resource type="Animation" id="Animation_tayva"]
+resource_name = "Male_walking_up_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"male_walking_up_right"]
+}
+
 [sub_resource type="Animation" id="Animation_m8u5f"]
 length = 0.001
 tracks/0/type = "value"
@@ -277,21 +505,37 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_te8jg"]
 _data = {
 &"Female_idle_down": SubResource("Animation_is3ju"),
+&"Female_idle_down_left": SubResource("Animation_cctgl"),
+&"Female_idle_down_right": SubResource("Animation_an8q1"),
 &"Female_idle_left": SubResource("Animation_o00ia"),
 &"Female_idle_right": SubResource("Animation_4bqqs"),
 &"Female_idle_up": SubResource("Animation_ynsuh"),
+&"Female_idle_up_left": SubResource("Animation_hxkm2"),
+&"Female_idle_up_right": SubResource("Animation_18ciy"),
 &"Female_walking_down": SubResource("Animation_v7dth"),
+&"Female_walking_down_left": SubResource("Animation_x8khf"),
+&"Female_walking_down_right": SubResource("Animation_aciub"),
 &"Female_walking_left": SubResource("Animation_pi42a"),
 &"Female_walking_right": SubResource("Animation_h1jm5"),
 &"Female_walking_up": SubResource("Animation_pio1y"),
+&"Female_walking_up_left": SubResource("Animation_43ckd"),
+&"Female_walking_up_right": SubResource("Animation_hk2ix"),
 &"Male_idle_down": SubResource("Animation_1kbk7"),
+&"Male_idle_down_left": SubResource("Animation_uxo23"),
+&"Male_idle_down_right": SubResource("Animation_n7rn1"),
 &"Male_idle_left": SubResource("Animation_c4h5g"),
 &"Male_idle_right": SubResource("Animation_uiqp4"),
 &"Male_idle_up": SubResource("Animation_gqjuk"),
+&"Male_idle_up_left": SubResource("Animation_jxtnq"),
+&"Male_idle_up_right": SubResource("Animation_7tfl1"),
 &"Male_walking_down": SubResource("Animation_hvfru"),
+&"Male_walking_down_left": SubResource("Animation_t6q27"),
+&"Male_walking_down_right": SubResource("Animation_wyey8"),
 &"Male_walking_left": SubResource("Animation_dl1wr"),
 &"Male_walking_right": SubResource("Animation_wwtew"),
 &"Male_walking_up": SubResource("Animation_a06cl"),
+&"Male_walking_up_left": SubResource("Animation_1bwnf"),
+&"Male_walking_up_right": SubResource("Animation_tayva"),
 &"RESET": SubResource("Animation_m8u5f")
 }
 

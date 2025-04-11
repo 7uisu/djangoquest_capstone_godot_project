@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6hwhw8362lr2"
-path="res://.godot/imported/djangoquest_walk_female.png-6e13f97a947c165faa92b94c5b0628b8.ctex"
+uid="uid://xtefxo7xohb"
+path="res://.godot/imported/djangoquest_idle_female.png-84e28e866449a412a3eb5b4101247b3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Player/Sprites/Female/djangoquest_walk_female.png"
-dest_files=["res://.godot/imported/djangoquest_walk_female.png-6e13f97a947c165faa92b94c5b0628b8.ctex"]
+source_file="res://textures/Player/Sprites/Female/djangoquest_idle_female.png"
+dest_files=["res://.godot/imported/djangoquest_idle_female.png-84e28e866449a412a3eb5b4101247b3a.ctex"]
 
 [params]
 
