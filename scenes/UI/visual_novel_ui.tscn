@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfhfo552juy3s"]
+
+[ext_resource type="Script" uid="uid://p0nwpxh1xp3k" path="res://scripts/VisualNovel/visual_novel.gd" id="1_eqfsq"]
+[ext_resource type="FontFile" uid="uid://dywjttgy6mph5" path="res://textures/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="2_px3ej"]
+[ext_resource type="FontFile" uid="uid://tyx50xl5dux2" path="res://textures/Fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="3_6xu41"]
+[ext_resource type="FontFile" uid="uid://duddy63vd4ld0" path="res://textures/Fonts/Pixelify_Sans/static/PixelifySans-Medium.ttf" id="4_v720y"]
+[ext_resource type="FontFile" uid="uid://duufeiqpx8lht" path="res://textures/Fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="5_uyvsn"]
+
+[node name="VisualNovelUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 479.0
+offset_bottom = 270.0
+script = ExtResource("1_eqfsq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 479.0
+offset_bottom = 269.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 208.0
+offset_right = 480.0
+offset_bottom = 269.0
+color = Color(0, 0, 0, 0.588235)
+
+[node name="NextButton" type="Button" parent="."]
+z_index = 1
+custom_minimum_size = Vector2(-100, -100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -44.0
+offset_right = -19.0
+offset_bottom = -18.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_px3ej")
+theme_override_font_sizes/font_size = 12
+text = "Next"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 32.0
+offset_top = 232.0
+offset_right = 406.0
+offset_bottom = 261.0
+theme_override_fonts/normal_font = ExtResource("3_6xu41")
+theme_override_fonts/mono_font = ExtResource("4_v720y")
+theme_override_fonts/bold_font = ExtResource("5_uyvsn")
+theme_override_font_sizes/normal_font_size = 9
+text = "Text"
+
+[node name="SpeakerLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 214.0
+offset_right = 111.0
+offset_bottom = 229.0
+theme_override_fonts/font = ExtResource("2_px3ej")
+theme_override_font_sizes/font_size = 11
+text = "Text:"
+
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
