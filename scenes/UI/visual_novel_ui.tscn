@@ -25,25 +25,6 @@ offset_right = 480.0
 offset_bottom = 269.0
 color = Color(0, 0, 0, 0.588235)
 
-[node name="NextButton" type="Button" parent="."]
-z_index = 1
-custom_minimum_size = Vector2(-100, -100)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = -44.0
-offset_right = -19.0
-offset_bottom = -18.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_px3ej")
-theme_override_font_sizes/font_size = 12
-text = "Next"
-
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 z_index = 1
 layout_mode = 0
@@ -67,4 +48,12 @@ theme_override_fonts/font = ExtResource("2_px3ej")
 theme_override_font_sizes/font_size = 11
 text = "Text:"
 
-[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[node name="ContinueWarningLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 255.0
+offset_right = 572.0
+offset_bottom = 270.0
+theme_override_fonts/font = ExtResource("2_px3ej")
+theme_override_font_sizes/font_size = 9
+text = "press spacebar to continue.."

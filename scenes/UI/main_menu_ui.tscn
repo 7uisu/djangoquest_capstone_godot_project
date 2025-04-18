@@ -1,0 +1,266 @@
+[gd_scene load_steps=20 format=3 uid="uid://d2odidiimiq6l"]
+
+[ext_resource type="FontFile" uid="uid://dywjttgy6mph5" path="res://textures/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="1_4rwbu"]
+[ext_resource type="Shader" uid="uid://btjpurw470nhn" path="res://scenes/UI/main_menu_ui.gdshader" id="1_7nxdc"]
+[ext_resource type="Script" uid="uid://bvjucwy1qe672" path="res://scripts/UI/main_menu.gd" id="1_7wnok"]
+[ext_resource type="Texture2D" uid="uid://dnpvuqd1nps2w" path="res://textures/Main Menu Textures/halfearth.png" id="2_rvyux"]
+[ext_resource type="Texture2D" uid="uid://bxhvufxin25dp" path="res://textures/Main Menu Textures/violet_planet.png" id="4_d0jgb"]
+[ext_resource type="Texture2D" uid="uid://dr84tqs3xpjj0" path="res://textures/Main Menu Textures/maze_planet.png" id="5_7wnok"]
+[ext_resource type="Texture2D" uid="uid://ckkdb8o21fklb" path="res://textures/Main Menu Textures/rocket.png" id="6_d0jgb"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7nxdc"]
+noise_type = 0
+frequency = 0.3395
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7dcaa"]
+noise = SubResource("FastNoiseLite_7nxdc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7dcaa"]
+shader = ExtResource("1_7nxdc")
+shader_parameter/resolution = Vector2(600, 400)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_7dcaa")
+shader_parameter/density = 57.5
+shader_parameter/speed_x = 1.49012e-06
+shader_parameter/speed_y = -28.5
+shader_parameter/layers = 10.0
+
+[sub_resource type="Animation" id="Animation_7wnok"]
+resource_name = "spin"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_5v71r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i103t"]
+_data = {
+&"RESET": SubResource("Animation_5v71r"),
+&"spin": SubResource("Animation_7wnok")
+}
+
+[sub_resource type="Animation" id="Animation_d0jgb"]
+resource_name = "spin"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_i103t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5tv23"]
+_data = {
+&"RESET": SubResource("Animation_i103t"),
+&"spin": SubResource("Animation_d0jgb")
+}
+
+[sub_resource type="Animation" id="Animation_djdbi"]
+resource_name = "bobbing"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.46667, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(96, 135), Vector2(85, 145), Vector2(96, 135)]
+}
+
+[sub_resource type="Animation" id="Animation_utsc1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(96, 135)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4wm3a"]
+_data = {
+&"RESET": SubResource("Animation_utsc1"),
+&"bobbing": SubResource("Animation_djdbi")
+}
+
+[node name="MainMenuUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 270.0
+script = ExtResource("1_7wnok")
+
+[node name="ShaderBackground" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_7dcaa")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HalfEarth" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -68.0
+offset_right = 484.0
+offset_bottom = 270.0
+texture = ExtResource("2_rvyux")
+expand_mode = 1
+
+[node name="MenuButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -133.0
+offset_right = 37.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlayButton" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_4rwbu")
+theme_override_font_sizes/font_size = 15
+text = "Play"
+
+[node name="LoadButton" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_4rwbu")
+theme_override_font_sizes/font_size = 15
+text = "Load"
+
+[node name="SettingsButton" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_4rwbu")
+theme_override_font_sizes/font_size = 15
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="MenuButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_4rwbu")
+theme_override_font_sizes/font_size = 15
+text = "Quit"
+
+[node name="VioletPlanet" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 18.0
+offset_right = 128.0
+offset_bottom = 83.0
+pivot_offset = Vector2(32.5, 32.5)
+texture = ExtResource("4_d0jgb")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VioletPlanet"]
+libraries = {
+&"": SubResource("AnimationLibrary_i103t")
+}
+autoplay = "spin"
+
+[node name="MazePlanet" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 47.0
+offset_right = 432.0
+offset_bottom = 137.0
+pivot_offset = Vector2(45, 45)
+texture = ExtResource("5_7wnok")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MazePlanet"]
+libraries = {
+&"": SubResource("AnimationLibrary_5tv23")
+}
+autoplay = "spin"
+
+[node name="Rocket" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 135.0
+offset_right = 151.0
+offset_bottom = 192.0
+rotation = 0.546288
+texture = ExtResource("6_d0jgb")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rocket"]
+libraries = {
+&"": SubResource("AnimationLibrary_4wm3a")
+}
+autoplay = "bobbing"
+
+[node name="DjangoQuestLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -106.0
+offset_top = 82.0
+offset_right = 106.0
+offset_bottom = 121.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_4rwbu")
+theme_override_font_sizes/font_size = 32
+text = "Django Quest"
+
+[connection signal="pressed" from="MenuButtons/PlayButton" to="." method="_on_play_button_pressed"]
