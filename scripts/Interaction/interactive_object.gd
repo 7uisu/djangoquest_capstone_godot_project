@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var interaction_text: String = "Interact"
+@export var interaction_text: String = "(F) to Interact"
 @onready var interaction_label: Label = $Label
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var show_once: bool = false

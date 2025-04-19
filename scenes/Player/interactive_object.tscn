@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://beneww8im0eif"]
+[gd_scene load_steps=8 format=3 uid="uid://beneww8im0eif"]
 
 [ext_resource type="Script" uid="uid://dqusivvubih1r" path="res://scripts/Interaction/interactive_object.gd" id="1_aaahb"]
 [ext_resource type="Texture2D" uid="uid://bjeu4ol3xeeoq" path="res://textures/Nature & village pack/Chest/Fixed/idle.png" id="2_hawfq"]
+[ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="3_r2shl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r2shl"]
 
@@ -46,11 +47,22 @@ sprite_frames = SubResource("SpriteFrames_1w8wg")
 
 [node name="Label" type="Label" parent="."]
 z_index = 1
-offset_left = -46.0
-offset_top = -25.0
-offset_right = 49.0
-offset_bottom = -2.0
-text = "E to Interact"
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -21.0
+offset_right = 15.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(47.5, 10.5)
+theme_override_fonts/font = ExtResource("3_r2shl")
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=20 format=3 uid="uid://d2odidiimiq6l"]
 
-[ext_resource type="FontFile" uid="uid://dywjttgy6mph5" path="res://textures/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="1_4rwbu"]
 [ext_resource type="Shader" uid="uid://btjpurw470nhn" path="res://scenes/UI/main_menu_ui.gdshader" id="1_7nxdc"]
 [ext_resource type="Script" uid="uid://bvjucwy1qe672" path="res://scripts/UI/main_menu.gd" id="1_7wnok"]
 [ext_resource type="Texture2D" uid="uid://dnpvuqd1nps2w" path="res://textures/Main Menu Textures/halfearth.png" id="2_rvyux"]
+[ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="4_7wnok"]
 [ext_resource type="Texture2D" uid="uid://bxhvufxin25dp" path="res://textures/Main Menu Textures/violet_planet.png" id="4_d0jgb"]
 [ext_resource type="Texture2D" uid="uid://dr84tqs3xpjj0" path="res://textures/Main Menu Textures/maze_planet.png" id="5_7wnok"]
 [ext_resource type="Texture2D" uid="uid://ckkdb8o21fklb" path="res://textures/Main Menu Textures/rocket.png" id="6_d0jgb"]
@@ -179,25 +179,25 @@ grow_vertical = 0
 
 [node name="PlayButton" type="Button" parent="MenuButtons"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_4rwbu")
+theme_override_fonts/font = ExtResource("4_7wnok")
 theme_override_font_sizes/font_size = 15
 text = "Play"
 
 [node name="LoadButton" type="Button" parent="MenuButtons"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_4rwbu")
+theme_override_fonts/font = ExtResource("4_7wnok")
 theme_override_font_sizes/font_size = 15
 text = "Load"
 
 [node name="SettingsButton" type="Button" parent="MenuButtons"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_4rwbu")
+theme_override_fonts/font = ExtResource("4_7wnok")
 theme_override_font_sizes/font_size = 15
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="MenuButtons"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_4rwbu")
+theme_override_fonts/font = ExtResource("4_7wnok")
 theme_override_font_sizes/font_size = 15
 text = "Quit"
 
@@ -259,8 +259,10 @@ offset_top = 82.0
 offset_right = 106.0
 offset_bottom = 121.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_4rwbu")
+theme_override_fonts/font = ExtResource("4_7wnok")
 theme_override_font_sizes/font_size = 32
 text = "Django Quest"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="MenuButtons/PlayButton" to="." method="_on_play_button_pressed"]
