@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://beneww8im0eif"]
+
+[ext_resource type="Script" uid="uid://dqusivvubih1r" path="res://scripts/Interaction/interactive_object.gd" id="1_aaahb"]
+[ext_resource type="Texture2D" uid="uid://bjeu4ol3xeeoq" path="res://textures/Nature & village pack/Chest/Fixed/idle.png" id="2_hawfq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r2shl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hawfq"]
+atlas = ExtResource("2_hawfq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcvcs"]
+atlas = ExtResource("2_hawfq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1w8wg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hawfq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcvcs")
+}],
+"loop": true,
+"name": &"interact",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_aaahb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_r2shl")
+one_way_collision_margin = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1w8wg")
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+offset_left = -46.0
+offset_top = -25.0
+offset_right = 49.0
+offset_bottom = -2.0
+text = "E to Interact"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
