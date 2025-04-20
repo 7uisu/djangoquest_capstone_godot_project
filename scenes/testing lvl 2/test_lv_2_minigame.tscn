@@ -1,0 +1,94 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu8yh131p0b85"]
+
+[ext_resource type="Script" uid="uid://cinds08wwn6s1" path="res://scripts/minigame2_script/minigame_chapter2.gd" id="1_vmtvk"]
+
+[node name="test_lv2_minigame" type="Node2D"]
+script = ExtResource("1_vmtvk")
+
+[node name="CanvasLayer_for_UI" type="CanvasLayer" parent="."]
+
+[node name="minigame_ui" type="Control" parent="CanvasLayer_for_UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 482.0
+offset_bottom = 270.0
+
+[node name="instructions" type="Label" parent="CanvasLayer_for_UI/minigame_ui"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="url_area" type="Control" parent="CanvasLayer_for_UI/minigame_ui"]
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 178.0
+offset_right = 41.0
+offset_bottom = 218.0
+
+[node name="url1" type="Button" parent="CanvasLayer_for_UI/minigame_ui/url_area"]
+layout_mode = 2
+offset_left = 199.0
+offset_top = 39.0
+offset_right = 276.0
+offset_bottom = 70.0
+text = "HOME"
+
+[node name="url2" type="Button" parent="CanvasLayer_for_UI/minigame_ui/url_area"]
+layout_mode = 2
+offset_left = 281.0
+offset_top = 39.0
+offset_right = 344.0
+offset_bottom = 70.0
+text = "GALLERY"
+
+[node name="url3" type="Button" parent="CanvasLayer_for_UI/minigame_ui/url_area"]
+layout_mode = 2
+offset_left = 129.0
+offset_top = 39.0
+offset_right = 192.0
+offset_bottom = 70.0
+text = "ABOUT"
+
+[node name="view_area" type="Control" parent="CanvasLayer_for_UI/minigame_ui"]
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 481.0
+offset_bottom = 94.0
+
+[node name="Label" type="Label" parent="CanvasLayer_for_UI/minigame_ui/view_area"]
+layout_mode = 2
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 471.0
+offset_bottom = 25.0
+text = "HOME"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer_for_UI/minigame_ui/view_area"]
+layout_mode = 2
+offset_left = 207.0
+offset_top = 106.0
+offset_right = 687.0
+offset_bottom = 129.0
+text = "GALLERY"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer_for_UI/minigame_ui/view_area"]
+layout_mode = 2
+offset_left = -210.0
+offset_top = 102.0
+offset_right = 270.0
+offset_bottom = 125.0
+text = "ABOUT"
+horizontal_alignment = 1
+
+[node name="feedback" type="Label" parent="CanvasLayer_for_UI/minigame_ui"]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 3.0
+offset_right = 441.0
+offset_bottom = 26.0
+text = "feedback"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(241, 135)

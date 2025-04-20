@@ -55,4 +55,4 @@ z_index = -1
 tile_map_data = PackedByteArray("AAAOAAsAAAAAAAAAAAAOAAwAAAAAAAEAAAAPAAsAAAABAAAAAAAPAAwAAAABAAEAAAA=")
 
 [node name="Area2D" parent="." instance=ExtResource("12_gv5tu")]
-position = Vector2(552, 127)
+position = Vector2(195, 127)
