@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://p4tdedeoajeq"]
+
+[ext_resource type="Script" uid="uid://dy6l6wrong7mt" path="res://scripts/Cutscenes/introduction_cutscene.gd" id="1_0snnd"]
+[ext_resource type="FontFile" uid="uid://dywjttgy6mph5" path="res://textures/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="1_j1x0g"]
+
+[node name="Introduction_Cutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0snnd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 479.0
+offset_bottom = 269.0
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 208.0
+offset_right = 480.0
+offset_bottom = 269.0
+color = Color(0, 0, 0, 0.588235)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 32.0
+offset_top = 232.0
+offset_right = 406.0
+offset_bottom = 261.0
+theme_override_font_sizes/normal_font_size = 9
+text = "Text"
+
+[node name="SpeakerLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 214.0
+offset_right = 111.0
+offset_bottom = 229.0
+theme_override_fonts/font = ExtResource("1_j1x0g")
+theme_override_font_sizes/font_size = 11
+text = "Text:"
+
+[node name="ContinueWarningLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 255.0
+offset_right = 572.0
+offset_bottom = 270.0
+theme_override_fonts/font = ExtResource("1_j1x0g")
+theme_override_font_sizes/font_size = 9
+text = "press spacebar to continue.."

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://beneww8im0eif"]
 
-[ext_resource type="Script" uid="uid://dqusivvubih1r" path="res://scripts/Interaction/interactive_object.gd" id="1_aaahb"]
+[ext_resource type="Script" uid="uid://dqusivvubih1r" path="res://scripts/Interaction/Test/interactive_object.gd" id="1_aaahb"]
 [ext_resource type="Texture2D" uid="uid://bjeu4ol3xeeoq" path="res://textures/Nature & village pack/Chest/Fixed/idle.png" id="2_hawfq"]
 [ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="3_r2shl"]
 
@@ -46,7 +46,7 @@ one_way_collision_margin = 0.0
 sprite_frames = SubResource("SpriteFrames_1w8wg")
 
 [node name="Label" type="Label" parent="."]
-z_index = 1
+z_index = 5
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

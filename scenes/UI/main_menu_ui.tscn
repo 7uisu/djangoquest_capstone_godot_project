@@ -265,4 +265,14 @@ text = "Django Quest"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="QuitConfirmationDialog" type="ConfirmationDialog" parent="."]
+title = ""
+initial_position = 1
+size = Vector2i(252, 100)
+ok_button_text = "Confirm"
+dialog_text = "Are you sure you want to quit?"
+
 [connection signal="pressed" from="MenuButtons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MenuButtons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="canceled" from="QuitConfirmationDialog" to="." method="_on_quit_confirmation_dialog_canceled"]
+[connection signal="confirmed" from="QuitConfirmationDialog" to="." method="_on_quit_confirmation_dialog_confirmed"]

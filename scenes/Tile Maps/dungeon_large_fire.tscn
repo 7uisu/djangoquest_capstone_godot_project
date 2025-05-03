@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk66qmu4wuqp8"]
+
+[ext_resource type="Texture2D" uid="uid://cvhiejhsg3i1b" path="res://textures/craftpix-net-169442-free-2d-top-down-pixel-dungeon-asset-pack/Tiled_files/fire_animation.png" id="1_etowe"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_etowe"]
+texture = ExtResource("1_etowe")
+6:0/animation_columns = 3
+6:0/animation_separation = Vector2i(2, 0)
+6:0/0 = 0
+6:1/animation_columns = 3
+6:1/0 = 0
+7:1/animation_columns = 3
+7:1/0 = 0
+7:2/animation_columns = 3
+7:2/0 = 0
+5:1/animation_columns = 3
+5:1/0 = 0
+5:2/animation_columns = 3
+5:2/0 = 0
+6:2/animation_columns = 3
+6:2/0 = 0
+7:0/animation_columns = 3
+7:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_btwk1"]
+sources/1 = SubResource("TileSetAtlasSource_etowe")
+
+[node name="DungeonLargeFire" type="TileMapLayer"]
+tile_set = SubResource("TileSet_btwk1")

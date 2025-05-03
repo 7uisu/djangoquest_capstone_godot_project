@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8wg45x3mmrm6"]
+
+[ext_resource type="Script" uid="uid://c5fcbndgdu1k8" path="res://scripts/Interaction/Chapter 1/rocket_teminal.gd" id="1_3qi05"]
+[ext_resource type="SpriteFrames" uid="uid://dwc68pdvge3uk" path="res://animations/Objects/rocket_terminal.tres" id="2_rr2b0"]
+[ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="3_xt1tf"]
+
+[sub_resource type="Animation" id="Animation_hqp4f"]
+length = 0.001
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+
+[sub_resource type="Animation" id="Animation_e311c"]
+resource_name = "Rocket_Terminal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s5yd3"]
+_data = {
+&"RESET": SubResource("Animation_hqp4f"),
+&"Rocket_Terminal": SubResource("Animation_e311c")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yaicr"]
+radius = 22.0
+
+[node name="RocketTerminal" type="Area2D"]
+script = ExtResource("1_3qi05")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_rr2b0")
+frame = 4
+frame_progress = 0.294474
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_s5yd3")
+}
+autoplay = "Rocket_Terminal"
+
+[node name="Label" type="Label" parent="."]
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -21.0
+offset_right = 15.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(47.5, 10.5)
+theme_override_fonts/font = ExtResource("3_xt1tf")
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 13)
+shape = SubResource("CircleShape2D_yaicr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

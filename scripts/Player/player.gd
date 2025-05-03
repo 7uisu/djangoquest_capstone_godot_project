@@ -1,52 +1,43 @@
+# player.gd
 extends CharacterBody2D
 
-# Constants for movement
-const MOVEMENT_SPEED = 120.0  # Speed of the character's movement
+const MOVEMENT_SPEED = 120.0
 
-# Node variables
+@onready var pages_label = $Camera2D/Guide1Label
+@onready var guide2_label = $Camera2D/Guide2Label  # Add this line near the top with other onready vars
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-# var animation_player : AnimationPlayer # You weren't using this, so I'll comment it out.
-@onready var interaction_area: Area2D = $InteractionArea  # Get the player's InteractionArea
-
-# Declare character_data as an autoload.  This assumes you have a singleton autoload named "CharacterData".
+@onready var interaction_area: Area2D = $InteractionArea
+@onready var camera: Camera2D = $Camera2D
 @onready var character_data = get_node("/root/CharacterData")
 
 var current_interactive_object = null
-
-var current_dir: String = "down"  # Stores the current direction the character is facing.  Defaults to "down".
-var can_interact: bool = false # Add this state variable to track if player *can* interact.
+var current_dir: String = "down"
+var can_interact: bool = false
+var can_move: bool = true  # Movement control flag
 
 func _ready():
-	# Called when the node enters the scene tree.  Good place for initialization.
-	# Get references to child nodes.  Using @onready ensures they are available when the scene is ready.
-	#   animated_sprite = $AnimatedSprite2D # Gets the AnimatedSprite2D node.  Assumes it's a direct child.
-	#animation_player = $AnimationPlayer # Gets the AnimationPlayer node.
-
-	# Connect signals from the interaction area.  This is CRUCIAL.
+	if camera:
+		camera.make_current()
 	if interaction_area != null:
 		interaction_area.body_entered.connect(_on_interaction_area_body_entered)
 		interaction_area.body_exited.connect(_on_interaction_area_body_exited)
-	else:
-		printerr("InteractionArea is null!  Make sure it's in your scene.")
-
+	var tutorial_manager = get_node("/root/TutorialManager")
+	if tutorial_manager:
+		tutorial_manager.page_collected.connect(_on_page_collected)
+	update_pages_label()
 
 func _process(_delta):
-	# Called every frame.  Handles input and updates character velocity.
-	var direction := Vector2.ZERO  # Initialize a zero vector for movement direction.
-
-	# Get input for horizontal movement.
+	if not can_move:
+		velocity = Vector2.ZERO
+		return
+		
+	var direction := Vector2.ZERO
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
-	# Get input for vertical movement.
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
-
-	velocity = direction * MOVEMENT_SPEED  # basic velocity
-
-	# Check if there is any input.
+	
+	velocity = direction.normalized() * MOVEMENT_SPEED if direction != Vector2.ZERO else Vector2.ZERO
+	
 	if direction != Vector2.ZERO:
-		direction = direction.normalized()  # Normalize the direction vector to have a length of 1, preventing faster diagonal movement.
-		velocity = direction * MOVEMENT_SPEED  # Apply speed to the normalized direction.
-
-		# Determine current direction for animation.  This logic determines the cardinal or diagonal direction based on input.
 		if direction.x > 0 and direction.y < 0:
 			current_dir = "up_right"
 		elif direction.x < 0 and direction.y < 0:
@@ -63,61 +54,63 @@ func _process(_delta):
 			current_dir = "down"
 		elif direction.y < 0:
 			current_dir = "up"
-	else:
-		velocity = Vector2.ZERO  # If no input, set velocity to zero.
 
 func _physics_process(_delta):
-	# Called at a fixed rate, typically 60 times per second.  Handles physics and movement.
-	move_and_slide()  # Built-in Godot function to move the character and handle collisions.
-	# Animation control
+	move_and_slide()
 	if velocity == Vector2.ZERO:
 		play_idle_animation(current_dir)
 	else:
 		play_walk_animation(current_dir)
 
 func play_idle_animation(direction: String) -> void:
-	# Function to play the idle animation based on the current direction.
 	if character_data.selected_gender == "male":
-		animated_sprite.play("male_idle_" + direction)  # Plays the male idle animation.  Assumes animation names follow this convention.
+		animated_sprite.play("male_idle_" + direction)
 	else:
-		animated_sprite.play("female_idle_" + direction)  # Plays the female idle animation.
+		animated_sprite.play("female_idle_" + direction)
 
 func play_walk_animation(direction: String) -> void:
-	# Function to play the walking animation based on the current direction.
 	if character_data.selected_gender == "male":
-		animated_sprite.play("male_walking_" + direction)  # Plays the male walking animation.
+		animated_sprite.play("male_walking_" + direction)
 	else:
-		animated_sprite.play("female_walking_" + direction)  # Plays the female walking animation.
-
-
+		animated_sprite.play("female_walking_" + direction)
 
 func _input(event):
-	if event.is_action_pressed("interact"):
-		if can_interact: # <--- IMPORTANT: Check the state!
-			var overlapping_areas = interaction_area.get_overlapping_areas()
-			for area in overlapping_areas:
-				if area.has_method("interact"):
-					area.interact()
-					break # Stop after the first interaction.  Important!
-
-
+	if event.is_action_pressed("interact") and can_interact:
+		for area in interaction_area.get_overlapping_areas():
+			if area.has_method("interact"):
+				area.interact()
+				break
 
 func _on_interaction_area_body_entered(body: Node2D) -> void:
-	# This function is called when *any* body enters the interaction area.
-	if body.has_method("is_player"):  # <---  Check if it's the player!
+	if body.has_method("is_player"):
 		can_interact = true
-		print("Player entered interaction area") #debugging
-		# We don't need to call the area's functions here.  The Area2D
-		# should handle its own label visibility.
-
 
 func _on_interaction_area_body_exited(body: Node2D) -> void:
-	# This function is called when *any* body exits the interaction area.
-	if body.has_method("is_player"): # <--- Check if it's the player!
+	if body.has_method("is_player"):
 		can_interact = false
-		print("Player exited interaction area") #debugging
-		# We don't need to call the area's functions here.
-		# The Area2D should handle its own label visibility.
 
 func is_player() -> bool:
 	return true
+
+func _on_page_collected(page_number, title, command):
+	update_pages_label()
+
+func update_pages_label():
+	var tutorial_manager = get_node("/root/TutorialManager")
+	if tutorial_manager and pages_label:
+		var collected = tutorial_manager.get_all_collected_pages().size()
+		pages_label.text = "Pages: " + str(collected) + "/6"
+		
+func show_guide2_message(text: String, duration: float = 3.0):
+	if guide2_label:
+		guide2_label.text = text
+		guide2_label.visible = true
+		await get_tree().create_timer(duration).timeout
+		guide2_label.visible = false
+
+# Add this method to the player script so the exit can check it
+func get_collected_pages() -> int:
+	var tutorial_manager = get_node("/root/TutorialManager")
+	if tutorial_manager:
+		return tutorial_manager.get_all_collected_pages().size()
+	return 0

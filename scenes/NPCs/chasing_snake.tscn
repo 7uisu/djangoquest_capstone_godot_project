@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqjjcnycrhefm"]
+
+[ext_resource type="Script" uid="uid://0na7kugitxhg" path="res://scripts/Interaction/Chapter 1/chasing_snake.gd" id="1_evx1o"]
+[ext_resource type="Texture2D" uid="uid://4nil78suj851" path="res://textures/Snake/ChasingSnake.png" id="1_poisn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evx1o"]
+atlas = ExtResource("1_poisn")
+region = Rect2(0, 0, 208, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xg66d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evx1o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_poisn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evx1o"]
+size = Vector2(105, 155)
+
+[node name="ChasingSnake" type="CharacterBody2D"]
+script = ExtResource("1_evx1o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_xg66d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_poisn")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(-17.5, -11.5)
+shape = SubResource("RectangleShape2D_evx1o")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

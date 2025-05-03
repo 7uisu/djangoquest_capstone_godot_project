@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://cx5sdr48xtpi0"]
+
+[ext_resource type="Texture2D" uid="uid://b4pi26b0ifvaa" path="res://textures/Snake/Snek.png" id="1_8wxqn"]
+[ext_resource type="Script" uid="uid://bf6rqlxs33ty5" path="res://scripts/Interaction/Chapter 1/idle_snake.gd" id="1_34sae"]
+[ext_resource type="Texture2D" uid="uid://djuvjwtbdmts2" path="res://textures/Player/Sprites/The Adventurer - Free/Female/Shadow.png" id="1_sbuql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbuql"]
+atlas = ExtResource("1_8wxqn")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34sae"]
+atlas = ExtResource("1_8wxqn")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8h2h"]
+atlas = ExtResource("1_8wxqn")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pusli"]
+atlas = ExtResource("1_8wxqn")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pthue"]
+atlas = ExtResource("1_8wxqn")
+region = Rect2(2048, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yiv40"]
+atlas = ExtResource("1_8wxqn")
+region = Rect2(2560, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5e3t"]
+atlas = ExtResource("1_8wxqn")
+region = Rect2(3072, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p415m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbuql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34sae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8h2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pusli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pthue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yiv40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5e3t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8wxqn"]
+
+[node name="IdleSnake" type="CharacterBody2D"]
+script = ExtResource("1_34sae")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(-12.5, 9.49999)
+scale = Vector2(13.2708, 4.67187)
+texture = ExtResource("1_sbuql")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-28, 52)
+sprite_frames = SubResource("SpriteFrames_p415m")
+frame_progress = 0.523184
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8wxqn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]

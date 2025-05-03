@@ -1,8 +1,9 @@
-[gd_scene load_steps=40 format=3 uid="uid://cp2ii5erusfuk"]
+[gd_scene load_steps=41 format=3 uid="uid://cp2ii5erusfuk"]
 
 [ext_resource type="Script" uid="uid://cw30w8xqouty8" path="res://scripts/Player/player.gd" id="1_1kbk7"]
 [ext_resource type="Texture2D" uid="uid://djuvjwtbdmts2" path="res://textures/Player/Sprites/The Adventurer - Free/Female/Shadow.png" id="2_c4h5g"]
 [ext_resource type="SpriteFrames" uid="uid://drsil5pv62mvl" path="res://animations/Player/player_animation.tres" id="2_gqjuk"]
+[ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="4_c4h5g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wt17y"]
 radius = 5.0
@@ -543,7 +544,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
-collision_mask = 17
+collision_mask = 16
 motion_mode = 1
 wall_min_slide_angle = 0.174533
 script = ExtResource("1_1kbk7")
@@ -567,7 +568,31 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="Guide1Label" type="Label" parent="Camera2D"]
+visible = false
+z_index = 5
+offset_left = 166.0
+offset_top = -132.0
+offset_right = 231.0
+offset_bottom = -109.0
+theme_override_fonts/font = ExtResource("4_c4h5g")
+theme_override_font_sizes/font_size = 14
+text = "Pages: 0/6"
+
+[node name="Guide2Label" type="Label" parent="Camera2D"]
+z_index = 5
+offset_left = -236.0
+offset_top = -132.0
+offset_right = 57.0
+offset_bottom = -109.0
+theme_override_fonts/font = ExtResource("4_c4h5g")
+theme_override_font_sizes/font_size = 14
+text = "run away from python while grabbing the pages"
+
 [node name="InteractionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_gqjuk")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

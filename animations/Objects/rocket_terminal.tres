@@ -1,0 +1,67 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://dwc68pdvge3uk"]
+
+[ext_resource type="Texture2D" uid="uid://c14wr5d2bt583" path="res://textures/Nature & village pack/The City - NEW/Vending machines animations/Blue_glitched-Machine_01.png" id="1_eysj8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7py2u"]
+atlas = ExtResource("1_eysj8")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gxhg"]
+atlas = ExtResource("1_eysj8")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7wyh"]
+atlas = ExtResource("1_eysj8")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhaoy"]
+atlas = ExtResource("1_eysj8")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glqim"]
+atlas = ExtResource("1_eysj8")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iquhv"]
+atlas = ExtResource("1_eysj8")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxjpk"]
+atlas = ExtResource("1_eysj8")
+region = Rect2(192, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg83s"]
+atlas = ExtResource("1_eysj8")
+region = Rect2(224, 0, 32, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7py2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gxhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7wyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhaoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glqim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iquhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxjpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg83s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
