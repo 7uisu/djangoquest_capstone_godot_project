@@ -1,0 +1,167 @@
+extends Node2D
+
+@onready var hearts_container = $UILayer/HeartsContainer
+@onready var respawn_ui = $UILayer/RespawnUIWorld1Minigame2
+
+# Configure max health
+var max_health = 3
+var current_health = 3
+var game_active = true
+var player_invulnerable = false
+@export var invulnerability_time: float = 2.0  # Seconds of invulnerability after hit
+
+func _ready():
+	# Initialize hearts display with correct values
+	if hearts_container:
+		hearts_container.max_hearts = max_health
+		hearts_container.current_hearts = current_health
+		hearts_container.setup_hearts()
+		print("[MINIGAME_MANAGER] Hearts initialized: ", current_health, "/", max_health)
+	else:
+		print("[MINIGAME_MANAGER] ERROR: Could not find hearts container!")
+	
+	# Make sure respawn UI is hidden at start
+	if respawn_ui:
+		respawn_ui.visible = false
+		print("[MINIGAME_MANAGER] RespawnUI hidden")
+	else:
+		print("[MINIGAME_MANAGER] ERROR: Could not find respawn UI!")
+	
+	# Ensure player can move at start
+	var player = get_tree().get_first_node_in_group("player")
+	if player and "can_move" in player:
+		player.can_move = true
+
+# Function to handle damage to player
+func take_damage(amount: int):
+	# If game is not active or player is invulnerable, ignore damage
+	if !game_active or player_invulnerable:
+		print("[MINIGAME_MANAGER] Damage ignored - game inactive or player invulnerable")
+		return
+	
+	print("[MINIGAME_MANAGER] Taking damage: ", amount)
+	current_health -= amount
+	
+	# Update hearts display
+	if hearts_container:
+		hearts_container.update_hearts(current_health)
+		print("[MINIGAME_MANAGER] Hearts updated: ", current_health, "/", max_health)
+	
+	# Check if player has lost all hearts
+	if current_health <= 0:
+		_on_player_defeated()
+	else:
+		# Make player invulnerable for a short time
+		_start_invulnerability()
+
+# Make player invulnerable for a short time after taking damage
+func _start_invulnerability():
+	player_invulnerable = true
+	print("[MINIGAME_MANAGER] Player invulnerable started for ", invulnerability_time, " seconds")
+	
+	# Get player node
+	var player = get_tree().get_first_node_in_group("player")
+	if not player:
+		player = get_tree().get_root().find_child("Player", true, false)
+	
+	# Flash player to indicate invulnerability
+	if player:
+		_flash_player(player)
+	
+	# Create timer for invulnerability duration
+	get_tree().create_timer(invulnerability_time).timeout.connect(func():
+		player_invulnerable = false
+		print("[MINIGAME_MANAGER] Player invulnerability ended")
+		
+		# Make sure player is fully visible when invulnerability ends
+		if player and player.visible == false:
+			player.visible = true
+	)
+
+# Flash player sprite to indicate invulnerability
+func _flash_player(player_node):
+	# Don't continue if game is over
+	if !game_active:
+		return
+		
+	# Do nothing if player no longer exists
+	if not is_instance_valid(player_node):
+		return
+		
+	# Toggle visibility
+	player_node.visible = !player_node.visible
+	
+	# Continue flashing only if still invulnerable
+	if player_invulnerable:
+		get_tree().create_timer(0.15).timeout.connect(func():
+			_flash_player(player_node)
+		)
+	else:
+		# Ensure player is visible when invulnerability ends
+		player_node.visible = true
+
+# Function to handle player defeat
+func _on_player_defeated():
+	print("[MINIGAME_MANAGER] Player defeated!")
+	game_active = false
+	
+	# Pause boss attacks/movement if needed
+	var boss = get_tree().get_root().find_child("BossSnake", true, false)
+	if boss:
+		# Disable boss behavior
+		boss.set_process(false)
+		boss.set_physics_process(false)
+		
+		# Stop all timers
+		var timers = [
+			boss.get_node_or_null("SmallProjectileTimer"),
+			boss.get_node_or_null("MediumProjectileTimer"),
+			boss.get_node_or_null("LargeProjectileTimer"),
+			boss.get_node_or_null("StateTimer")
+		]
+		for timer in timers:
+			if timer:
+				timer.stop()
+	
+	# Show respawn UI
+	if respawn_ui:
+		print("[MINIGAME_MANAGER] Showing respawn UI")
+		respawn_ui.visible = true
+	else:
+		print("[MINIGAME_MANAGER] ERROR: Could not find respawn UI for game over!")
+		# Emergency fallback - try to find it by name
+		respawn_ui = get_tree().get_root().find_child("RespawnUI", true, false)
+		if respawn_ui:
+			respawn_ui.visible = true
+			print("[MINIGAME_MANAGER] Found RespawnUI on second attempt")
+
+# Function to reset the game state
+func reset_game():
+	current_health = max_health
+	game_active = true
+	player_invulnerable = false
+	
+	if hearts_container:
+		hearts_container.update_hearts(current_health)
+	
+	# Re-enable boss if needed
+	var boss = get_tree().get_root().find_child("BossSnake", true, false)
+	if boss:
+		boss.set_process(true)
+		boss.set_physics_process(true)
+		
+		# Restart timers
+		var timers = [
+			boss.get_node_or_null("SmallProjectileTimer"),
+			boss.get_node_or_null("MediumProjectileTimer"),
+			boss.get_node_or_null("LargeProjectileTimer"),
+			boss.get_node_or_null("StateTimer")
+		]
+		for timer in timers:
+			if timer:
+				timer.start()
+				
+	# Make sure player is visible (not mid-flash)
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		player.visible = true

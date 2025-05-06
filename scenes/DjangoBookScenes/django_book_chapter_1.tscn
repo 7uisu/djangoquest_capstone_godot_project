@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://cg26byok7hug4"]
+[gd_scene load_steps=8 format=4 uid="uid://cg26byok7hug4"]
 
 [ext_resource type="Texture2D" uid="uid://2vida2vgqadd" path="res://textures/djangobook32x32/DjangoBookCover32x32.png" id="1_dq5ej"]
 [ext_resource type="Script" uid="uid://c734gonemx83i" path="res://scripts/Cutscenes/DjangoBookContent/django_book_chapter_1.gd" id="1_jpidl"]
 [ext_resource type="Texture2D" uid="uid://dk45nfon4dh24" path="res://textures/UI assets pack 2/UI assets pack 2/UI books & more.png" id="2_jpidl"]
 [ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="3_617lq"]
-[ext_resource type="FontFile" uid="uid://dywjttgy6mph5" path="res://textures/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="4_asfp8"]
 [ext_resource type="Texture2D" uid="uid://chk3pp3u4jyj2" path="res://textures/DjangoRocket/rocket.png" id="5_0eivi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a4esj"]
@@ -93,12 +92,11 @@ horizontal_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DjangoBookPages"]
 layout_mode = 0
-offset_left = 98.0
-offset_top = 81.0
-offset_right = 223.0
-offset_bottom = 218.0
+offset_left = 95.0
+offset_top = 74.0
+offset_right = 226.0
+offset_bottom = 222.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("4_asfp8")
 theme_override_font_sizes/bold_italics_font_size = 1
 theme_override_font_sizes/normal_font_size = 8
 text = "Creating a Virtual Environment - 1st Code - \"python -m venv djangoquest_env\"
@@ -113,9 +111,8 @@ layout_mode = 0
 offset_left = 252.0
 offset_top = 38.0
 offset_right = 384.0
-offset_bottom = 148.0
+offset_bottom = 172.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("4_asfp8")
 theme_override_font_sizes/bold_italics_font_size = 1
 theme_override_font_sizes/normal_font_size = 8
 text = "Creating a Django Project - 4th Code - \"django-admin startproject djangoquest\"
@@ -128,14 +125,14 @@ Running the Development Server -
 
 [node name="Label2" type="Label" parent="DjangoBookPages"]
 layout_mode = 0
-offset_left = 236.0
-offset_top = 154.0
-offset_right = 377.0
-offset_bottom = 223.0
+offset_left = 229.0
+offset_top = 178.0
+offset_right = 370.0
+offset_bottom = 247.0
 rotation = -0.181514
 theme_override_colors/font_color = Color(0.462745, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_617lq")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "Warning! Put Codes 
 in order 1-5!
 Put 6th code on rocket
@@ -145,10 +142,10 @@ vertical_alignment = 1
 
 [node name="Rocket" type="TextureRect" parent="DjangoBookPages"]
 layout_mode = 0
-offset_left = 379.0
-offset_top = 155.0
-offset_right = 448.0
-offset_bottom = 225.0
-rotation = 1.24093
+offset_left = 343.0
+offset_top = 156.0
+offset_right = 412.0
+offset_bottom = 226.0
+rotation = 0.193732
 texture = ExtResource("5_0eivi")
 expand_mode = 1

@@ -556,13 +556,21 @@ texture = ExtResource("1_lywih")
 21:40/0 = 0
 22:40/0 = 0
 1:41/0 = 0
+1:41/0/physics_layer_0/polygon_0/points = PackedVector2Array(7.02029, -8, 8, -8, 8, -1.06021, 7.19222, -1.06021)
 2:41/0 = 0
+2:41/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, -8, 2.06838, -8, 1.88852, -0.989223, -8, -1.16908)
 4:41/0 = 0
+4:41/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.88852, -8, 8, -8, 8, -1.5288, -1.88852, -1.16908)
 5:41/0 = 0
+5:41/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1.5288, -8, -1.16908)
 6:41/0 = 0
+6:41/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1.5288, -8, -1.16908)
 7:41/0 = 0
+7:41/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1.5288, -8, -1.16908)
 8:41/0 = 0
+8:41/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1.5288, -8, -1.16908)
 9:41/0 = 0
+9:41/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, -8, -6.96298, -8, -7.02029, -1.63329, -6.84837, -1.06021, -8, -1.16908)
 14:41/0 = 0
 15:41/0 = 0
 16:41/0 = 0
@@ -595,7 +603,10 @@ texture = ExtResource("1_lywih")
 21:44/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_h2eqm"]
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_wmxni")
 
 [node name="AbandonedHouse-01" type="TileMapLayer"]
+z_index = 1
 tile_set = SubResource("TileSet_h2eqm")

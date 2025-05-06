@@ -1,4 +1,3 @@
-#chasing_snake.gd
 extends CharacterBody2D
 
 # Chase properties
@@ -68,6 +67,21 @@ func activate():
 			animated_sprite.play("chasing")
 		elif animated_sprite.sprite_frames.has_animation("walking"):
 			animated_sprite.play("walking")
+		elif animated_sprite.sprite_frames.has_animation("default"):
+			animated_sprite.play("default")
+
+# NEW FUNCTION: Add deactivate method to stop the snake
+func deactivate():
+	debug_log("Deactivated - stopping chase")
+	is_active = false
+	
+	# Stop movement
+	velocity = Vector2.ZERO
+	
+	# Set idle animation if available
+	if animated_sprite:
+		if animated_sprite.sprite_frames.has_animation("idle"):
+			animated_sprite.play("idle")
 		elif animated_sprite.sprite_frames.has_animation("default"):
 			animated_sprite.play("default")
 
@@ -237,4 +251,3 @@ func handle_player_caught():
 func debug_log(message):
 	if debug_mode:
 		print("[CHASING_SNAKE] " + message)
-		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8wg45x3mmrm6"]
+[gd_scene load_steps=9 format=3 uid="uid://c8wg45x3mmrm6"]
 
 [ext_resource type="Script" uid="uid://c5fcbndgdu1k8" path="res://scripts/Interaction/Chapter 1/rocket_teminal.gd" id="1_3qi05"]
 [ext_resource type="SpriteFrames" uid="uid://dwc68pdvge3uk" path="res://animations/Objects/rocket_terminal.tres" id="2_rr2b0"]
@@ -44,7 +44,11 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_yaicr"]
 radius = 22.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qi05"]
+size = Vector2(24, 9)
+
 [node name="RocketTerminal" type="Area2D"]
+z_index = 1
 script = ExtResource("1_3qi05")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -80,6 +84,14 @@ vertical_alignment = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 13)
 shape = SubResource("CircleShape2D_yaicr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 12.5)
+shape = SubResource("RectangleShape2D_3qi05")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

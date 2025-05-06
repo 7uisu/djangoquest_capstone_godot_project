@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dia6rprvwc56v"]
+[gd_scene load_steps=28 format=3 uid="uid://dia6rprvwc56v"]
 
 [ext_resource type="Script" uid="uid://bucybin3t210u" path="res://scripts/Interaction/Chapter 1/boss_snake.gd" id="1_k0yh3"]
 [ext_resource type="Texture2D" uid="uid://djuvjwtbdmts2" path="res://textures/Player/Sprites/The Adventurer - Free/Female/Shadow.png" id="1_km7pq"]
@@ -137,8 +137,73 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4vbfh"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vcp75"]
-radius = 31.0161
+[sub_resource type="Animation" id="Animation_2pgys"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
+}
+
+[sub_resource type="Animation" id="Animation_k0yh3"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
+}
+
+[sub_resource type="Animation" id="Animation_nj70t"]
+resource_name = "rest"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"rest"]
+}
+
+[sub_resource type="Animation" id="Animation_jq15e"]
+resource_name = "windup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"windup"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4yg36"]
+_data = {
+&"RESET": SubResource("Animation_2pgys"),
+&"attack": SubResource("Animation_k0yh3"),
+&"rest": SubResource("Animation_nj70t"),
+&"windup": SubResource("Animation_jq15e")
+}
 
 [node name="BossSnake" type="CharacterBody2D"]
 script = ExtResource("1_k0yh3")
@@ -151,20 +216,24 @@ texture = ExtResource("1_km7pq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_t4nn4")
-animation = &"windup"
-frame_progress = 0.129409
+animation = &"attack"
 offset = Vector2(0, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4vbfh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4yg36")
+}
 
-[node name="Timer" type="Timer" parent="."]
+[node name="StateTimer" type="Timer" parent="."]
+
+[node name="SmallProjectileTimer" type="Timer" parent="."]
+
+[node name="MediumProjectileTimer" type="Timer" parent="."]
+
+[node name="LargeProjectileTimer" type="Timer" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="."]
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_vcp75")
+position = Vector2(0, 31)

@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://m322tji1ry8j"]
+
+[ext_resource type="PackedScene" uid="uid://c6o2mhpvr04dd" path="res://scenes/Levels/Chapter 1/interaction_dialogue_2.tscn" id="1_df0sh"]
+[ext_resource type="PackedScene" uid="uid://dvrg8yrq1jxwk" path="res://scenes/Levels/Chapter 1/interaction_dialogue_3.tscn" id="2_cvnx2"]
+[ext_resource type="PackedScene" uid="uid://om5kw250wiw3" path="res://scenes/UI/respawn_ui.tscn" id="3_e1p26"]
+[ext_resource type="PackedScene" uid="uid://d0njhbxb8iwya" path="res://scenes/UI/rocket_terminal_ui.tscn" id="4_x625w"]
+[ext_resource type="Script" uid="uid://d3q2mjm6o8y0q" path="res://scripts/UI/hearts_container.gd" id="5_e1p26"]
+[ext_resource type="PackedScene" uid="uid://da451v8a3m8rr" path="res://scenes/UI/heart.tscn" id="6_x625w"]
+
+[node name="UILayer" type="CanvasLayer"]
+
+[node name="InteractionDialogue2" parent="." instance=ExtResource("1_df0sh")]
+visible = false
+
+[node name="InteractionDialogue3" parent="." instance=ExtResource("2_cvnx2")]
+visible = false
+
+[node name="RespawnUI" parent="." instance=ExtResource("3_e1p26")]
+visible = false
+
+[node name="RocketTerminalUI" parent="." instance=ExtResource("4_x625w")]
+visible = false
+
+[node name="HeartsContainer" type="HBoxContainer" parent="."]
+offset_right = 92.0
+offset_bottom = 40.0
+size_flags_stretch_ratio = 5.06
+script = ExtResource("5_e1p26")
+
+[node name="Heart1" parent="HeartsContainer" instance=ExtResource("6_x625w")]
+layout_mode = 2
+
+[node name="Heart2" parent="HeartsContainer" instance=ExtResource("6_x625w")]
+layout_mode = 2
+
+[node name="Heart3" parent="HeartsContainer" instance=ExtResource("6_x625w")]
+layout_mode = 2
