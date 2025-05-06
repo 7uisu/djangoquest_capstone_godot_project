@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://dg1dhl67ermgr"]
+[gd_scene load_steps=50 format=4 uid="uid://dg1dhl67ermgr"]
 
 [ext_resource type="Script" uid="uid://cuv8tiummqqig" path="res://scripts/Levels/Chapter 1/chapter_1_world_part_3_2nd_minigame.gd" id="1_ady64"]
 [ext_resource type="PackedScene" uid="uid://dg5junqbetqe" path="res://scenes/Tile Maps/ground_with_collision_01.tscn" id="2_fkvxp"]
@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://b2itenxtuji3h" path="res://scenes/Levels/Chapter 1/projectile_large.tscn" id="36_q55da"]
 [ext_resource type="Script" uid="uid://d3q2mjm6o8y0q" path="res://scripts/UI/hearts_container.gd" id="39_5qaal"]
 [ext_resource type="PackedScene" uid="uid://dgp661k8dmyfq" path="res://scenes/UI/respawn_ui_world_1_minigame_2.tscn" id="40_5qaal"]
+[ext_resource type="PackedScene" uid="uid://lg315p6ukycl" path="res://scenes/Levels/Chapter 1/guide_instructions.tscn" id="41_lx7de"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_brtk3"]
 texture = ExtResource("6_6kh5r")
@@ -558,4 +559,4 @@ layout_mode = 2
 
 [node name="RespawnUIWorld1Minigame2" parent="MinigameManager/UILayer" instance=ExtResource("40_5qaal")]
 
-[node name="Heart" parent="." instance=ExtResource("36_6kh5r")]
+[node name="GuideInstructions" parent="MinigameManager/UILayer" instance=ExtResource("41_lx7de")]

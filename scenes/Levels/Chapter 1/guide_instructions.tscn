@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://lg315p6ukycl"]
+
+[ext_resource type="FontFile" uid="uid://d2st8v7vx3p07" path="res://textures/Fonts/CyberpunkCraftpixPixel.otf" id="1_vtwg6"]
+
+[node name="GuideInstructions" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GuideInstructionsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 322.0
+offset_right = 480.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("1_vtwg6")
+theme_override_font_sizes/font_size = 10
+text = "1. Dodge projectiles
+2. Code on Terminal when 
+Python stops attacking."
+horizontal_alignment = 1

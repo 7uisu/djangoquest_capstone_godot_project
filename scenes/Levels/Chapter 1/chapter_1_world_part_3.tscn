@@ -23,10 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://bkaapmuiyie15" path="res://scenes/Tile Maps/packages_01.tscn" id="24_ntgd4"]
 [ext_resource type="PackedScene" uid="uid://dm3geg4lgviu6" path="res://scenes/Tile Maps/abandoned_house_01.tscn" id="25_gx6pk"]
 [ext_resource type="PackedScene" uid="uid://bcvci7it1daix" path="res://scenes/Rocket/django_rocket.tscn" id="26_jhx27"]
+[ext_resource type="PackedScene" uid="uid://cx5sdr48xtpi0" path="res://scenes/NPCs/idle_snake.tscn" id="26_yxjo4"]
 [ext_resource type="PackedScene" uid="uid://dtc5qhqqhefy5" path="res://scenes/Tile Maps/street_decoration_01.tscn" id="27_ricco"]
 [ext_resource type="Texture2D" uid="uid://dr4d24mqlevwc" path="res://textures/Nature & village pack/The City - NEW/electric cables.png" id="28_drb5y"]
 [ext_resource type="PackedScene" uid="uid://c8wg45x3mmrm6" path="res://scenes/World 1 Interactions/rocket_terminal.tscn" id="29_i408u"]
-[ext_resource type="PackedScene" uid="uid://dia6rprvwc56v" path="res://scenes/NPCs/boss_snake.tscn" id="31_cbw45"]
 [ext_resource type="PackedScene" uid="uid://cp2ii5erusfuk" path="res://scenes/Player/player.tscn" id="33_kigxu"]
 [ext_resource type="PackedScene" uid="uid://b6kyfbyty5nx1" path="res://scenes/Companion/pip_cat.tscn" id="34_a6d1f"]
 [ext_resource type="PackedScene" uid="uid://c6o2mhpvr04dd" path="res://scenes/Levels/Chapter 1/interaction_dialogue_2.tscn" id="35_wyqaq"]
@@ -494,8 +494,8 @@ tile_set = SubResource("TileSet_dt8ao")
 [node name="RocketTerminal" parent="." instance=ExtResource("29_i408u")]
 position = Vector2(4568, 226)
 
-[node name="BossSnake" parent="." instance=ExtResource("31_cbw45")]
-position = Vector2(4378, -140)
+[node name="IdleSnake" parent="." instance=ExtResource("26_yxjo4")]
+position = Vector2(4378, -124)
 
 [node name="PipCat" parent="." instance=ExtResource("34_a6d1f")]
 position = Vector2(3469, 130)

@@ -1,7 +1,9 @@
+#world_1_2nd_minigame_manager.gd
 extends Node2D
 
 @onready var hearts_container = $UILayer/HeartsContainer
 @onready var respawn_ui = $UILayer/RespawnUIWorld1Minigame2
+@onready var guide_instructions_label = $UILayer/GuideInstructionsLabel
 
 # Configure max health
 var max_health = 3
@@ -9,6 +11,7 @@ var current_health = 3
 var game_active = true
 var player_invulnerable = false
 @export var invulnerability_time: float = 2.0  # Seconds of invulnerability after hit
+@export var next_scene: String = "res://scenes/levels/next_level.tscn"  # Path to the next scene
 
 func _ready():
 	# Initialize hearts display with correct values
@@ -24,8 +27,23 @@ func _ready():
 	if respawn_ui:
 		respawn_ui.visible = false
 		print("[MINIGAME_MANAGER] RespawnUI hidden")
+		
+		# Connect visibility changed signal to ensure guide instructions stay hidden
+		respawn_ui.visibility_changed.connect(_on_respawn_ui_visibility_changed)
 	else:
 		print("[MINIGAME_MANAGER] ERROR: Could not find respawn UI!")
+	
+	# Make sure guide instructions label is visible at start
+	if guide_instructions_label:
+		guide_instructions_label.visible = true
+		print("[MINIGAME_MANAGER] GuideInstructionsLabel shown")
+	else:
+		print("[MINIGAME_MANAGER] ERROR: Could not find guide instructions label!")
+		# Try to find it by name if not at expected path
+		guide_instructions_label = get_tree().get_root().find_child("GuideInstructionsLabel", true, false)
+		if guide_instructions_label:
+			guide_instructions_label.visible = true
+			print("[MINIGAME_MANAGER] Found GuideInstructionsLabel on second attempt")
 	
 	# Ensure player can move at start
 	var player = get_tree().get_first_node_in_group("player")
@@ -127,6 +145,11 @@ func _on_player_defeated():
 	if respawn_ui:
 		print("[MINIGAME_MANAGER] Showing respawn UI")
 		respawn_ui.visible = true
+		
+		# Ensure guide instructions are hidden when respawn UI is shown
+		if guide_instructions_label:
+			guide_instructions_label.visible = false
+			print("[MINIGAME_MANAGER] GuideInstructionsLabel hidden because respawn UI is visible")
 	else:
 		print("[MINIGAME_MANAGER] ERROR: Could not find respawn UI for game over!")
 		# Emergency fallback - try to find it by name
@@ -134,6 +157,9 @@ func _on_player_defeated():
 		if respawn_ui:
 			respawn_ui.visible = true
 			print("[MINIGAME_MANAGER] Found RespawnUI on second attempt")
+			# Also hide guide instructions
+			if guide_instructions_label:
+				guide_instructions_label.visible = false
 
 # Function to reset the game state
 func reset_game():
@@ -165,3 +191,40 @@ func reset_game():
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		player.visible = true
+		
+	# Hide respawn UI and show guide instructions
+	if respawn_ui:
+		respawn_ui.visible = false
+	
+	if guide_instructions_label:
+		guide_instructions_label.visible = true
+		print("[MINIGAME_MANAGER] GuideInstructionsLabel shown after game reset")
+
+# Handle visibility changes of the respawn UI
+func _on_respawn_ui_visibility_changed():
+	if respawn_ui and guide_instructions_label:
+		# If respawn UI is visible, hide guide instructions
+		if respawn_ui.visible:
+			guide_instructions_label.visible = false
+			print("[MINIGAME_MANAGER] GuideInstructionsLabel hidden due to respawn UI visibility change")
+		else:
+			# Only show guide instructions if terminal UI is not visible
+			var terminal_ui = get_tree().get_root().find_child("RocketTerminalUI", true, false)
+			if terminal_ui and terminal_ui.visible:
+				# Don't show guide instructions if terminal is open
+				print("[MINIGAME_MANAGER] Keeping GuideInstructionsLabel hidden because terminal UI is visible")
+			else:
+				guide_instructions_label.visible = true
+				print("[MINIGAME_MANAGER] GuideInstructionsLabel shown due to respawn UI visibility change")
+
+# Function to handle minigame completion
+func on_minigame_completed():
+	print("[MINIGAME_MANAGER] Minigame completed! Transitioning to next scene...")
+	
+	# You can add transition effects or delay here if needed
+	
+	# Change to the next scene
+	get_tree().change_scene_to_file(next_scene)
+	
+	# Make sure game is unpaused when changing scenes
+	get_tree().paused = false
