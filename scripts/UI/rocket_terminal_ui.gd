@@ -291,7 +291,14 @@ func check_command(command: String):
 				show_error("Incorrect command. \nTry 'django-admin startproject (Project Name)'")
 				
 		4: # Navigate to Project Directory
-			if command == "cd " + project_name:
+			# Much more flexible check - accept any cd command to complete the tutorial
+			if command.begins_with("cd "):
+				# Update project name if different
+				var cd_arg = command.trim_prefix("cd ").strip_edges()
+				if cd_arg != "":
+					project_name = cd_arg
+					print("[TERMINAL_UI] Updated project name to: ", project_name)
+				
 				complete_tutorial()
 			else:
 				show_error("Incorrect command. Try 'cd " + project_name + "'")
@@ -317,40 +324,16 @@ func advance_step():
 # Complete the tutorial
 func complete_tutorial():
 	current_step = steps.size()  # Ensure we're at the end
-	instruction_label.text = "Django setup complete!\nYou've successfully set up a Django project.\nThe game will continue in a moment..."
+	instruction_label.text = "Django setup complete!\nYou've successfully set up a Django project.\nChanging scene now..."
 	print("[ROCKET_TERMINAL] MINIGAME COMPLETED!")
 	
-	# Pause the game
-	get_tree().paused = true
-	print("[TERMINAL_UI] Game paused after completion")
+	# CRITICAL: Don't pause the game - this might be preventing the timer from firing
+	# get_tree().paused = true  <-- REMOVE THIS LINE
+	print("[TERMINAL_UI] Executing direct scene change")
 	
-	# Create a timer to wait before changing scene
-	var transition_timer = Timer.new()
-	transition_timer.one_shot = true
-	transition_timer.wait_time = 3.0  # Wait 3 seconds before transition
-	add_child(transition_timer)
-	transition_timer.timeout.connect(func():
-		# Signal minigame completion and change scene
-		print("[TERMINAL_UI] Transitioning to next scene")
-		# Find the game manager and signal completion
-		var game_manager = get_tree().get_root().find_child("MinigameManager", true, false)
-		if game_manager and game_manager.has_method("on_minigame_completed"):
-			game_manager.on_minigame_completed()
-		
-		# Change to next scene
-		# You'll need to set up the change_scene call based on your SceneManager
-		var scene_manager = get_tree().get_root().find_child("SceneManager", true, false)
-		if scene_manager and scene_manager.has_method("change_scene"):
-			# Example: scene_manager.change_scene("res://scenes/next_level.tscn")
-			scene_manager.change_scene("next_level")  # Adjust the scene name as needed
-		else:
-			# Fallback: change scene directly
-			get_tree().change_scene_to_file("res://scenes/levels/next_level.tscn")  # Adjust path as needed
-		
-		# Unpause when changing scene
-		get_tree().paused = false
-	)
-	transition_timer.start()
+	# DIRECTLY change the scene without using timers
+	print("[TERMINAL_UI] Changing to next scene directly")
+	get_tree().change_scene_to_file("res://scenes/Levels/Chapter 1/chapter_1_world_part_4.tscn")
 
 # Called when UI becomes visible or invisible
 func _on_visibility_changed():
@@ -410,3 +393,22 @@ func execute_command(command: String):
 			instruction_label.text = "Terminal display cleared."
 	else:
 		check_command(command)
+
+func find_node_in_scene(node_name):
+	# First try direct search in the scene tree root
+	var node = get_tree().get_root().find_child(node_name, true, false)
+	if node:
+		print("[TERMINAL_UI] Found node: ", node_name)
+		return node
+	
+	# Try alternative search methods if needed
+	var scene = get_tree().get_root()
+	if scene:
+		var nodes = scene.find_children("*", "", true, false)
+		for n in nodes:
+			if node_name in n.name:
+				print("[TERMINAL_UI] Found node with partial name match: ", n.name)
+				return n
+	
+	print("[TERMINAL_UI] ERROR: Could not find node: ", node_name)
+	return null

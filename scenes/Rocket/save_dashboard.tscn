@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgl0ewvh1sco2"]
+
+[ext_resource type="Script" uid="uid://xqslx8n5t1l4" path="res://scripts/Rocket/save_dashboard.gd" id="1_3qqpn"]
+[ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="2_3qqpn"]
+[ext_resource type="Texture2D" uid="uid://dm3go18x2cjwe" path="res://textures/pixel_cyberpunk_interior_free_1.0.1/Dashboard1.png" id="2_pthhr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pthhr"]
+radius = 13.3333
+
+[node name="SaveDashboard" type="Area2D"]
+script = ExtResource("1_3qqpn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_pthhr")
+one_way_collision_margin = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_pthhr")
+
+[node name="Label" type="Label" parent="."]
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -29.0
+offset_right = 15.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(47.5, 10.5)
+theme_override_fonts/font = ExtResource("2_3qqpn")
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

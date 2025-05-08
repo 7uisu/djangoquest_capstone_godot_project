@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr3ptbqh5ynyd"]
+
+[ext_resource type="Script" uid="uid://by43c20pyuqxt" path="res://scripts/Levels/Chapter 1/interaction_dialogue_5.gd" id="1_esqvn"]
+[ext_resource type="FontFile" uid="uid://dywjttgy6mph5" path="res://textures/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="2_5djbu"]
+
+[node name="InteractionDialogue5" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_esqvn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 479.0
+offset_bottom = 269.0
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = 209.0
+offset_right = 480.0
+offset_bottom = 270.0
+color = Color(0, 0, 0, 0.588235)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 1
+offset_left = 32.0
+offset_top = 233.0
+offset_right = 406.0
+offset_bottom = 262.0
+theme_override_font_sizes/normal_font_size = 9
+text = "Text"
+
+[node name="SpeakerLabel" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 215.0
+offset_right = 111.0
+offset_bottom = 230.0
+theme_override_fonts/font = ExtResource("2_5djbu")
+theme_override_font_sizes/font_size = 11
+text = "Text:"
+
+[node name="ContinueWarningLabel" type="Label" parent="."]
+offset_left = 347.0
+offset_top = 255.0
+offset_right = 572.0
+offset_bottom = 270.0
+theme_override_fonts/font = ExtResource("2_5djbu")
+theme_override_font_sizes/font_size = 9
+text = "press spacebar to continue.."

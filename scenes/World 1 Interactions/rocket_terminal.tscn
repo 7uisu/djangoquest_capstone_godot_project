@@ -63,6 +63,7 @@ libraries = {
 autoplay = "Rocket_Terminal"
 
 [node name="Label" type="Label" parent="."]
+visible = false
 z_index = 5
 anchors_preset = 8
 anchor_left = 0.5

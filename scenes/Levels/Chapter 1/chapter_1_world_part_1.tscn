@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://dcrg7fmcls03s"]
+[gd_scene load_steps=43 format=4 uid="uid://dcrg7fmcls03s"]
 
 [ext_resource type="PackedScene" uid="uid://dg5junqbetqe" path="res://scenes/Tile Maps/ground_with_collision_01.tscn" id="1_11x1u"]
 [ext_resource type="PackedScene" uid="uid://b2y0pl1rcds37" path="res://scenes/Tile Maps/ground_01.tscn" id="2_mk1tf"]
@@ -27,9 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bcvci7it1daix" path="res://scenes/Rocket/django_rocket.tscn" id="25_fplug"]
 [ext_resource type="PackedScene" uid="uid://dtc5qhqqhefy5" path="res://scenes/Tile Maps/street_decoration_01.tscn" id="26_saxwj"]
 [ext_resource type="Texture2D" uid="uid://dr4d24mqlevwc" path="res://textures/Nature & village pack/The City - NEW/electric cables.png" id="27_wd64v"]
-[ext_resource type="PackedScene" uid="uid://c8wg45x3mmrm6" path="res://scenes/World 1 Interactions/rocket_terminal.tscn" id="28_ygw63"]
 [ext_resource type="PackedScene" uid="uid://cx5sdr48xtpi0" path="res://scenes/NPCs/idle_snake.tscn" id="29_127gj"]
-[ext_resource type="PackedScene" uid="uid://dia6rprvwc56v" path="res://scenes/NPCs/boss_snake.tscn" id="30_kl000"]
 [ext_resource type="PackedScene" uid="uid://dqjjcnycrhefm" path="res://scenes/NPCs/chasing_snake.tscn" id="31_2bt2s"]
 [ext_resource type="PackedScene" uid="uid://cp2ii5erusfuk" path="res://scenes/Player/player.tscn" id="32_dofw4"]
 [ext_resource type="PackedScene" uid="uid://b6kyfbyty5nx1" path="res://scenes/Companion/pip_cat.tscn" id="33_rvbxd"]
@@ -546,15 +544,9 @@ tile_map_data = PackedByteArray("AADzAAAAAAAEAAAAAADzAAEAAAAEAAEAAADzAAIAAAAEAAI
 tile_map_data = PackedByteArray("AAAdAQ8AAAAAAAEAAAAdARAAAAAAAAEAAAAdAREAAAAAAAEAAAAdARIAAAAAAAEAAAAdARMAAAAAAAEAAAAdARQAAAAAAAEAAAAdARUAAAAAAAEAAAAdARYAAAAAAAIAAAAeARYAAAABAAIAAAAfARYAAAABAAIAAAAgARYAAAABAAIAAAAhARYAAAABAAIAAAAiARYAAAACAAIAAAAiARUAAAACAAEAAAAiARQAAAACAAEAAAA=")
 tile_set = SubResource("TileSet_dt8ao")
 
-[node name="RocketTerminal" parent="." instance=ExtResource("28_ygw63")]
-position = Vector2(4568, 226)
-
 [node name="IdleSnake" parent="." instance=ExtResource("29_127gj")]
 visible = false
 position = Vector2(623, -116)
-
-[node name="BossSnake" parent="." instance=ExtResource("30_kl000")]
-position = Vector2(4378, 32)
 
 [node name="ChasingSnake" parent="." instance=ExtResource("31_2bt2s")]
 z_index = 1

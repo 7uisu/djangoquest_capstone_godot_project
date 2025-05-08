@@ -119,8 +119,7 @@ text = "Creating a Django Project - 4th Code - \"django-admin startproject djang
 
 Navigating to Project Directory - 5th Code - \"cd djangoquest\"
 
-Running the Development Server - 
-6th Code - \"python manage.py runserver\"
+Running the Development Server - 6th Code - \"python manage.py runserver\"
 "
 
 [node name="Label2" type="Label" parent="DjangoBookPages"]

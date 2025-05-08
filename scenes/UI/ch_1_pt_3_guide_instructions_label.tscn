@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ntrhmblar6jl"]
+
+[ext_resource type="FontFile" uid="uid://d2st8v7vx3p07" path="res://textures/Fonts/CyberpunkCraftpixPixel.otf" id="1_k1pvj"]
+
+[node name="Ch1Pt3GuideInstructionsLabel" type="Label"]
+offset_left = 329.0
+offset_right = 514.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("1_k1pvj")
+theme_override_font_sizes/font_size = 10
+text = "1. Investigate the
+Space Station
+2. Reach Rocket"
+horizontal_alignment = 1

@@ -1,3 +1,4 @@
+#idle_snake.gd
 extends CharacterBody2D
 # Snake movement properties
 @export var move_speed = 50.0

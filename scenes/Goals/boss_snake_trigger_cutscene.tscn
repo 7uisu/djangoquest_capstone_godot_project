@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6uhjjc2ldiyn"]
+
+[ext_resource type="Script" uid="uid://dop8wp5j0oe6h" path="res://scripts/Goal/boss_snake_trigger_cutscene.gd" id="1_ay6t8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4w3ym"]
+
+[node name="BossSnakeTriggerCutscene" type="Area2D"]
+script = ExtResource("1_ay6t8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4w3ym")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

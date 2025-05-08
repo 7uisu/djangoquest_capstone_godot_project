@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://dxmq5x2eq5o6m"]
+[gd_scene load_steps=46 format=4 uid="uid://dxmq5x2eq5o6m"]
 
 [ext_resource type="Script" uid="uid://8ou7tupaj33b" path="res://scripts/Levels/Chapter 1/chapter_1_world_part_2.gd" id="1_7dp2e"]
 [ext_resource type="PackedScene" uid="uid://dg5junqbetqe" path="res://scenes/Tile Maps/ground_with_collision_01.tscn" id="1_rdmfb"]
@@ -30,7 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://dr4d24mqlevwc" path="res://textures/Nature & village pack/The City - NEW/electric cables.png" id="27_huskp"]
 [ext_resource type="PackedScene" uid="uid://c8wg45x3mmrm6" path="res://scenes/World 1 Interactions/rocket_terminal.tscn" id="28_5y7iy"]
 [ext_resource type="PackedScene" uid="uid://cx5sdr48xtpi0" path="res://scenes/NPCs/idle_snake.tscn" id="29_7314n"]
-[ext_resource type="PackedScene" uid="uid://dia6rprvwc56v" path="res://scenes/NPCs/boss_snake.tscn" id="30_v5v4b"]
 [ext_resource type="PackedScene" uid="uid://dqjjcnycrhefm" path="res://scenes/NPCs/chasing_snake.tscn" id="31_1s6dk"]
 [ext_resource type="PackedScene" uid="uid://cp2ii5erusfuk" path="res://scenes/Player/player.tscn" id="32_jtr3w"]
 [ext_resource type="PackedScene" uid="uid://b6kyfbyty5nx1" path="res://scenes/Companion/pip_cat.tscn" id="33_rv8ks"]
@@ -555,9 +554,6 @@ position = Vector2(4568, 226)
 
 [node name="IdleSnake" parent="." instance=ExtResource("29_7314n")]
 position = Vector2(623, -326)
-
-[node name="BossSnake" parent="." instance=ExtResource("30_v5v4b")]
-position = Vector2(4378, 32)
 
 [node name="ChasingSnake" parent="." instance=ExtResource("31_1s6dk")]
 z_index = 1
