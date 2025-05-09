@@ -1,4 +1,3 @@
-#interaction_dialogue_5.gd
 extends Control
 
 # Signal to notify when dialogue is finished
@@ -13,34 +12,21 @@ signal dialogue_finished
 
 # Dialogue data
 var dialogue_data = {
-	"python_appearance": {
+	"start_of_space_journey": {
 		"dialogue": [
-			{"speaker": "Narrator", "text": "As you reach the center of the Space Station, a familiar shape slithers into view."},
-			{"speaker": "Python", "text": "Well, well, well... Look who decided to show up."},
-			{"speaker": "You", "text": "*gasps* How did it find us so fast?"},
-			{"speaker": "Python", "text": "This is MY domain. I maintain the Space Station, remember?"},
-			{"speaker": "Pip", "text": "We’re only here to reach the Rocket. We don’t want any trouble."}
-		]
-	},
-	"aggression": {
-		"dialogue": [
-			{"speaker": "Python", "text": "The Rocket? You really think just anyone can waltz in and claim it?"},
-			{"speaker": "Pip", "text": "We’ve come a long way to get here. We’re not turning back now."},
-			{"speaker": "Python", "text": "Tch... always the same—bold words with no weight behind them."},
-			{"speaker": "Python", "text": "If you want to move forward, you'll have to prove you’re not just another lost wanderer."},
-			{"speaker": "Pip", "text": "*softly* Stay calm. We’ve handled worse. We can handle this too."}
-		]
-	},
-	"battle_setup": {
-		"background": "res://textures/Plain Color BG/Sky-Blue.png",
-		"dialogue": [
-		{"speaker": "Narrator", "text": "The Python coils upward, its form casting a long shadow across the station floor."},
-		{"speaker": "Python", "text": "Let’s see what you’re really made of."},
-		{"speaker": "Pip", "text": "Stay sharp. We don’t know what it’s planning."},
-		{"speaker": "You", "text": "*gulps* I hope we’re ready for this..."},
-		{"speaker": "Narrator", "text": "A silence falls... then, like a spark."},
-		{"speaker": "Narrator", "text": "the confrontation begins. The second challenge awaits."}
-		
+			{"speaker": "Narrator", "text": "The Django Rocket zooms through the starry expanse, leaving Earth far behind."},
+			{"speaker": "Pip", "text": "We need to collect all the missing Chapter 1 pages of the DjangoBook. They've been scattered across different web planets!"},
+			{"speaker": "Narrator", "text": "Django, created in 2003, is a high-level Python web framework that follows the Model-View-Template architectural pattern."},
+			{"speaker": "Pip", "text": "First stop, the HTML Planet! That's where we'll find the Template pages of the DjangoBook."},
+			{"speaker": "Narrator", "text": "Django's template system allows developers to define the structure of output documents with placeholders for dynamic data."},
+			{"speaker": "Pip", "text": "Then we'll head to Data Planet, where the Model pages are hidden. Those pages explain how Django interacts with databases!"},
+			{"speaker": "Narrator", "text": "Django's Object-Relational Mapping (ORM) allows developers to define database models in Python code, making database operations simpler."},
+			{"speaker": "Pip", "text": "And finally, we need to visit the URL Planet to recover the View pages. They control what happens when users visit different web addresses."},
+			{"speaker": "Narrator", "text": "Django's URL dispatcher maps URL patterns to view functions, which determine what content is returned to the user."},
+			{"speaker": "Pip", "text": "Once we have all the pages, we can rebuild Chapter 1 of your DjangoBook and you'll understand how Django's MVT architecture works together!"},
+			{"speaker": "Narrator", "text": "Django's name was inspired by the famous jazz guitarist Django Reinhardt, reflecting the framework's goal of creating harmony between different web components."},
+			{"speaker": "Pip", "text": "Look! The HTML Planet is coming into view. Are you ready to start our adventure and collect the first set of pages?"},
+			{"speaker": "Pip", "text": "Ready when you are! Just press the spacebar and we'll begin our landing approach."}
 		]
 	}
 }
@@ -52,8 +38,6 @@ var typing_speed = 0.03
 var is_typing = false
 var displaying_text = false
 var full_text = ""
-var current_sequence = 0
-var dialogue_sequences = ["python_appearance", "aggression", "battle_setup"]
 
 func _ready():
 	# Initialize UI elements
@@ -63,9 +47,6 @@ func _ready():
 	speaker_label.text = ""
 	continue_warning_label.visible = false
 	grab_focus()
-	
-	# Start with the first dialogue sequence
-	start_dialogue(dialogue_sequences[current_sequence])
 
 func _process(delta):
 	# This function is now only used for typing animation
@@ -87,27 +68,19 @@ func _input(event):
 			
 			# Check if we're at the end of the dialogue
 			if dialogue_index >= current_dialogue.size():
-				# We've reached the end of the current dialogue sequence
-				current_sequence += 1
+				# We've reached the end of the dialogue, finish it
+				print("[DIALOGUE 7] Dialogue complete, emitting signal")
+				emit_signal("dialogue_finished")
 				
-				if current_sequence < dialogue_sequences.size():
-					# Move to the next dialogue sequence
-					dialogue_index = 0
-					start_dialogue(dialogue_sequences[current_sequence])
-				else:
-					# We've reached the end of all dialogue sequences
-					print("[DIALOGUE 5] All dialogue sequences complete, emitting signal")
-					emit_signal("dialogue_finished")
-					
-					# Hide this dialogue
-					visible = false
+				# Immediately free this node to prevent any further processing
+				call_deferred("queue_free")
 			else:
 				# Show next line
 				display_dialogue_entry()
 
 # Start a dialogue sequence
 func start_dialogue(dialogue_key):
-	# Reset for this dialogue sequence
+	# Reset everything
 	dialogue_index = 0
 	is_typing = false
 	displaying_text = false
@@ -122,15 +95,9 @@ func start_dialogue(dialogue_key):
 			var background_texture = load(dialogue_set["background"])
 			if background_texture:
 				texture_rect.texture = background_texture
-				texture_rect.visible = true
-				print("[DIALOGUE 5] Background loaded: ", dialogue_set["background"])
+				print("[DIALOGUE 7] Background loaded: ", dialogue_set["background"])
 			else:
-				print("[DIALOGUE 5] Failed to load background: ", dialogue_set["background"])
-		else:
-			# For in-game cutscene without image
-			if texture_rect:
-				texture_rect.visible = false
-				print("[DIALOGUE 5] Not using background for this sequence")
+				print("[DIALOGUE 7] Failed to load background: ", dialogue_set["background"])
 		
 		# Set up the dialogue entries
 		current_dialogue = dialogue_set["dialogue"]
@@ -186,5 +153,6 @@ func type_text(text_to_type):
 
 # End the dialogue
 func end_dialogue():
-	print("[DIALOGUE 5] Current dialogue sequence finished")
-	# Don't emit signal here, it's handled in _input when all sequences are done
+	print("[DIALOGUE 7] Dialogue finished, emitting signal")
+	emit_signal("dialogue_finished")
+	queue_free()  # Remove dialogue from the scene

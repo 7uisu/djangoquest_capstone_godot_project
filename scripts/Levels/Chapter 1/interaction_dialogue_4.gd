@@ -18,7 +18,7 @@ var dialogue_data = {
 			{"speaker": "Narrator", "text": "You managed to outrun the Python, collecting the scattered pages along the way."},
 			{"speaker": "Pip", "text": "Phew! That was close! Good job collecting all those pages!"},
 			{"speaker": "You", "text": "*catching breath* Is... is it gone?"},
-			{"speaker": "Pip", "text": "For now. Those error pythons can be really persistent when they're after bad code."}
+			{"speaker": "Pip", "text": "For now. Python can really persistent when they're angry"}
 		]
 	},
 	"space_station": {
@@ -26,17 +26,15 @@ var dialogue_data = {
 		"dialogue": [
 			{"speaker": "Narrator", "text": "As you catch your breath, you notice a massive structure in the distance."},
 			{"speaker": "You", "text": "What is that?"},
-			{"speaker": "Pip", "text": "That's the Django Space Station! Our next destination."},
-			{"speaker": "Pip", "text": "It's one of the most powerful web frameworks in the CodeVerse."}
+			{"speaker": "Pip", "text": "That's the Space Station! Our next destination."}
 		]
 	},
 	"django_explanation": {
 		"dialogue": [
 			{"speaker": "Pip", "text": "The DjangoBook is connected to that Space Station. It's where we need to go next."},
-			{"speaker": "Pip", "text": "Django will help us build the foundation for our web application."},
-			{"speaker": "You", "text": "But how do we get in there? It looks heavily secured."},
-			{"speaker": "Pip", "text": "We'll need to prove our Python knowledge first. The station only admits those who understand the basics."},
-			{"speaker": "Pip", "text": "Let's head that way and see if we can find an entrance."},
+			{"speaker": "You", "text": "It looks quite abandoned..."},
+			{"speaker": "Pip", "text": "We still got more time before going straight to the rocket."},
+			{"speaker": "Pip", "text": "We might find something good!"},
 			{"speaker": "Narrator", "text": "With the Python temporarily out of sight, you and Pip start making your way toward the Django Space Station..."}
 		]
 	}

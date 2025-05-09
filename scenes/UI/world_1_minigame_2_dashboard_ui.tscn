@@ -1917,6 +1917,7 @@ offset_bottom = 270.0
 script = ExtResource("1_sq60v")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 480.0
 offset_bottom = 270.0
 color = Color(0, 0, 0, 0.443137)
@@ -1930,6 +1931,7 @@ tile_map_data = PackedByteArray("AAADAAUAAAAIACMAAAAEAAUAAAAJACMAAAALAAUAAAAJACM
 tile_set = SubResource("TileSet_54i8o")
 
 [node name="InstructionLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 53.0
 offset_top = 51.0
 offset_right = 221.0
@@ -1944,6 +1946,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
 offset_left = 56.0
 offset_top = 169.0
 offset_right = 423.0
@@ -1952,6 +1955,7 @@ theme_override_fonts/font = ExtResource("4_aogtu")
 placeholder_text = "Input Code here"
 
 [node name="RocketStatusHeaderLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 282.0
 offset_top = 83.0
 offset_right = 393.0
@@ -1964,6 +1968,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RocketStatusLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 246.0
 offset_top = 98.0
 offset_right = 425.0
@@ -1976,6 +1981,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="EnterButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 385.0
 offset_top = 235.0
 offset_right = 457.0

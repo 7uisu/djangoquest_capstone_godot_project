@@ -1,4 +1,3 @@
-#interaction_dialogue_5.gd
 extends Control
 
 # Signal to notify when dialogue is finished
@@ -13,34 +12,14 @@ signal dialogue_finished
 
 # Dialogue data
 var dialogue_data = {
-	"python_appearance": {
-		"dialogue": [
-			{"speaker": "Narrator", "text": "As you reach the center of the Space Station, a familiar shape slithers into view."},
-			{"speaker": "Python", "text": "Well, well, well... Look who decided to show up."},
-			{"speaker": "You", "text": "*gasps* How did it find us so fast?"},
-			{"speaker": "Python", "text": "This is MY domain. I maintain the Space Station, remember?"},
-			{"speaker": "Pip", "text": "We’re only here to reach the Rocket. We don’t want any trouble."}
-		]
-	},
-	"aggression": {
-		"dialogue": [
-			{"speaker": "Python", "text": "The Rocket? You really think just anyone can waltz in and claim it?"},
-			{"speaker": "Pip", "text": "We’ve come a long way to get here. We’re not turning back now."},
-			{"speaker": "Python", "text": "Tch... always the same—bold words with no weight behind them."},
-			{"speaker": "Python", "text": "If you want to move forward, you'll have to prove you’re not just another lost wanderer."},
-			{"speaker": "Pip", "text": "*softly* Stay calm. We’ve handled worse. We can handle this too."}
-		]
-	},
-	"battle_setup": {
+	"rocket_launch": {
 		"background": "res://textures/Plain Color BG/Sky-Blue.png",
 		"dialogue": [
-		{"speaker": "Narrator", "text": "The Python coils upward, its form casting a long shadow across the station floor."},
-		{"speaker": "Python", "text": "Let’s see what you’re really made of."},
-		{"speaker": "Pip", "text": "Stay sharp. We don’t know what it’s planning."},
-		{"speaker": "You", "text": "*gulps* I hope we’re ready for this..."},
-		{"speaker": "Narrator", "text": "A silence falls... then, like a spark."},
-		{"speaker": "Narrator", "text": "the confrontation begins. The second challenge awaits."}
-		
+			{"speaker": "Pip", "text": "We’re taking off! Hold on!"},
+			{"speaker": "Narrator", "text": "The rocket blasts upward, flames bursting as the station fades below."},
+			{"speaker": "Narrator", "text": "Through the window, you spot Python—still, silent, watching."},
+			{"speaker": "Pip", "text": "*sighs* That was too close."},
+			{"speaker": "Narrator", "text": "Above the clouds, a new land awaits. The journey isn’t over yet."}
 		]
 	}
 }
@@ -52,8 +31,6 @@ var typing_speed = 0.03
 var is_typing = false
 var displaying_text = false
 var full_text = ""
-var current_sequence = 0
-var dialogue_sequences = ["python_appearance", "aggression", "battle_setup"]
 
 func _ready():
 	# Initialize UI elements
@@ -63,14 +40,11 @@ func _ready():
 	speaker_label.text = ""
 	continue_warning_label.visible = false
 	grab_focus()
-	
-	# Start with the first dialogue sequence
-	start_dialogue(dialogue_sequences[current_sequence])
 
 func _process(delta):
 	# This function is now only used for typing animation
 	if is_typing:
-		# Skip this function as we'll handle typing with timers
+		# Skip this function as we'll handle typing with timers like in the first script
 		pass
 
 func _input(event):
@@ -87,27 +61,19 @@ func _input(event):
 			
 			# Check if we're at the end of the dialogue
 			if dialogue_index >= current_dialogue.size():
-				# We've reached the end of the current dialogue sequence
-				current_sequence += 1
+				# We've reached the end of the dialogue, finish it
+				print("[DIALOGUE 6] Dialogue complete, emitting signal")
+				emit_signal("dialogue_finished")
 				
-				if current_sequence < dialogue_sequences.size():
-					# Move to the next dialogue sequence
-					dialogue_index = 0
-					start_dialogue(dialogue_sequences[current_sequence])
-				else:
-					# We've reached the end of all dialogue sequences
-					print("[DIALOGUE 5] All dialogue sequences complete, emitting signal")
-					emit_signal("dialogue_finished")
-					
-					# Hide this dialogue
-					visible = false
+				# Immediately free this node to prevent any further processing
+				call_deferred("queue_free")
 			else:
 				# Show next line
 				display_dialogue_entry()
 
 # Start a dialogue sequence
 func start_dialogue(dialogue_key):
-	# Reset for this dialogue sequence
+	# Reset everything
 	dialogue_index = 0
 	is_typing = false
 	displaying_text = false
@@ -122,15 +88,9 @@ func start_dialogue(dialogue_key):
 			var background_texture = load(dialogue_set["background"])
 			if background_texture:
 				texture_rect.texture = background_texture
-				texture_rect.visible = true
-				print("[DIALOGUE 5] Background loaded: ", dialogue_set["background"])
+				print("[DIALOGUE 6] Background loaded: ", dialogue_set["background"])
 			else:
-				print("[DIALOGUE 5] Failed to load background: ", dialogue_set["background"])
-		else:
-			# For in-game cutscene without image
-			if texture_rect:
-				texture_rect.visible = false
-				print("[DIALOGUE 5] Not using background for this sequence")
+				print("[DIALOGUE 6] Failed to load background: ", dialogue_set["background"])
 		
 		# Set up the dialogue entries
 		current_dialogue = dialogue_set["dialogue"]
@@ -160,13 +120,13 @@ func display_dialogue_entry():
 		# End of dialogue
 		end_dialogue()
 
-# Type text character by character with a timer
+# Type text character by character with a timer, similar to the first script
 func type_text(text_to_type):
 	is_typing = true
 	displaying_text = false
 	rich_text_label.text = ""
 	
-	# Use a simple loop with a timeout
+	# Use a simple loop with a timeout, as in the first script
 	for i in range(text_to_type.length()):
 		if not is_typing:
 			# If typing was interrupted, show the full text
@@ -186,5 +146,6 @@ func type_text(text_to_type):
 
 # End the dialogue
 func end_dialogue():
-	print("[DIALOGUE 5] Current dialogue sequence finished")
-	# Don't emit signal here, it's handled in _input when all sequences are done
+	print("[DIALOGUE 6] Dialogue finished, emitting signal")
+	emit_signal("dialogue_finished")
+	queue_free()  # Remove dialogue from the scene

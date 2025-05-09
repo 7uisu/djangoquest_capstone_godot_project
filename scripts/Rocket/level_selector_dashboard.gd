@@ -1,3 +1,4 @@
+#level_selector_dashboard.gd
 extends Area2D
 
 @export var interaction_text: String = "(F) Select Level"

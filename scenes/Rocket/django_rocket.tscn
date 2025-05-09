@@ -321,7 +321,7 @@ position = Vector2(0, 136)
 rotation = 3.14159
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_bpk4i")
-frame_progress = 0.919829
+frame_progress = 0.146929
 
 [node name="RocketAnimator" type="AnimationPlayer" parent="."]
 libraries = {

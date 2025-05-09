@@ -1,3 +1,4 @@
+#main_menu.gd
 extends Node
 
 @onready var quit_dialog: ConfirmationDialog = $QuitConfirmationDialog
