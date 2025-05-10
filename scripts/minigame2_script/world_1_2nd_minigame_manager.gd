@@ -1,9 +1,9 @@
-#world_1_2nd_minigame_manager.gd
 extends Node2D
 
 @onready var hearts_container = $UILayer/HeartsContainer
 @onready var respawn_ui = $UILayer/RespawnUIWorld1Minigame2
 @onready var guide_instructions_label = $UILayer/GuideInstructionsLabel
+@onready var save_manager = get_node("/root/SaveManager")
 
 # Configure max health
 var max_health = 3
@@ -220,20 +220,21 @@ func _on_respawn_ui_visibility_changed():
 # Function to handle minigame completion
 func on_minigame_completed():
 	print("[MINIGAME_MANAGER] on_minigame_completed called!")
+
 	print("[MINIGAME_MANAGER] Transitioning to scene: ", next_scene)
-	
+
 	# Make sure to unpause
 	get_tree().paused = false
-	
+
 	# Direct scene change approach for reliability
 	print("[MINIGAME_MANAGER] Using change_scene_to_file with path: ", next_scene)
 	var result = get_tree().change_scene_to_file(next_scene)
-	
+
 	# Check for errors
 	if result != OK:
 		print("[MINIGAME_MANAGER] ERROR: Failed to change scene! Error code: ", result)
 		print("[MINIGAME_MANAGER] Attempting alternative scene change...")
 		# Try hardcoded path as fallback
-		get_tree().change_scene_to_file("res://scenes/Levels/Chapter 1/chapter_1_world_part_4.tscn")
+		get_tree().change_scene_to_file("res://scenes/Levels/Chapter 1/chapter_1_world_part_4.tscn") # Or whatever your next_scene is
 	else:
 		print("[MINIGAME_MANAGER] Scene change initiated successfully")

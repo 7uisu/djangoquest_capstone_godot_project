@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 CharacterData="*res://scripts/Autoload or Global/character_data.gd"
 TutorialManager="*res://scripts/Autoload or Global/tutorial_manager.gd"
 BossSnakeState="*res://scripts/Autoload or Global/boss_snake_state.gd"
+SaveManager="*res://scripts/Autoload or Global/save_manager.gd"
 
 [display]
 

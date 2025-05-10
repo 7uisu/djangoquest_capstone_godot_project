@@ -1735,3 +1735,11 @@ z_index = 1
 position = Vector2(352, 20)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("12_ik0tw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 5
+offset_left = -304.0
+offset_top = -177.0
+offset_right = 855.0
+offset_bottom = 671.0
+color = Color(0, 0, 0, 0.635294)

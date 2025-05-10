@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgl0ewvh1sco2"]
+[gd_scene load_steps=6 format=3 uid="uid://bgl0ewvh1sco2"]
 
 [ext_resource type="Script" uid="uid://xqslx8n5t1l4" path="res://scripts/Rocket/save_dashboard.gd" id="1_3qqpn"]
 [ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="2_3qqpn"]
+[ext_resource type="PackedScene" uid="uid://ds7rk784hwp0a" path="res://scenes/UI/save_game_ui.tscn" id="2_n68p0"]
 [ext_resource type="Texture2D" uid="uid://dm3go18x2cjwe" path="res://textures/pixel_cyberpunk_interior_free_1.0.1/Dashboard1.png" id="2_pthhr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pthhr"]
@@ -9,6 +10,7 @@ radius = 13.3333
 
 [node name="SaveDashboard" type="Area2D"]
 script = ExtResource("1_3qqpn")
+save_game_ui_scene = ExtResource("2_n68p0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3, 3)
