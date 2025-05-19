@@ -1,0 +1,238 @@
+[gd_scene load_steps=18 format=3 uid="uid://dqfo58pg2kr52"]
+
+[ext_resource type="Texture2D" uid="uid://djuvjwtbdmts2" path="res://textures/Player/Sprites/The Adventurer - Free/Female/Shadow.png" id="1_ci1hm"]
+[ext_resource type="SpriteFrames" uid="uid://p4df6jbu86og" path="res://animations/Companion/pip_animation.tres" id="2_o3ne5"]
+[ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="3_o3ne5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ci1hm"]
+radius = 14.0357
+
+[sub_resource type="Animation" id="Animation_so7qa"]
+resource_name = "Pip_idle_left_1"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pip_idle_left_1"]
+}
+
+[sub_resource type="Animation" id="Animation_1pku2"]
+resource_name = "Pip_idle_left_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pip_idle_left_2"]
+}
+
+[sub_resource type="Animation" id="Animation_7jqqp"]
+resource_name = "Pip_idle_left_3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pip_idle_left_3"]
+}
+
+[sub_resource type="Animation" id="Animation_hpoqp"]
+resource_name = "Pip_idle_right_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pip_idle_right_1"]
+}
+
+[sub_resource type="Animation" id="Animation_btbc2"]
+resource_name = "Pip_idle_right_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pip_idle_right_2"]
+}
+
+[sub_resource type="Animation" id="Animation_0vpwx"]
+resource_name = "Pip_idle_right_3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pip_idle_right_3"]
+}
+
+[sub_resource type="Animation" id="Animation_tbdbt"]
+resource_name = "Pip_running_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pip_running_left"]
+}
+
+[sub_resource type="Animation" id="Animation_sltbk"]
+resource_name = "Pip_running_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pip_running_right"]
+}
+
+[sub_resource type="Animation" id="Animation_elrmp"]
+resource_name = "Pip_walking_left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pip_walking_left"]
+}
+
+[sub_resource type="Animation" id="Animation_hxaqw"]
+resource_name = "Pip_walking_right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pip_walking_right"]
+}
+
+[sub_resource type="Animation" id="Animation_75rxf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pip_walking_right"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y00ic"]
+_data = {
+&"Pip_idle_left_1": SubResource("Animation_so7qa"),
+&"Pip_idle_left_2": SubResource("Animation_1pku2"),
+&"Pip_idle_left_3": SubResource("Animation_7jqqp"),
+&"Pip_idle_right_1": SubResource("Animation_hpoqp"),
+&"Pip_idle_right_2": SubResource("Animation_btbc2"),
+&"Pip_idle_right_3": SubResource("Animation_0vpwx"),
+&"Pip_running_left": SubResource("Animation_tbdbt"),
+&"Pip_running_right": SubResource("Animation_sltbk"),
+&"Pip_walking_left": SubResource("Animation_elrmp"),
+&"Pip_walking_right": SubResource("Animation_hxaqw"),
+&"RESET": SubResource("Animation_75rxf")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7dcnb"]
+
+[node name="PipCatInteractable" type="Area2D"]
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(1, -4)
+scale = Vector2(0.958333, 0.90625)
+texture = ExtResource("1_ci1hm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ci1hm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y00ic")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -10)
+sprite_frames = ExtResource("2_o3ne5")
+animation = &"pip_walking_right"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_7dcnb")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -21.0
+offset_right = 15.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(47.5, 10.5)
+theme_override_fonts/font = ExtResource("3_o3ne5")
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1

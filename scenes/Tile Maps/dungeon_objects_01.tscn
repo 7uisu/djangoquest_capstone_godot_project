@@ -35,7 +35,9 @@ texture = ExtResource("1_sshcn")
 2:3/0 = 0
 3:3/0 = 0
 4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.14753, -5.30583, 1.70866, -5.30583, 4.5864, -1.88852, 4.76626, 4.22668, 2.60795, 5.66555, -4.04682, 5.84541, -6.02527, 3.50725, -5.66555, -1.70866)
 5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.14753, -5.30583, 1.70866, -5.30583, 4.5864, -1.88852, 4.76626, 4.22668, 2.60795, 5.66555, -4.04682, 5.84541, -6.02527, 3.50725, -5.66555, -1.70866)
 0:4/0 = 0
 1:4/0 = 0
 2:4/0 = 0
@@ -94,6 +96,8 @@ texture = ExtResource("1_sshcn")
 5:13/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_6ul5s"]
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_cmx00")
 
 [node name="DungeonObjects-01" type="TileMapLayer"]

@@ -13,7 +13,7 @@ extends Control
 # IMPORTANT: Define the actual scene paths for your levels
 const LEVEL_SCENE_PATHS = [
 	"res://scenes/Levels/Chapter 1/chapter_1_world_part_1.tscn", # Or intro cutscene for full replay
-	"res://scenes/Levels/Chapter 2/chapter_2_world.tscn", # REPLACE WITH ACTUAL PATH
+	"res://scenes/Levels/Chapter 2/rocket_travelling_to_chapter_2_world.tscn", # REPLACE WITH ACTUAL PATH
 	"res://scenes/placeholder_level_3_start.tscn", # REPLACE WITH ACTUAL PATH
 	"res://scenes/placeholder_level_4_start.tscn"  # REPLACE WITH ACTUAL PATH
 ]

@@ -1,0 +1,213 @@
+[gd_scene load_steps=28 format=3 uid="uid://darxg47gpt46s"]
+
+[ext_resource type="Script" uid="uid://dfbig3wl5uy4n" path="res://scripts/Levels/Chapter 2/microwave_interactable.gd" id="1_3gmq8"]
+[ext_resource type="Texture2D" uid="uid://djuvjwtbdmts2" path="res://textures/Player/Sprites/The Adventurer - Free/Female/Shadow.png" id="1_gvxyb"]
+[ext_resource type="Texture2D" uid="uid://j3y8lno55elw" path="res://textures/Microwave/Death.png" id="2_ciwmf"]
+[ext_resource type="Texture2D" uid="uid://b4oas8c3udiia" path="res://textures/Microwave/Idle.png" id="3_3gmq8"]
+[ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="4_ciwmf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1f3e3"]
+radius = 22.0907
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joxvw"]
+atlas = ExtResource("2_ciwmf")
+region = Rect2(80, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k8l1"]
+atlas = ExtResource("2_ciwmf")
+region = Rect2(160, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl4i4"]
+atlas = ExtResource("2_ciwmf")
+region = Rect2(240, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fell"]
+atlas = ExtResource("2_ciwmf")
+region = Rect2(320, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcyhu"]
+atlas = ExtResource("2_ciwmf")
+region = Rect2(400, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2g2r"]
+atlas = ExtResource("2_ciwmf")
+region = Rect2(480, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whof4"]
+atlas = ExtResource("2_ciwmf")
+region = Rect2(560, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klf6q"]
+atlas = ExtResource("3_3gmq8")
+region = Rect2(0, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rutxd"]
+atlas = ExtResource("3_3gmq8")
+region = Rect2(80, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fugx4"]
+atlas = ExtResource("3_3gmq8")
+region = Rect2(160, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jneei"]
+atlas = ExtResource("3_3gmq8")
+region = Rect2(240, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rql8x"]
+atlas = ExtResource("3_3gmq8")
+region = Rect2(320, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj7xf"]
+atlas = ExtResource("2_ciwmf")
+region = Rect2(560, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvlfc"]
+atlas = ExtResource("2_ciwmf")
+region = Rect2(480, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w5hj"]
+atlas = ExtResource("2_ciwmf")
+region = Rect2(400, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on683"]
+atlas = ExtResource("2_ciwmf")
+region = Rect2(320, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f72h"]
+atlas = ExtResource("2_ciwmf")
+region = Rect2(240, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lyf5"]
+atlas = ExtResource("2_ciwmf")
+region = Rect2(160, 25, 80, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlqye"]
+atlas = ExtResource("2_ciwmf")
+region = Rect2(80, 25, 80, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gbm37"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joxvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k8l1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl4i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fell")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcyhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2g2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whof4")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klf6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rutxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fugx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jneei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rql8x")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xj7xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvlfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w5hj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on683")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f72h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lyf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlqye")
+}],
+"loop": true,
+"name": &"revive",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_84m77"]
+radius = 8.0
+height = 34.0
+
+[node name="MicrowaveInteractable" type="Area2D"]
+script = ExtResource("1_3gmq8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_1f3e3")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(2, 1)
+scale = Vector2(2.27083, 0.917969)
+texture = ExtResource("1_gvxyb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gbm37")
+animation = &"idle"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3, 6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_84m77")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -21.0
+offset_right = 15.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(47.5, 10.5)
+theme_override_fonts/font = ExtResource("4_ciwmf")
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

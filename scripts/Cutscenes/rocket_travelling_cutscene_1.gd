@@ -2,8 +2,15 @@ extends Control
 
 @onready var interaction_dialogue = $InteractionDialogue7
 @onready var save_manager = get_node("/root/SaveManager") # Added to access SaveManager
+@onready var fire2 = $Fire2
 
 func _ready():
+	# Start flame animation if Fire2 is available
+	if fire2:
+		fire2.play("default")
+	else:
+		printerr("Fire2 node not found!")
+
 	# Make sure the dialogue system is visible
 	if interaction_dialogue:
 		interaction_dialogue.visible = true

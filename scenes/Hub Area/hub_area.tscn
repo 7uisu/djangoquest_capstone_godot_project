@@ -1,13 +1,10 @@
-[gd_scene load_steps=23 format=4 uid="uid://goq1fmk5lro2"]
+[gd_scene load_steps=20 format=4 uid="uid://goq1fmk5lro2"]
 
 [ext_resource type="Texture2D" uid="uid://d1m8h8dvq4xgk" path="res://textures/pixel_cyberpunk_interior_free_1.0.1/pixel-cyberpunk-interior.png" id="1_fp3jp"]
 [ext_resource type="PackedScene" uid="uid://cp2ii5erusfuk" path="res://scenes/Player/player.tscn" id="2_5d6h4"]
 [ext_resource type="PackedScene" uid="uid://1ha43v4kgk4o" path="res://scenes/DjangoBookItem/django_book.tscn" id="3_a7mwj"]
 [ext_resource type="Texture2D" uid="uid://dr4d24mqlevwc" path="res://textures/Nature & village pack/The City - NEW/electric cables.png" id="4_qskyx"]
 [ext_resource type="PackedScene" uid="uid://b6kyfbyty5nx1" path="res://scenes/Companion/pip_cat.tscn" id="5_iy2sx"]
-[ext_resource type="PackedScene" uid="uid://c6o2mhpvr04dd" path="res://scenes/Levels/Chapter 1/interaction_dialogue_2.tscn" id="6_wwfwh"]
-[ext_resource type="PackedScene" uid="uid://dvrg8yrq1jxwk" path="res://scenes/Levels/Chapter 1/interaction_dialogue_3.tscn" id="7_cavr6"]
-[ext_resource type="PackedScene" uid="uid://om5kw250wiw3" path="res://scenes/UI/respawn_ui.tscn" id="8_5m4bn"]
 [ext_resource type="PackedScene" uid="uid://d28ghyed8vmjr" path="res://scenes/Rocket/level_selector_dashboard.tscn" id="9_gbdff"]
 [ext_resource type="PackedScene" uid="uid://bgl0ewvh1sco2" path="res://scenes/Rocket/save_dashboard.tscn" id="10_aw45h"]
 
@@ -1717,15 +1714,6 @@ tile_set = SubResource("TileSet_dt8ao")
 position = Vector2(199, 65)
 
 [node name="UILayer" type="CanvasLayer" parent="."]
-
-[node name="InteractionDialogue2" parent="UILayer" instance=ExtResource("6_wwfwh")]
-visible = false
-
-[node name="InteractionDialogue3" parent="UILayer" instance=ExtResource("7_cavr6")]
-visible = false
-
-[node name="RespawnUI" parent="UILayer" instance=ExtResource("8_5m4bn")]
-visible = false
 
 [node name="LevelSelectorDashboard" parent="." instance=ExtResource("9_gbdff")]
 z_index = 2

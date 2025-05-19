@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfkq3rrm1jtew"]
+
+[ext_resource type="Script" uid="uid://c0uxxfpaplbtw" path="res://scripts/Levels/Chapter 2/Chapter 2 Area2D Triggers/chapter_2_trigger_cutscene_1.gd" id="1_uvlv5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chiny"]
+size = Vector2(105, 25.5)
+
+[node name="Chapter_2_Trigger_Cutscene_1" type="Area2D"]
+script = ExtResource("1_uvlv5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8.25)
+shape = SubResource("RectangleShape2D_chiny")

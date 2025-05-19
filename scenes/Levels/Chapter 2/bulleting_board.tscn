@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://15m7lun5p1fo"]
+
+[ext_resource type="Script" uid="uid://dth48ua7go23g" path="res://scripts/Levels/Chapter 2/bulleting_board.gd" id="1_85q63"]
+[ext_resource type="Texture2D" uid="uid://73mdnf2mqkev" path="res://textures/The Fan-tasy Tileset (Free)/Art/Props/BulletinBoard_1.png" id="1_fyg2w"]
+[ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="2_fy27p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eys5u"]
+size = Vector2(54, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jspdd"]
+size = Vector2(44, 17)
+
+[node name="BulletingBoard" type="Area2D"]
+script = ExtResource("1_85q63")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10.5)
+shape = SubResource("RectangleShape2D_eys5u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fyg2w")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -21.0
+offset_right = 15.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(47.5, 10.5)
+theme_override_fonts/font = ExtResource("2_fy27p")
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 12.5)
+shape = SubResource("RectangleShape2D_jspdd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
