@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://thwhq4hpwb37"]
+[gd_scene load_steps=10 format=4 uid="uid://thwhq4hpwb37"]
 
 [ext_resource type="Texture2D" uid="uid://dk45nfon4dh24" path="res://textures/UI assets pack 2/UI assets pack 2/UI books & more.png" id="1_2qo7g"]
+[ext_resource type="Script" uid="uid://bkbkiskyp6eui" path="res://scripts/Levels/Chapter 2/Chapter 2 UI/bulleting_board_ui.gd" id="1_taoq8"]
 [ext_resource type="FontFile" uid="uid://cnsbcnhbqh6em" path="res://textures/Fonts/Linden_Hill/LindenHill-Regular.ttf" id="2_w3761"]
 [ext_resource type="Texture2D" uid="uid://dt16lylijsw77" path="res://textures/Level 2/Maze Map Rough Outline.png" id="3_8ehd3"]
 [ext_resource type="PackedScene" uid="uid://crhlka067dygb" path="res://scenes/Levels/Chapter 2/delivery_bot_1_interactable.tscn" id="4_8ehd3"]
@@ -92,10 +93,12 @@ texture = ExtResource("1_2qo7g")
 sources/0 = SubResource("TileSetAtlasSource_arxr2")
 
 [node name="BulletingBoardUI" type="Control"]
+z_index = 5
 layout_mode = 3
 anchors_preset = 0
 offset_right = 480.0
 offset_bottom = 271.0
+script = ExtResource("1_taoq8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -254,3 +257,14 @@ position = Vector2(296, 117)
 
 [node name="DeliveryBot3Interactable" parent="." instance=ExtResource("6_arxr2")]
 position = Vector2(296, 174)
+
+[node name="Label9" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 6.0
+offset_right = 69.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_w3761")
+theme_override_font_sizes/font_size = 10
+text = "(ESC to Exit)"
+horizontal_alignment = 1

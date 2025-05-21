@@ -1,3 +1,4 @@
+#chapter_2_interaction_dialogue_2.gd
 extends Control
 
 signal dialogue_finished(sequence_key)

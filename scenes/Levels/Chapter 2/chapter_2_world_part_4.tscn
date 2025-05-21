@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://80e6e4ptbr1u"]
+[gd_scene load_steps=34 format=4 uid="uid://80e6e4ptbr1u"]
 
 [ext_resource type="PackedScene" uid="uid://cp2ii5erusfuk" path="res://scenes/Player/player.tscn" id="1_7hetb"]
 [ext_resource type="Script" uid="uid://d22nmmxgh6hok" path="res://scripts/Levels/Chapter 2/Chapter 2 World Scripts/chapter_2_world_part_4.gd" id="1_csg1u"]
@@ -20,14 +20,19 @@
 [ext_resource type="PackedScene" uid="uid://boupobkmrstd2" path="res://scenes/Levels/Chapter 2/fan_tasy_props_01.tscn" id="16_7hetb"]
 [ext_resource type="FontFile" uid="uid://cnsbcnhbqh6em" path="res://textures/Fonts/Linden_Hill/LindenHill-Regular.ttf" id="17_ktljt"]
 [ext_resource type="PackedScene" uid="uid://15m7lun5p1fo" path="res://scenes/Levels/Chapter 2/bulleting_board.tscn" id="19_ir181"]
-[ext_resource type="PackedScene" uid="uid://c2x7m2ou67be2" path="res://scenes/Player/interaction_dialogue.tscn" id="20_g1sf4"]
 [ext_resource type="PackedScene" uid="uid://crhlka067dygb" path="res://scenes/Levels/Chapter 2/delivery_bot_1_interactable.tscn" id="20_v58qi"]
 [ext_resource type="PackedScene" uid="uid://2wk4npstcms5" path="res://scenes/Levels/Chapter 2/delivery_bot_2_interactable.tscn" id="21_k6xav"]
-[ext_resource type="PackedScene" uid="uid://cg26byok7hug4" path="res://scenes/DjangoBookScenes/django_book_chapter_1.tscn" id="21_ldpvw"]
 [ext_resource type="PackedScene" uid="uid://d0kbio2ma48uq" path="res://scenes/Levels/Chapter 2/delivery_bot_3_interactable.tscn" id="22_nah4x"]
+[ext_resource type="PackedScene" uid="uid://thwhq4hpwb37" path="res://scenes/Levels/Chapter 2/bulleting_board_ui.tscn" id="23_ktljt"]
+[ext_resource type="PackedScene" uid="uid://dsremq3o5bhkb" path="res://scenes/Levels/Chapter 2/Interaction Dialogue/red_bot_interaction_dialogue.tscn" id="24_6wkbc"]
 [ext_resource type="PackedScene" uid="uid://darxg47gpt46s" path="res://scenes/Levels/Chapter 2/microwave_interactable.tscn" id="25_100ih"]
+[ext_resource type="PackedScene" uid="uid://bdhnpy7jqwtoc" path="res://scenes/Levels/Chapter 2/Interaction Dialogue/yellow_bot_interaction_dialogue.tscn" id="25_xo3hs"]
+[ext_resource type="PackedScene" uid="uid://27rsin1kx32x" path="res://scenes/Levels/Chapter 2/Interaction Dialogue/blue_bot_interaction_dialogue.tscn" id="26_kwfcd"]
+[ext_resource type="PackedScene" uid="uid://cx7isqkdxl4es" path="res://scenes/Levels/Chapter 2/Interaction Dialogue/microwave_interaction_dialogue.tscn" id="27_abowg"]
 [ext_resource type="PackedScene" uid="uid://dqfo58pg2kr52" path="res://scenes/Levels/Chapter 2/pip_cat_interactable.tscn" id="27_h5l27"]
 [ext_resource type="Script" uid="uid://hknnsal7amt6" path="res://scripts/Levels/Chapter 2/pip_cat_interactable.gd" id="28_g1sf4"]
+[ext_resource type="PackedScene" uid="uid://uf2ok0nr7g7s" path="res://scenes/Levels/Chapter 2/Interaction Dialogue/pip_cat_interaction_dialogue.tscn" id="28_ik6y2"]
+[ext_resource type="PackedScene" uid="uid://c7web3kv7snq1" path="res://scenes/Levels/Chapter 2/Interaction Dialogue/start_choice_ch_2_minigame_1.tscn" id="29_6wkbc"]
 
 [node name="Playground" type="Node2D"]
 y_sort_enabled = true
@@ -68,7 +73,7 @@ position = Vector2(861, -375)
 [node name="Bat" parent="." instance=ExtResource("11_g1sf4")]
 visible = false
 z_index = 1
-position = Vector2(692, -328)
+position = Vector2(307, -300)
 
 [node name="DungeonTaleProps-01" parent="." instance=ExtResource("12_ldpvw")]
 tile_map_data = PackedByteArray("AABBALr/AAAZABgAAABBALv/AAAZABkAAABCALr/AAAaABgAAABCALv/AAAaABkAAABDALr/AAAbABgAAABDALv/AAAbABkAAABEALr/AAAcABgAAABEALv/AAAcABkAAABEALz/AAAiABYAAABEAL3/AAAiABcAAABFALz/AAAjABYAAABFAL3/AAAjABcAAABGALz/AAAkABYAAABGAL3/AAAkABcAAAA/AL3/AAAcAA4AAAA/AL7/AAAcAA8AAAA/AL//AAAcABAAAABAAL3/AAAdAA4AAABAAL7/AAAdAA8AAABAAL//AAAdABAAAABBAL3/AAAeAA4AAABBAL7/AAAeAA8AAABBAL//AAAeABAAAAAkAOL/AAAMABYAAAAkAOP/AAAMABcAAAAkAOT/AAAMABgAAAAlAOP/AAANABcAAAAlAOT/AAANABgAAAAsAOL/AAAMABYAABAsAOP/AAAMABcAABArAOP/AAANABcAABAsAOT/AAAMABgAABArAOT/AAANABgAABAJAMH/AAATAAgAAAAKAMD/AAAUAAcAAAAKAMH/AAAUAAgAAAAQAMH/AAATAAgAAAARAMD/AAAUAAcAAAARAMH/AAAUAAgAAAAkAKb/AAAUAAcAABAlAKf/AAATAAgAABAkAKf/AAAUAAgAABAsAKb/AAAUAAcAAAAsAKf/AAAUAAgAAAArAKf/AAATAAgAAAAnAKb/AAAaAAUAAAAnAKf/AAAaAAYAAAAnAKj/AAAaAAcAAAAnAKn/AAAaAAgAAAAoAKb/AAAbAAUAAAAoAKf/AAAbAAYAAAAoAKj/AAAbAAcAAAAoAKn/AAAbAAgAAAApAKb/AAAcAAUAAAApAKf/AAAcAAYAAAApAKj/AAAcAAcAAAApAKn/AAAcAAgAAAA3AOn/AAAJAAYAAAA3AOj/AAAKAAYAAAA3AOf/AAAVAB4AAAAwAOb/AAAcAA4AAAAwAOf/AAAcAA8AAAAwAOj/AAAcABAAAAAxAOb/AAAdAA4AAAAxAOf/AAAdAA8AAAAxAOj/AAAdABAAAAAyAOb/AAAeAA4AAAAyAOf/AAAeAA8AAAAyAOj/AAAeABAAAAA3AOb/AAAVAB0AAAA3AOX/AAAVAB4AAAA=")
@@ -145,20 +150,32 @@ position = Vector2(578, -427)
 [node name="UILayer" type="CanvasLayer" parent="."]
 layer = 5
 
-[node name="InteractionDialogue" parent="UILayer" instance=ExtResource("20_g1sf4")]
+[node name="BulletingBoardUI" parent="UILayer" instance=ExtResource("23_ktljt")]
 visible = false
-offset_left = 145.0
-offset_top = -277.0
-offset_right = 625.0
-offset_bottom = -8.0
 
-[node name="DjangoBookChapter1" parent="UILayer" instance=ExtResource("21_ldpvw")]
+[node name="RedBotInteractionDialogue" parent="UILayer" instance=ExtResource("24_6wkbc")]
 visible = false
-z_index = 6
-offset_left = 141.0
-offset_top = -273.0
-offset_right = 622.0
-offset_bottom = -2.0
+z_index = 5
+
+[node name="YellowBotInteractionDialogue" parent="UILayer" instance=ExtResource("25_xo3hs")]
+visible = false
+z_index = 5
+
+[node name="BlueBotInteractionDialogue" parent="UILayer" instance=ExtResource("26_kwfcd")]
+visible = false
+z_index = 5
+
+[node name="MicrowaveInteractionDialogue" parent="UILayer" instance=ExtResource("27_abowg")]
+visible = false
+z_index = 5
+
+[node name="PipCatInteractionDialogue" parent="UILayer" instance=ExtResource("28_ik6y2")]
+visible = false
+z_index = 5
+
+[node name="StartChoiceCh2Minigame1" parent="UILayer" instance=ExtResource("29_6wkbc")]
+visible = false
+z_index = 5
 
 [node name="PipCatInteractable" parent="." instance=ExtResource("27_h5l27")]
 z_index = 1
