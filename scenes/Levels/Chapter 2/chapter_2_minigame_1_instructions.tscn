@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3dgq6qpvey4g"]
+
+[ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="1_nti8q"]
+[ext_resource type="Script" uid="uid://c5p5fijd4wlqh" path="res://scripts/Levels/Chapter 2/Chapter 2 UI/chapter_2_minigame_1_instructions.gd" id="1_xiboj"]
+
+[node name="Chapter2Minigame1Intructions" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 270.0
+script = ExtResource("1_xiboj")
+
+[node name="Label" type="Label" parent="."]
+z_index = 5
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 246.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("1_nti8q")
+theme_override_font_sizes/font_size = 14
+text = "Help url bot find the right views room"

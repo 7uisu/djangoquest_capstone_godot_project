@@ -1,5 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://bnns4s27wb7ti"]
+[gd_scene load_steps=34 format=3 uid="uid://bnns4s27wb7ti"]
 
+[ext_resource type="Script" uid="uid://bpop2ksyomtg2" path="res://scripts/Levels/Chapter 2/Robot Controlled Movement/delivery_bot_3.gd" id="1_cxphk"]
 [ext_resource type="Texture2D" uid="uid://djuvjwtbdmts2" path="res://textures/Player/Sprites/The Adventurer - Free/Female/Shadow.png" id="1_usyqk"]
 [ext_resource type="Texture2D" uid="uid://dstq71advtokl" path="res://textures/biped_robot/robot_red.png" id="2_cxphk"]
 
@@ -249,6 +250,7 @@ animations = [{
 [node name="DeliveryBot3" type="CharacterBody2D"]
 collision_layer = 16
 collision_mask = 0
+script = ExtResource("1_cxphk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
@@ -263,3 +265,5 @@ texture = ExtResource("1_usyqk")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r7g4j")
 animation = &"idle_down"
+
+[node name="Camera2D" type="Camera2D" parent="."]

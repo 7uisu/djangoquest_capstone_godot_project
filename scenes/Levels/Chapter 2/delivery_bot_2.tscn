@@ -1,15 +1,12 @@
-[gd_scene load_steps=33 format=3 uid="uid://h0f7pmc2cdxp"]
+[gd_scene load_steps=34 format=3 uid="uid://h0f7pmc2cdxp"]
 
+[ext_resource type="Script" uid="uid://v43w2x6431ai" path="res://scripts/Levels/Chapter 2/Robot Controlled Movement/delivery_bot_2.gd" id="1_drjr7"]
 [ext_resource type="Texture2D" uid="uid://djuvjwtbdmts2" path="res://textures/Player/Sprites/The Adventurer - Free/Female/Shadow.png" id="1_nfk31"]
 [ext_resource type="Texture2D" uid="uid://dmft235pw00em" path="res://textures/biped_robot/robot_orange.png" id="2_nfk31"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p47xi"]
 radius = 6.0
 height = 22.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nfk31"]
-atlas = ExtResource("2_nfk31")
-region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rw31q"]
 atlas = ExtResource("2_nfk31")
@@ -18,6 +15,10 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_pj3bs"]
 atlas = ExtResource("2_nfk31")
 region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfk31"]
+atlas = ExtResource("2_nfk31")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wis3"]
 atlas = ExtResource("2_nfk31")
@@ -123,14 +124,6 @@ region = Rect2(160, 64, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nfk31")
-}],
-"loop": true,
-"name": &"Idle_right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_rw31q")
 }],
 "loop": true,
@@ -143,6 +136,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfk31")
+}],
+"loop": true,
+"name": &"idle_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -249,6 +250,7 @@ animations = [{
 [node name="DeliveryBot2" type="CharacterBody2D"]
 collision_layer = 16
 collision_mask = 0
+script = ExtResource("1_drjr7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
@@ -262,4 +264,6 @@ texture = ExtResource("1_nfk31")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_20ct6")
-animation = &"idle_down"
+animation = &"idle_right"
+
+[node name="Camera2D" type="Camera2D" parent="."]

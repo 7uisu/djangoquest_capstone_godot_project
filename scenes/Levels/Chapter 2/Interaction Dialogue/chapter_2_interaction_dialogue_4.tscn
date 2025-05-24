@@ -6,8 +6,8 @@
 [node name="Chapter2InteractionDialogue4" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 480.0
+offset_bottom = 270.0
 script = ExtResource("1_p1yu0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
