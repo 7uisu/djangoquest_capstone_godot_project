@@ -154,17 +154,18 @@ script = null
 [node name="DeliveryBot1" parent="YSortLayer" instance=ExtResource("7_0eu3q")]
 z_index = 1
 position = Vector2(817, -315)
+script = null
 
 [node name="DeliveryBot2" parent="YSortLayer" instance=ExtResource("8_ckmu8")]
 z_index = 1
 position = Vector2(454, -297)
 collision_layer = 1
 collision_mask = 16
-script = null
 
 [node name="DeliveryBot3" parent="YSortLayer" instance=ExtResource("9_ojnp0")]
 z_index = 1
 position = Vector2(861, -375)
+script = null
 
 [node name="RedBotGoalTrigger" parent="." instance=ExtResource("24_x8idp")]
 position = Vector2(964, -1024)

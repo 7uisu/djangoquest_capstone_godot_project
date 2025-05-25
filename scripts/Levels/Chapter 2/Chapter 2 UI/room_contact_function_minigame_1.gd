@@ -77,7 +77,7 @@ func complete_quiz():
 	is_quiz_active = false
 
 	question_label.text = "Next Delivery Bot!"
-	feedback_label.text = "Fact: You can add any\nfuction to Views."
+	feedback_label.text = "Fact: Every URL pattern should\npoint to a specific view function."
 	feedback_label.modulate = Color.GREEN
 
 	# Show only one button

@@ -157,6 +157,7 @@ script = null
 [node name="DeliveryBot1" parent="YSortLayer" instance=ExtResource("23_uniqi")]
 z_index = 1
 position = Vector2(817, -315)
+script = null
 
 [node name="DeliveryBot2" parent="YSortLayer" instance=ExtResource("24_exc0i")]
 z_index = 1
