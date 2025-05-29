@@ -179,6 +179,8 @@ texture = ExtResource("1_gvxyb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gbm37")
 animation = &"idle"
+frame = 2
+frame_progress = 0.00594558
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 16

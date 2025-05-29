@@ -23,11 +23,11 @@ func _ready() -> void:
 
 func _on_dialogue_finished() -> void:
 	print("Rocket travelling outro dialogue finished")
-	print("Attempting to unlock Level 3.")
+	print("Attempting to unlock Chapter 3.")
 	
-	# --- UNLOCK LEVEL 3 ---
+	# --- UNLOCK CHAPTER 3 ---
 	if save_manager:
-		# We are unlocking Level 3, so the argument is 3.
+		# We are unlocking Chapter 3, so the argument is 3.
 		# This updates CharacterData for the current session.
 		save_manager.unlock_level_in_character_data(3)
 		
@@ -36,20 +36,20 @@ func _on_dialogue_finished() -> void:
 		# You might want to call save_manager.save_game(current_slot, {}) here
 		# if you have a way to know the current_slot.
 		# Otherwise, the unlock will only last for the current play session.
-		print("Level 3 unlocked in CharacterData (for this session). Remember to save the game for persistence!")
+		print("Chapter 3 unlocked in CharacterData (for this session). Remember to save the game for persistence!")
 		
 		# Example of how you might save if you have a current slot stored, e.g., in CharacterData
 		# var character_data = get_node("/root/CharacterData")
 		# if character_data and character_data.has_method("get_current_save_slot") and character_data.get_current_save_slot() != -1:
 		# 	if save_manager.save_game(character_data.get_current_save_slot(), {}):
-		# 		print("Game progress saved. Level 3 unlock is now persistent.")
+		# 		print("Game progress saved. Chapter 3 unlock is now persistent.")
 		# 	else:
-		# 		printerr("Failed to save game after unlocking level.")
+		# 		printerr("Failed to save game after unlocking chapter.")
 		# else:
 		# 	print("No active save slot found or CharacterData not configured to provide it. Unlock is not saved to disk yet.")
 	else:
-		printerr("SaveManager not found! Cannot unlock Level 3.")
-	# --- END UNLOCK LEVEL 3 ---
+		printerr("SaveManager not found! Cannot unlock Chapter 3.")
+	# --- END UNLOCK CHAPTER 3 ---
 	
 	# The scene transition is handled in the dialogue script itself
 	# Or you can add your own scene transition here if needed

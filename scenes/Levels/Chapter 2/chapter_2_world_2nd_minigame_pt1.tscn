@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://d2st8v7vx3p07" path="res://textures/Fonts/CyberpunkCraftpixPixel.otf" id="4_slemi"]
 [ext_resource type="FontFile" uid="uid://dlx8tj2skpj00" path="res://textures/Fonts/Pixelify_Sans/static/PixelifySans-SemiBold.ttf" id="5_wthr5"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oer00"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fknbj"]
 texture = ExtResource("2_2e3vw")
 0:0/0 = 0
 1:0/0 = 0
@@ -1904,7 +1904,7 @@ texture = ExtResource("2_2e3vw")
 36:61/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_lvdor"]
-sources/0 = SubResource("TileSetAtlasSource_oer00")
+sources/0 = SubResource("TileSetAtlasSource_fknbj")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fknbj"]
 bg_color = Color(0, 0, 0, 1)
@@ -1999,5 +1999,4 @@ text = "settings.py
 "
 
 [node name="FeedbackTimer" type="Timer" parent="UILayer"]
-wait_time = 2.0
 one_shot = true

@@ -272,7 +272,7 @@ func _check_all_connected():
 
 func _on_delay_timer_timeout():
 	print("Delay complete! Changing scene...")
-	get_tree().change_scene_to_file("res://scenes/Levels/Chapter 2/chapter_2_world_part_5.tscn")
+	get_tree().change_scene_to_file("res://scenes/Levels/Chapter 2/chapter_2_world_2nd_minigame_pt2.tscn")
 
 
 # Force redraw every frame while debugging
