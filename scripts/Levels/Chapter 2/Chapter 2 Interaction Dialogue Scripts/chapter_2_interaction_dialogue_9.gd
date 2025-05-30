@@ -15,9 +15,9 @@ var dialogue_data = {
 	"tower_top": {
 		"dialogue": [
 			{"speaker": "You", "text": "Hey, we're at the top of the tower now!"},
-			{"speaker": "GRIT", "text": "We made it! The rocket launch pad is just ahead."},
 			{"speaker": "URL Bot Red", "text": "Thank you again for everything you've done for us!"},
 			{"speaker": "URL Bot Yellow", "text": "You fixed our routes!"},
+			{"speaker": "GRIT", "text": "And you fixed me!"},
 			{"speaker": "URL Bot Blue", "text": "We wish we could ride the rocket with you someday!"},
 			{"speaker": "GRIT", "text": "Perhaps our paths will cross again in the stars."},
 			{"speaker": "You", "text": "I hope so too. You've all been amazing friends."},

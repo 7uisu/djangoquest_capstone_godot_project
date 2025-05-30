@@ -12,10 +12,10 @@ script = ExtResource("1_yas2c")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 481.0
-offset_bottom = 271.0
+offset_left = -5.0
+offset_top = -1.0
+offset_right = 486.0
+offset_bottom = 276.0
 pivot_offset = Vector2(240, 0)
 
 [node name="ColorRect" type="ColorRect" parent="."]

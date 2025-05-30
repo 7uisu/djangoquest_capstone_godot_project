@@ -15,7 +15,7 @@ var dialogue_data = {
 	"goodbye": {
 		"dialogue": [
 			{"speaker": "You", "text": "This is it... time to say goodbye."},
-			{"speaker": "You", "text": "Thank you all for everything. GRIT, you were an amazing."},
+			{"speaker": "You", "text": "Thank you all for everything. GRIT, you guys were amazing."},
 			{"speaker": "You", "text": "URL bots, hope your jobs gets much easier now"},
 			{"speaker": "You", "text": "And thank you, little bat, for getting us out of that tower."},
 			{"speaker": "GRIT", "text": "The pleasure was all ours. Safe travels, friend."},

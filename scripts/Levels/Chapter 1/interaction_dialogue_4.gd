@@ -13,7 +13,7 @@ signal dialogue_finished
 # Dialogue data
 var dialogue_data = {
 	"snake_escape": {
-		"background": "res://textures/Plain Color BG/Black.png",
+		"background": "res://textures/Visual Novel Images/Chapter 1/outrun_python.png",
 		"dialogue": [
 			{"speaker": "Narrator", "text": "You managed to outrun the Python, collecting the scattered pages along the way."},
 			{"speaker": "Pip", "text": "Phew! That was close! Good job collecting all those pages!"},
@@ -22,7 +22,7 @@ var dialogue_data = {
 		]
 	},
 	"space_station": {
-		"background": "res://textures/Plain Color BG/Sky-Blue.png",
+		"background": "res://textures/Visual Novel Images/Chapter 1/space_station.png",
 		"dialogue": [
 			{"speaker": "Narrator", "text": "As you catch your breath, you notice a massive structure in the distance."},
 			{"speaker": "You", "text": "What is that?"},

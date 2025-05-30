@@ -20,7 +20,7 @@ var dialogue_data = {
 		]
 	},
 	"tower_sighting": {
-		"background": "res://textures/Nature & village pack/containers & tents/Containers/Animations/blue/normal/Down/Close_Down_blue.png",
+		"background": "res://textures/Visual Novel Images/Chapter 1/looking_at_tower.png",
 		"dialogue": [
 			{"speaker": "Pip", "text": "Look! That's a pretty tall tower ahead."},
 			{"speaker": "You", "text": "It stands out even from here. We’ll try to land there."},

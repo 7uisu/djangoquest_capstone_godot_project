@@ -21,7 +21,7 @@ var dialogue_data = {
 			{"speaker": "URL Bot Yellow", "text": "We can see the whole tower structure!"},
 			{"speaker": "GRIT", "text": "Hold on tight everyone, we're almost to the top!"},
 			{"speaker": "Bat", "text": "*Happy bat noises*"},
-			{"speaker": "You", "text": "Thank you all for helping me escape!"},
+			{"speaker": "You", "text": "Thank you all for helping me get out and giving me a ride"},
 			{"speaker": "GRIT", "text": "No, thank YOU for fixing our systems and paths"},
 			{"speaker": "Narrator", "text": "They are almost at the rocket.."}
 		],

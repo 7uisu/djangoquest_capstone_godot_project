@@ -22,14 +22,14 @@ var scenes_data = [
 		"image": "res://textures/VisualNovel/scenes/city.png"
 	},
 	{
-		"background": "res://textures/VisualNovel/backgrounds/company_arrival.png",
+		"background": "res://textures/Visual Novel Images/Chapter 1/company_arrival.png",
 		"dialogue": [
 			{"speaker": "Narrator", "text": "A towering glass and steel structure, a monument to modern industry. This is it. H. I. K. A. Web Solutions."}
 		],
 		"image": "res://textures/VisualNovel/scenes/company_arrival.png"
 	},
 	{
-		"background": "res://textures/VisualNovel/backgrounds/elevator.png",
+		"background": "res://textures/Visual Novel Images/Chapter 1/elevator.png",
 		"dialogue": [
 			{"speaker": "Narrator", "text": "Inside the elevator, Mateo and Solmi meet."},
 			{"speaker": "Male Worker", "text": "Morning! First day for you too, huh?"},
@@ -42,8 +42,16 @@ var scenes_data = [
 		],
 		"image": "res://textures/VisualNovel/scenes/elevator.png"
 	},
+		{
+		"background": "res://textures/Visual Novel Images/Chapter 1/elevator_open.png",
+		"dialogue": [
+			{"speaker": "Narrator", "text": "Elevator doors open."},
+			{"speaker": "Mateo", "text": "Looks like this is our floor."}
+		],
+		"image": "res://textures/VisualNovel/scenes/elevator.png"
+	},
 	{
-		"background": "res://textures/VisualNovel/backgrounds/senior_dev_intro.png",
+		"background": "res://textures/Visual Novel Images/Chapter 1/senior_dev_intro.png",
 		"dialogue": [
 			{"speaker": "Narrator", "text": "Mateo and Solmi are greeted by the SENIOR DEVELOPER."},
 			{"speaker": "Sunshine", "text": "Welcome to H. I. K. A. Web Solutions, Solmi and Mateo. I'm Sunshine."},

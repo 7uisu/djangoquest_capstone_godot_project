@@ -19,16 +19,16 @@ var dialogue_data = {
 			{"speaker": "GRIT", "text": "ST-ST-STATIC... STYLE... SHEET... MISSING..."},
 			
 			{"speaker": "URL Bot Red", "text": "Oh no! What happened to GRIT?!"},
-			{"spider": "URL Bot Yellow", "text": "His display is all corrupted!"},
+			{"spider": "URL Bot Yellow", "text": "Her display is all corrupted!"},
 			{"speaker": "URL Bot Blue", "text": "Something's wrong with his visual systems!"},
 			
 			{"speaker": "URL Bot Red", "text": "You have to fix GRIT's display settings!"},
-			{"speaker": "URL Bot Yellow", "text": "He needs his Robot Display Template restored!"},
+			{"speaker": "URL Bot Yellow", "text": "She needs his Robot Display Template restored!"},
 			{"speaker": "URL Bot Blue", "text": "And his Robot Static Style Sheet too!"},
 			
 			{"speaker": "URL Bots", "text": "Please help fix GRIT's visual systems!"},
 			
-			{"speaker": "Narrator", "text": "[color=green]And so begins the start of the 2nd minigame.[/color]"}
+			{"speaker": "Narrator", "text": "And so begins the start of the 2ND MINIGAME..."}
 		]
 	}
 }

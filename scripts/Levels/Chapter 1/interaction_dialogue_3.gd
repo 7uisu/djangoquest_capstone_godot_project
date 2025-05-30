@@ -14,7 +14,7 @@ signal dialogue_finished
 # Dialogue data
 var dialogue_data = {
 	"snake_continuation": {
-		"background": "res://textures/Visual Novel Images/Chapter 1/Chased_by_Snake.png",
+		"background": "res://textures/Visual Novel Images/Chapter 1/Chased_by_Snake.jpg",
 		"dialogue": [
 			{"speaker": "Pip", "text": "Quickly, run!"},
 			{"speaker": "Narrator", "text": "You trip over as you try to escape."},

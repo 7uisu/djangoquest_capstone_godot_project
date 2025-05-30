@@ -32,7 +32,7 @@ var dialogue_data = {
 		]
 	},
 	"battle_setup": {
-		"background": "res://textures/Plain Color BG/Sky-Blue.png",
+		"background": "res://textures/Visual Novel Images/Chapter 1/confront_python.png",
 		"dialogue": [
 		{"speaker": "Narrator", "text": "The Python coils upward, its form casting a long shadow across the station floor."},
 		{"speaker": "Python", "text": "Let’s see what you’re really made of."},

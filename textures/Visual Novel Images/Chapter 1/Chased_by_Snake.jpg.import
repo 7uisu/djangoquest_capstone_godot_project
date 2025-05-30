@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfedeebtxdly4"
-path="res://.godot/imported/Chased_by_Snake.png-ed98a6572fc626f6f5e806862fec3963.ctex"
+uid="uid://cgtgpap34v02t"
+path="res://.godot/imported/Chased_by_Snake.jpg-d43a5f72278caac8358e1025ee86896a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Visual Novel Images/Chapter 1/Chased_by_Snake.png"
-dest_files=["res://.godot/imported/Chased_by_Snake.png-ed98a6572fc626f6f5e806862fec3963.ctex"]
+source_file="res://textures/Visual Novel Images/Chapter 1/Chased_by_Snake.jpg"
+dest_files=["res://.godot/imported/Chased_by_Snake.jpg-d43a5f72278caac8358e1025ee86896a.ctex"]
 
 [params]
 

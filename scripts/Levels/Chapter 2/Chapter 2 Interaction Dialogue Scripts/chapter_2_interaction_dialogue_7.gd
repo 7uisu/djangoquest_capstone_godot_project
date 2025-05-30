@@ -30,7 +30,10 @@ var dialogue_data = {
 			{"speaker": "You", "text": "A bat? Seriously?"},
 			{"speaker": "GRIT", "text": "Trust me on this one. They know all the air currents in the tower."},
 			{"speaker": "GRIT", "text": "Hey! Bat friend! Come over here!"},
-			{"speaker": "GRIT", "text": "Perfect! Here's your ride. Come on, let's go!"}
+			{"speaker": "GRIT", "text": "Perfect! Here's your ride. Come on, let's go!"},
+			{"speaker": "You", "text": "Uhm.. where do we sit?"},
+			{"speaker": "GRIT", "text": "At the back? trust us! We had no reason to ride out of this place"},
+			{"speaker": "GRIT", "text": "But now we do, so let's go!"},
 		]
 	}
 }

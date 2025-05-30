@@ -13,7 +13,7 @@ signal dialogue_finished
 # Dialogue data
 var dialogue_data = {
 	"rocket_launch": {
-		"background": "res://textures/Plain Color BG/Sky-Blue.png",
+		"background": "res://textures/Visual Novel Images/Chapter 1/escaping_python_rocket.png",
 		"dialogue": [
 			{"speaker": "Pip", "text": "We’re taking off! Hold on!"},
 			{"speaker": "Narrator", "text": "The rocket blasts upward, flames bursting as the station fades below."},

@@ -12,10 +12,9 @@ script = ExtResource("1_hqmwt")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 481.0
-offset_bottom = 271.0
+offset_left = -3.0
+offset_right = 483.0
+offset_bottom = 273.0
 pivot_offset = Vector2(240, 0)
 
 [node name="ColorRect" type="ColorRect" parent="."]
