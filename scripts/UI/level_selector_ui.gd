@@ -19,10 +19,10 @@ const LEVEL_SCENE_PATHS = [
 ]
 # User-friendly names for buttons
 const LEVEL_NAMES = [
-	"Chapter 1: The Beginning",
-	"Chapter 2: The Next Step", # REPLACE
-	"Chapter 3: Further Adventures", # REPLACE
-	"Chapter 4: The Finale" # REPLACE
+	"Chapter 1 - Setting Up Django",
+	"Chapter 2 - URLs,  Views, Templates and Static Files", # REPLACE
+	"Chapter 3 - Models, Database and Admin Panels", # REPLACE
+	"Chapter 4 - Return to Earth - Deployment" # REPLACE
 ]
 
 
