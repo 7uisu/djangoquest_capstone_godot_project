@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwsefos52mhv3"]
+
+[ext_resource type="Script" uid="uid://pmdrrg6eri82" path="res://scenes/Levels/Chapter 3 (5-24-25)/Story Flow World 3/Dialogue Scripts/chapter_3_interaction_dialogue_4.gd" id="1_i6qg1"]
+[ext_resource type="FontFile" uid="uid://dywjttgy6mph5" path="res://textures/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="1_o5q3c"]
+
+[node name="Chapter3InteractionDialogue4" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_i6qg1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 6
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 481.0
+offset_bottom = 271.0
+pivot_offset = Vector2(240, 0)
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = 209.0
+offset_right = 480.0
+offset_bottom = 270.0
+color = Color(0, 0, 0, 0.588235)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 1
+offset_left = 32.0
+offset_top = 233.0
+offset_right = 406.0
+offset_bottom = 262.0
+theme_override_font_sizes/normal_font_size = 9
+text = "Text"
+
+[node name="SpeakerLabel" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 215.0
+offset_right = 111.0
+offset_bottom = 230.0
+theme_override_fonts/font = ExtResource("1_o5q3c")
+theme_override_font_sizes/font_size = 11
+text = "Text:"
+
+[node name="ContinueWarningLabel" type="Label" parent="."]
+offset_left = 347.0
+offset_top = 256.0
+offset_right = 572.0
+offset_bottom = 271.0
+theme_override_fonts/font = ExtResource("1_o5q3c")
+theme_override_font_sizes/font_size = 9
+text = "press spacebar to continue.."

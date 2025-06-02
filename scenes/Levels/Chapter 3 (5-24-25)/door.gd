@@ -1,3 +1,4 @@
+#door.gd
 extends Area2D
 
 class_name Door

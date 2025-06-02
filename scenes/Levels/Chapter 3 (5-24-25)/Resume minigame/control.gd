@@ -10,21 +10,18 @@ extends Control
 
 var resumes = [
 	{
-		"text": "Jack Do \n
-				Came from a generation of miners",
-		"image": preload("res://scenes/Levels/Chapter 3 (5-24-25)/Resume minigame/images/bearded-idle-1.png"),
+		"text": "Jack Diggerstone -\nBorn into a lineage of legendary miners, Jack once found a gemstone shaped like a heart on his 7th birthday. Since then, he's been digging for treasures—both literal and metaphorical.",
+		"image": preload("res://scenes/Levels/Chapter 3 (5-24-25)/Resume minigame/images/5.png"),
 		"answer": "mine"
 	},
 	{
-		"text": "Gabriela Silang \n
-				Taught at a very young age how water filtration works",
-		"image": preload("res://scenes/Levels/Chapter 3 (5-24-25)/Resume minigame/images/woman-idle-1.png"),
+		"text": "Gabriela Watershed -\nTrained by her grandparents in the hills, Gabriela built her first homemade water purifier using bamboo and charcoal at the age of 10. Now, she purifies not just water—but knowledge.",
+		"image": preload("res://scenes/Levels/Chapter 3 (5-24-25)/Resume minigame/images/6.png"),
 		"answer": "water"
 	},
 	{
-		"text": "Wise Doe \n
-				I am very good at handling crops and plants",
-		"image": preload("res://scenes/Levels/Chapter 3 (5-24-25)/Resume minigame/images/hat-man-idle-1.png"),
+		"text": "Sage Greenfield -\nRaised on a thriving farm, Sage could tell the difference between basil and oregano blindfolded. With a heart as fertile as her land, she's a natural when it comes to nurturing crops.",
+		"image": preload("res://scenes/Levels/Chapter 3 (5-24-25)/Resume minigame/images/7.png"),
 		"answer": "farm"
 	}
 ]

@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://cr7k368qms8jk"]
+
+[ext_resource type="Script" uid="uid://d0y202hgtib1q" path="res://scenes/Levels/Chapter 3 (5-24-25)/Interactables/computer_chapter_3.gd" id="1_ta540"]
+[ext_resource type="Texture2D" uid="uid://djuvjwtbdmts2" path="res://textures/Player/Sprites/The Adventurer - Free/Female/Shadow.png" id="2_4alri"]
+[ext_resource type="Texture2D" uid="uid://bilwemk25tsml" path="res://scenes/Levels/Chapter 3 (5-24-25)/Computer minigame/images/16x16/qnetwalk.png" id="3_7m3gb"]
+[ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="4_k2krp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_513bd"]
+radius = 18.0278
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_da8cl"]
+size = Vector2(15.9999, 16.0001)
+
+[node name="ComputerChapter3" type="Area2D"]
+script = ExtResource("1_ta540")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_513bd")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(-0.5, 0)
+scale = Vector2(1.45573, 0.917969)
+texture = ExtResource("2_4alri")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+texture = ExtResource("3_7m3gb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2.38419e-07, 3)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_da8cl")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -21.0
+offset_right = 15.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(47.5, 10.5)
+theme_override_fonts/font = ExtResource("4_k2krp")
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

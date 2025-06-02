@@ -1,7 +1,8 @@
+#navigation_manager.gd
 extends Node
 
-const scene_upper = preload("res://scenes/Levels/Chapter 3 (5-24-25)/upper_world.tscn")
-const scene_mines = preload("res://scenes/Levels/Chapter 3 (5-24-25)/The Mines.tscn")
+const scene_upper = preload("res://scenes/Levels/Chapter 3 (5-24-25)/Story Flow World 3/chapter_3_world_part_1.tscn")
+const scene_mines = preload("res://scenes/Levels/Chapter 3 (5-24-25)/Story Flow World 3/chapter_3_world_part_2.tscn")
 
 signal on_trigger_player_spawn
 

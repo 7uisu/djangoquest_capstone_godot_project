@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://vh1bchm58eee"]
+
+[ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="1_y8uk2"]
+
+[node name="GuideInstructions" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="."]
+z_index = 5
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 246.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("1_y8uk2")
+theme_override_font_sizes/font_size = 14
+text = "go find the computer"

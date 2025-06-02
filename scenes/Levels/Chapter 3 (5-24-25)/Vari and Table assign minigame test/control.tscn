@@ -1,16 +1,17 @@
-[gd_scene load_steps=17 format=4 uid="uid://ycrtl3qhehuo"]
+[gd_scene load_steps=18 format=4 uid="uid://ycrtl3qhehuo"]
 
 [ext_resource type="Script" uid="uid://dpcy3qaale71t" path="res://scenes/Levels/Chapter 3 (5-24-25)/Vari and Table assign minigame test/control.gd" id="1_uafyh"]
 [ext_resource type="Texture2D" uid="uid://deq3oambq81cw" path="res://textures/game UI.png" id="2_3s3xa"]
-[ext_resource type="Texture2D" uid="uid://343brhk2kt0t" path="res://scenes/Levels/Chapter 3 (5-24-25)/Vari and Table assign minigame test/images/Mita.png" id="2_yb7n6"]
-[ext_resource type="Texture2D" uid="uid://js4tjjar0tj5" path="res://scenes/Levels/Chapter 3 (5-24-25)/Vari and Table assign minigame test/images/korone.jpg" id="3_own12"]
-[ext_resource type="Texture2D" uid="uid://bjhy1ceh1wssi" path="res://scenes/Levels/Chapter 3 (5-24-25)/Vari and Table assign minigame test/images/Aru.png" id="4_s56id"]
+[ext_resource type="Texture2D" uid="uid://denkajucia6q3" path="res://scenes/Levels/Chapter 3 (5-24-25)/chapter 3 new assets/Texture/minerlogo.jpg" id="3_sfki6"]
+[ext_resource type="Texture2D" uid="uid://co6h5rqgbq0ri" path="res://scenes/Levels/Chapter 3 (5-24-25)/chapter 3 new assets/Texture/waterfiltlogo.jpg" id="4_scevn"]
 [ext_resource type="Texture2D" uid="uid://cw7dt6a1n7ffe" path="res://scenes/Levels/Chapter 3 (5-24-25)/Vari and Table assign minigame test/legit images/planting/Tools/Watering Can.png" id="5_g557o"]
+[ext_resource type="Texture2D" uid="uid://1vqhyjf1442f" path="res://scenes/Levels/Chapter 3 (5-24-25)/chapter 3 new assets/Texture/farminglogo.jpg" id="5_q64h0"]
 [ext_resource type="Texture2D" uid="uid://wy0mkyg00oym" path="res://scenes/Levels/Chapter 3 (5-24-25)/Vari and Table assign minigame test/legit images/water filtration/pipes.png" id="6_ivp5y"]
 [ext_resource type="Texture2D" uid="uid://q5m2wnvi555u" path="res://scenes/Levels/Chapter 3 (5-24-25)/Vari and Table assign minigame test/legit images/water filtration/theMachine.png" id="7_0a7m5"]
 [ext_resource type="Texture2D" uid="uid://cehsa5ggysmqt" path="res://scenes/Levels/Chapter 3 (5-24-25)/Vari and Table assign minigame test/legit images/mining/Icon31_01.png" id="8_ngxeg"]
 [ext_resource type="Texture2D" uid="uid://duv6avqkaiimh" path="res://scenes/Levels/Chapter 3 (5-24-25)/Vari and Table assign minigame test/legit images/mining/Icon31_04.png" id="9_ethjg"]
 [ext_resource type="Texture2D" uid="uid://k3lhr6uhvnoy" path="res://scenes/Levels/Chapter 3 (5-24-25)/Vari and Table assign minigame test/legit images/planting/Tools/Hoe.png" id="10_skccp"]
+[ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="12_sfki6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3s3xa"]
 texture = ExtResource("2_3s3xa")
@@ -3836,7 +3837,7 @@ offset_left = 40.0
 offset_top = 75.0
 offset_right = 87.0
 offset_bottom = 119.0
-texture_normal = ExtResource("2_yb7n6")
+texture_normal = ExtResource("3_sfki6")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -3846,7 +3847,7 @@ offset_left = 105.0
 offset_top = 74.0
 offset_right = 152.0
 offset_bottom = 118.0
-texture_normal = ExtResource("3_own12")
+texture_normal = ExtResource("4_scevn")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -3856,7 +3857,7 @@ offset_left = 169.0
 offset_top = 75.0
 offset_right = 216.0
 offset_bottom = 119.0
-texture_normal = ExtResource("4_s56id")
+texture_normal = ExtResource("5_q64h0")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -3932,19 +3933,24 @@ stretch_mode = 0
 layout_mode = 0
 offset_left = 227.0
 offset_top = 64.0
-offset_right = 3707.0
-offset_bottom = 404.0
+offset_right = 4287.0
+offset_bottom = 944.0
 scale = Vector2(0.05, 0.05)
-theme_override_font_sizes/font_size = 185
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_sfki6")
+theme_override_font_sizes/font_size = 291
 text = "text
 2 answer need"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 22.0
-offset_right = 10997.0
+offset_right = 7520.0
 offset_bottom = 453.0
 scale = Vector2(0.05, 0.05)
-theme_override_font_sizes/font_size = 226
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_sfki6")
+theme_override_font_sizes/font_size = 246
 text = "Click each Rooms Logo (Tables) and put proper Tools (Variables) in them"

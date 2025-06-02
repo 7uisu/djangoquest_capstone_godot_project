@@ -17,9 +17,9 @@ extends Control
 ]
 
 var question_images = [
-	"res://scenes/Levels/Chapter 3 (5-24-25)/Vari and Table assign minigame test/images/Mita.png",
-	"res://scenes/Levels/Chapter 3 (5-24-25)/Vari and Table assign minigame test/images/korone.jpg",
-	"res://scenes/Levels/Chapter 3 (5-24-25)/Vari and Table assign minigame test/images/Aru.png"
+	"res://scenes/Levels/Chapter 3 (5-24-25)/chapter 3 new assets/Texture/minerlogo.jpg",
+	"res://scenes/Levels/Chapter 3 (5-24-25)/chapter 3 new assets/Texture/waterfiltlogo.jpg",
+	"res://scenes/Levels/Chapter 3 (5-24-25)/chapter 3 new assets/Texture/farminglogo.jpg"
 ]
 
 var answer_images = [
@@ -33,7 +33,7 @@ var answer_images = [
 
 var question_texts = [
 	"What does the Mine need?",
-	"What does the Water Filtration Room needs?",
+	"What does the Water\nFiltration Room needs?",
 	"What does the Garden need?"
 ]
 
@@ -46,8 +46,16 @@ var correct_answer_indices = [
 var answered = [false, false, false]
 var current_question = -1
 var selected_answers = []
+var countdown_timer: Timer
+var countdown_value = 3
 
 func _ready():
+	# Setup countdown timer
+	countdown_timer = Timer.new()
+	countdown_timer.wait_time = 1.0
+	countdown_timer.timeout.connect(on_countdown_tick)
+	add_child(countdown_timer)
+	
 	for i in range(3):
 		question_buttons[i].texture_normal = load(question_images[i])
 		question_buttons[i].pressed.connect(_on_question_pressed.bind(i))
@@ -65,6 +73,8 @@ func _on_question_pressed(idx):
 	current_question = idx
 	selected_answers.clear()
 	question_label.text = question_texts[idx] + "\n (Select 2 answers)"
+	# Reset label color to default
+	question_label.add_theme_color_override("font_color", Color(0, 0, 0))
 	for btn in answer_buttons:
 		btn.visible = true
 		btn.modulate = Color(1, 1, 1)
@@ -91,18 +101,36 @@ func _on_answer_pressed(idx):
 			answered[current_question] = true
 			question_buttons[current_question].disabled = true
 			question_label.text = "Correct!"
+			question_label.add_theme_color_override("font_color", Color(0, 1, 0))  # Green text for correct
 			for i in correct_set:
 				answer_buttons[i].modulate = Color(0, 1, 0)
 			# Keep the question button gray
 			question_buttons[current_question].modulate = Color(0.7, 0.7, 0.7)
 		else:
 			question_label.text = "Try again!"
+			question_label.add_theme_color_override("font_color", Color(1, 0, 0))  # Red text for incorrect
 			# Reset question button color back to normal
 			question_buttons[current_question].modulate = Color(1, 1, 1)
 			for i in selected_set:
 				if i not in correct_set:
 					answer_buttons[i].modulate = Color(1, 0, 0)
+		
 		await get_tree().create_timer(1.0).timeout
+		
+		# Check if all questions are answered correctly
+		var all_answered = true
+		for is_answered in answered:
+			if not is_answered:
+				all_answered = false
+				break
+		
+		if all_answered:
+			question_label.text = "Minigame Complete!"
+			question_label.add_theme_color_override("font_color", Color(0, 1, 0))  # Green text
+			# Start countdown instead of immediate scene change
+			start_countdown()
+			return
+		
 		for btn in answer_buttons:
 			btn.visible = false
 			btn.modulate = Color(1, 1, 1)
@@ -111,3 +139,24 @@ func _on_answer_pressed(idx):
 			question_buttons[current_question].modulate = Color(1, 1, 1)
 		current_question = -1
 		selected_answers.clear()
+		# Reset label color and text
+		question_label.add_theme_color_override("font_color", Color(1, 1, 1))
+		question_label.text = "Click a picture to answer!"
+
+func start_countdown():
+	countdown_value = 3
+	update_countdown_display()
+	countdown_timer.start()
+
+func on_countdown_tick():
+	countdown_value -= 1
+	if countdown_value > 0:
+		update_countdown_display()
+	else:
+		countdown_timer.stop()
+		# Load the next scene (you can change this path to where you want to go next)
+		get_tree().change_scene_to_file("res://scenes/Levels/Chapter 3 (5-24-25)/wiretest/control.tscn")
+
+func update_countdown_display():
+	question_label.text = "Minigame Complete!\nNext Task in " + str(countdown_value) + "..."
+	question_label.add_theme_color_override("font_color", Color(0, 1, 0))  # Keep green text

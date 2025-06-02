@@ -8,7 +8,7 @@ signal dialogue_finished
 @onready var continue_warning_label: Label = $ContinueWarningLabel
 @onready var texture_rect: TextureRect = $TextureRect
 
-@onready var player = get_node_or_null("/root/Playground/Player")
+@onready var player = get_node_or_null("/root/Upper World/Player")
 
 # --- DIALOGUE CONTENT FOR DIALOGUE 4 (CUTSCENE) ---
 # !!! REPLACE THIS WITH YOUR ACTUAL DIALOGUE !!!
