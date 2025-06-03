@@ -1,4 +1,4 @@
-# chapter_3_interaction_dialogue_5.gd
+# chapter_3_interaction_dialogue_1.gd
 extends Control
 
 signal dialogue_finished
@@ -9,16 +9,31 @@ signal dialogue_finished
 @onready var texture_rect: TextureRect = $TextureRect
 
 # Adjust this path if your player node is located elsewhere or instantiated differently
-@onready var player = get_node_or_null("/root/The Mines/Player") # Using get_node_or_null for safety
+@onready var player = get_node_or_null("/root/Upper World/Player") # Using get_node_or_null for safety
 
-# --- DIALOGUE CONTENT FOR DIALOGUE 5 ---
+# --- DIALOGUE CONTENT FOR DIALOGUE 3 ---
+# !!! REPLACE THIS WITH YOUR ACTUAL DIALOGUE !!!
 var dialogue_data = {
-	"found_bot": {
+	"initial_greeting_part_1": {
+		"background": "res://textures/Plain Color BG/Sky-Blue.png",  # Background image path
 		"dialogue": [
-			{"speaker": "You", "text": "Hey look, it's a.. robot?"},
-			{"speaker": "Pip", "text": "A monitor?"},
-			{"speaker": "You", "text": "I think so as well,"},
-			{"speaker": "You", "text": "C'mon, let's see if it does something."}
+			{"speaker": "You", "text": "Woah! this place looks gorgeous!"},
+			{"speaker": "Pip", "text": "I think while landing here, I saw a ruined temple nearby"},
+			{"speaker": "You", "text": "C'mon then, lets go check it out!"},
+			{"speaker": "Pip", "text": "I really hope that while looking for resources, we just randomly find the Chapter 3 of the Django Book.."},
+			{"speaker": "You", "text": "Well, what are the odds of that happening?"},
+			{"speaker": "Pip", "text": "It's not 0, thats for sure."},
+			{"speaker": "You", "text": "Well, anyway, lets get goin! TO THE TEMPLE!"}
+		],
+		# Optional: Add specific images for each dialogue line
+		"images": [
+			"", # No image for first line
+			"", # No image for second line
+			"", # No image for third line
+			"", # No image for fourth line
+			"", # No image for fifth line
+			"", # No image for sixth line
+			""  # No image for seventh line
 		]
 	}
 }
@@ -34,16 +49,17 @@ var full_current_text: String = ""
 
 var current_sequence_key: String = ""
 # Define the sequence(s) this dialogue node will play automatically
-var dialogue_sequence_keys: Array = ["found_bot"]
+var dialogue_sequence_keys: Array = ["initial_greeting_part_1"]
 var current_sequence_index: int = 0
 
 func _ready() -> void:
 	# Ensure player reference is valid
 	if not player:
-		printerr("Chapter3InteractionDialogue5: Player node not found at /root/The Mines/Player. Movement will not be disabled/enabled.")
-	
-	# Hide initially
-	self.visible = false
+		printerr("Chapter3InteractionDialogue1: Player node not found at /root/Upper World/Player. Movement will not be disabled/enabled.")
+
+	# Call the public function to start the dialogue
+	# This makes it consistent if you ever need to trigger it from elsewhere too.
+	start_dialogue()
 
 func _input(event: InputEvent) -> void:
 	if not visible:
@@ -83,30 +99,51 @@ func start_dialogue() -> void:
 		current_sequence_index = 0
 		start_dialogue_sequence(dialogue_sequence_keys[current_sequence_index])
 	else:
-		printerr("Chapter3InteractionDialogue5: No dialogue sequences defined!")
+		printerr("Chapter3InteractionDialogue1: No dialogue sequences defined!")
 		finish_dialogue() # Finish immediately if no sequences
 
 func start_dialogue_sequence(sequence_key: String) -> void:
 	if not dialogue_data.has(sequence_key):
-		printerr("Chapter3InteractionDialogue5: Dialogue sequence key not found: '", sequence_key, "'")
+		printerr("Chapter3InteractionDialogue1: Dialogue sequence key not found: '", sequence_key, "'")
 		finish_dialogue()
 		return
 
 	current_sequence_key = sequence_key
-	current_dialogue_lines = dialogue_data[sequence_key].get("dialogue", [])
-	current_image_paths = dialogue_data[sequence_key].get("images", [])
+	var sequence_data = dialogue_data[sequence_key]
+	current_dialogue_lines = sequence_data.get("dialogue", [])
+	current_image_paths = sequence_data.get("images", [])
 	current_line_index = 0
 
 	rich_text_label.text = ""
 	speaker_label.text = ""
 	continue_warning_label.visible = false
-	texture_rect.visible = false # Hide texture rect initially
+	
+	# Set background image if specified
+	var background_path = sequence_data.get("background", "")
+	if background_path != "":
+		load_background_image(background_path)
+	else:
+		texture_rect.visible = false
 
 	if current_dialogue_lines.size() > 0:
 		display_current_line()
 	else:
-		printerr("Chapter3InteractionDialogue5: Dialogue sequence '", sequence_key, "' has no lines.")
+		printerr("Chapter3InteractionDialogue1: Dialogue sequence '", sequence_key, "' has no lines.")
 		finish_dialogue()
+
+func load_background_image(image_path: String) -> void:
+	if ResourceLoader.exists(image_path):
+		var loaded_image = load(image_path)
+		if loaded_image and loaded_image is Texture2D:
+			texture_rect.texture = loaded_image
+			texture_rect.visible = true
+			print("Chapter3InteractionDialogue1: Successfully loaded background image: ", image_path)
+		else:
+			printerr("Chapter3InteractionDialogue1: Failed to load background image as Texture2D: ", image_path)
+			texture_rect.visible = false
+	else:
+		printerr("Chapter3InteractionDialogue1: Background image file does not exist: ", image_path)
+		texture_rect.visible = false
 
 func display_current_line() -> void:
 	if current_line_index >= current_dialogue_lines.size():
@@ -116,18 +153,19 @@ func display_current_line() -> void:
 	speaker_label.text = line_data.get("speaker", "Narrator")
 	full_current_text = line_data.get("text", "")
 
-	# Handle images
+	# Handle per-line images (optional - only if you want different images per dialogue line)
 	if current_image_paths.size() > current_line_index and current_image_paths[current_line_index] != "":
 		var image_path = current_image_paths[current_line_index]
-		var loaded_image = load(image_path)
-		if loaded_image:
-			texture_rect.texture = loaded_image
-			texture_rect.visible = true
+		if ResourceLoader.exists(image_path):
+			var loaded_image = load(image_path)
+			if loaded_image and loaded_image is Texture2D:
+				texture_rect.texture = loaded_image
+				texture_rect.visible = true
+				print("Chapter3InteractionDialogue1: Successfully loaded line image: ", image_path)
+			else:
+				printerr("Chapter3InteractionDialogue1: Failed to load line image as Texture2D: ", image_path)
 		else:
-			printerr("Chapter3InteractionDialogue5: Failed to load image: ", image_path)
-			texture_rect.visible = false
-	else:
-		texture_rect.visible = false
+			printerr("Chapter3InteractionDialogue1: Line image file does not exist: ", image_path)
 
 	rich_text_label.text = ""
 	continue_warning_label.visible = false
@@ -152,10 +190,18 @@ func type_text_async(text_to_type: String) -> void:
 		continue_warning_label.visible = true
 
 func finish_dialogue() -> void:
-	print("[Chapter3InteractionDialogue5] Dialogue finished.")
+	print("[Chapter3InteractionDialogue1] Dialogue finished.")
 	if player:
 		player.set("can_move", true) # Re-enable player movement
 
 	emit_signal("dialogue_finished")
 	self.visible = false
+	
+	# Transition to the next scene
+	var next_scene_path = "res://scenes/Levels/Chapter 3 (5-24-25)/Story Flow World 3/chapter_3_rocket_travelling_outro.tscn"
+	print("Chapter3InteractionDialogue1: Transitioning to next scene: ", next_scene_path)
+	
+	# Use call_deferred to ensure the scene change happens after the current frame
+	get_tree().call_deferred("change_scene_to_file", next_scene_path)
+	
 	# queue_free() # Optional: if you want to remove the dialogue node after it's done

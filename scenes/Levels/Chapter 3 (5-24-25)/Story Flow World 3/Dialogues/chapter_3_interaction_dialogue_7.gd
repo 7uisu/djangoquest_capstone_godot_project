@@ -1,4 +1,4 @@
-# chapter_3_interaction_dialogue_5.gd
+# chapter_3_interaction_dialogue_7.gd
 extends Control
 
 signal dialogue_finished
@@ -11,14 +11,14 @@ signal dialogue_finished
 # Adjust this path if your player node is located elsewhere or instantiated differently
 @onready var player = get_node_or_null("/root/The Mines/Player") # Using get_node_or_null for safety
 
-# --- DIALOGUE CONTENT FOR DIALOGUE 5 ---
+# --- DIALOGUE CONTENT FOR DIALOGUE 3 ---
 var dialogue_data = {
-	"found_bot": {
+	"purple_discovery": {
 		"dialogue": [
-			{"speaker": "You", "text": "Hey look, it's a.. robot?"},
-			{"speaker": "Pip", "text": "A monitor?"},
-			{"speaker": "You", "text": "I think so as well,"},
-			{"speaker": "You", "text": "C'mon, let's see if it does something."}
+			{"speaker": "You", "text": "What is happening? This place is turning purple!"},
+			{"speaker": "Pip", "text": "That's... odd. Maybe that jsut how it si in this world."},
+			{"speaker": "You", "text": "C'mon, we might find some things if we look further."},
+			{"speaker": "You", "text": "Alright, but if things get too weird, we're getting out of here!"}
 		]
 	}
 }
@@ -34,13 +34,13 @@ var full_current_text: String = ""
 
 var current_sequence_key: String = ""
 # Define the sequence(s) this dialogue node will play automatically
-var dialogue_sequence_keys: Array = ["found_bot"]
+var dialogue_sequence_keys: Array = ["purple_discovery"]
 var current_sequence_index: int = 0
 
 func _ready() -> void:
 	# Ensure player reference is valid
 	if not player:
-		printerr("Chapter3InteractionDialogue5: Player node not found at /root/The Mines/Player. Movement will not be disabled/enabled.")
+		printerr("Chapter3InteractionDialogue3: Player node not found at /root/The Mines/Player. Movement will not be disabled/enabled.")
 	
 	# Hide initially
 	self.visible = false
@@ -83,12 +83,12 @@ func start_dialogue() -> void:
 		current_sequence_index = 0
 		start_dialogue_sequence(dialogue_sequence_keys[current_sequence_index])
 	else:
-		printerr("Chapter3InteractionDialogue5: No dialogue sequences defined!")
+		printerr("Chapter3InteractionDialogue3: No dialogue sequences defined!")
 		finish_dialogue() # Finish immediately if no sequences
 
 func start_dialogue_sequence(sequence_key: String) -> void:
 	if not dialogue_data.has(sequence_key):
-		printerr("Chapter3InteractionDialogue5: Dialogue sequence key not found: '", sequence_key, "'")
+		printerr("Chapter3InteractionDialogue3: Dialogue sequence key not found: '", sequence_key, "'")
 		finish_dialogue()
 		return
 
@@ -105,7 +105,7 @@ func start_dialogue_sequence(sequence_key: String) -> void:
 	if current_dialogue_lines.size() > 0:
 		display_current_line()
 	else:
-		printerr("Chapter3InteractionDialogue5: Dialogue sequence '", sequence_key, "' has no lines.")
+		printerr("Chapter3InteractionDialogue3: Dialogue sequence '", sequence_key, "' has no lines.")
 		finish_dialogue()
 
 func display_current_line() -> void:
@@ -124,7 +124,7 @@ func display_current_line() -> void:
 			texture_rect.texture = loaded_image
 			texture_rect.visible = true
 		else:
-			printerr("Chapter3InteractionDialogue5: Failed to load image: ", image_path)
+			printerr("Chapter3InteractionDialogue3: Failed to load image: ", image_path)
 			texture_rect.visible = false
 	else:
 		texture_rect.visible = false
@@ -136,15 +136,26 @@ func display_current_line() -> void:
 	type_text_async(full_current_text)
 
 func type_text_async(text_to_type: String) -> void:
+	# Prevent multiple typing calls
+	if is_typing:
+		return
+		
 	is_typing = true
 	rich_text_label.text = "" # Clear previous text before typing
+	
+	# Build text character by character from the source string
 	for char_idx in range(text_to_type.length()):
 		if not is_typing: # If player skipped typing
 			rich_text_label.text = text_to_type # Instantly show full line
 			break
-		rich_text_label.text += text_to_type[char_idx]
+		
+		# Use substring instead of concatenation to avoid text corruption
+		rich_text_label.text = text_to_type.substr(0, char_idx + 1)
+		
 		await get_tree().create_timer(typing_speed).timeout
-		if not is_instance_valid(self): return # Guard against node being freed
+		
+		if not is_instance_valid(self): 
+			return # Guard against node being freed
 
 	if is_instance_valid(self): # Ensure node still exists
 		is_typing = false
@@ -152,7 +163,7 @@ func type_text_async(text_to_type: String) -> void:
 		continue_warning_label.visible = true
 
 func finish_dialogue() -> void:
-	print("[Chapter3InteractionDialogue5] Dialogue finished.")
+	print("[Chapter3InteractionDialogue3] Dialogue finished.")
 	if player:
 		player.set("can_move", true) # Re-enable player movement
 

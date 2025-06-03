@@ -12,7 +12,7 @@ signal dialogue_finished
 @onready var player = get_node_or_null("/root/Upper World/Player") # Using get_node_or_null for safety
 
 # --- DIALOGUE CONTENT FOR DIALOGUE 3 ---
-# !!! REPLACE THIS WITH YOUR ACTUAL DIALOGUE !!!
+# !!! REPLACE THIS WITH YOUR ACTUAL DIALOGUE !!! 
 var dialogue_data = {
 	"initial_greeting_part_1": {
 		"dialogue": [

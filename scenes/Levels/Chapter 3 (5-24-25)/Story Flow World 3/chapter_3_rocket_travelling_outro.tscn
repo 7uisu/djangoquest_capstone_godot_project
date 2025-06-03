@@ -1,61 +1,61 @@
-[gd_scene load_steps=19 format=3 uid="uid://23r6n5kua2ru"]
+[gd_scene load_steps=19 format=3 uid="uid://c3lrjanr5d2ua"]
 
-[ext_resource type="Script" uid="uid://b4nvp2e8l32su" path="res://scripts/Levels/Chapter 2/Chapter 2 Interaction Dialogue Scripts/chapter_2_rocket_travelling_outro.gd" id="1_rc06c"]
-[ext_resource type="Shader" uid="uid://btjpurw470nhn" path="res://scenes/UI/main_menu_ui.gdshader" id="2_02rt2"]
-[ext_resource type="Texture2D" uid="uid://n560fidl8dr2" path="res://textures/Pixel Fire Asset Pack V1/Fire 5 - 4/Fire 5 - 4.png" id="3_g786v"]
-[ext_resource type="Texture2D" uid="uid://dw6cdj8uk42vy" path="res://textures/DjangoRocket/Rocket 64x64.png" id="4_08kss"]
-[ext_resource type="Script" uid="uid://b1pkjgpgtdeah" path="res://scripts/Levels/Chapter 2/Chapter 2 Interaction Dialogue Scripts/chapter_2_rocket_travelling_outro_dialogue.gd" id="5_e481y"]
-[ext_resource type="FontFile" uid="uid://dywjttgy6mph5" path="res://textures/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="6_20ltr"]
+[ext_resource type="Script" uid="uid://d0nfqfh2t801p" path="res://scenes/Levels/Chapter 3 (5-24-25)/Story Flow World 3/Dialogue Scripts/chapter_3_rocket_travelling_outro.gd" id="1_rcvs7"]
+[ext_resource type="Shader" uid="uid://btjpurw470nhn" path="res://scenes/UI/main_menu_ui.gdshader" id="1_s1hym"]
+[ext_resource type="Texture2D" uid="uid://n560fidl8dr2" path="res://textures/Pixel Fire Asset Pack V1/Fire 5 - 4/Fire 5 - 4.png" id="2_rcvs7"]
+[ext_resource type="Texture2D" uid="uid://dw6cdj8uk42vy" path="res://textures/DjangoRocket/Rocket 64x64.png" id="3_o0jnt"]
+[ext_resource type="FontFile" uid="uid://dywjttgy6mph5" path="res://textures/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="5_8lxql"]
+[ext_resource type="Script" uid="uid://dijpccgrtqsln" path="res://scenes/Levels/Chapter 3 (5-24-25)/Story Flow World 3/Dialogue Scripts/chapter_3_rocket_travelling_outro_dialogue.gd" id="5_o0jnt"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_t7l6j"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l2v0x"]
 noise_type = 0
 frequency = 0.3395
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rc06c"]
-noise = SubResource("FastNoiseLite_t7l6j")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7dcaa"]
+noise = SubResource("FastNoiseLite_l2v0x")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xm3ha"]
-shader = ExtResource("2_02rt2")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a44af"]
+shader = ExtResource("1_s1hym")
 shader_parameter/resolution = Vector2(600, 400)
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_rc06c")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_7dcaa")
 shader_parameter/density = 57.5
 shader_parameter/speed_x = 100.0
 shader_parameter/speed_y = 1.49012e-06
 shader_parameter/layers = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxaac"]
-atlas = ExtResource("3_g786v")
+atlas = ExtResource("2_rcvs7")
 region = Rect2(0, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8dxer"]
-atlas = ExtResource("3_g786v")
+atlas = ExtResource("2_rcvs7")
 region = Rect2(32, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3fxl"]
-atlas = ExtResource("3_g786v")
+atlas = ExtResource("2_rcvs7")
 region = Rect2(64, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u771y"]
-atlas = ExtResource("3_g786v")
+atlas = ExtResource("2_rcvs7")
 region = Rect2(96, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xrwjv"]
-atlas = ExtResource("3_g786v")
+atlas = ExtResource("2_rcvs7")
 region = Rect2(128, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kguxf"]
-atlas = ExtResource("3_g786v")
+atlas = ExtResource("2_rcvs7")
 region = Rect2(160, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vs3oj"]
-atlas = ExtResource("3_g786v")
+atlas = ExtResource("2_rcvs7")
 region = Rect2(192, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jdgh8"]
-atlas = ExtResource("3_g786v")
+atlas = ExtResource("2_rcvs7")
 region = Rect2(224, 0, 32, 48)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2mg6g"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_mwkfx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -87,15 +87,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Chapter2RocketTravellingOutro" type="Control"]
+[node name="Chapter3RocketTravellingOutro" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 480.0
 offset_bottom = 270.0
-script = ExtResource("1_rc06c")
+script = ExtResource("1_rcvs7")
 
 [node name="ShaderBackground" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_xm3ha")
+material = SubResource("ShaderMaterial_a44af")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -107,34 +107,35 @@ grow_vertical = 2
 position = Vector2(128, 136)
 rotation = -1.5708
 scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_2mg6g")
+sprite_frames = SubResource("SpriteFrames_mwkfx")
 
 [node name="RocketSprite" type="Sprite2D" parent="."]
 position = Vector2(240, 136)
 rotation = 1.5708
 scale = Vector2(1.891, 1.952)
-texture = ExtResource("4_08kss")
+texture = ExtResource("3_o0jnt")
 
-[node name="Chapter2RocketTravellingOutroDialogue" type="Control" parent="."]
+[node name="Chapter3RocketTravellingOutroDialogue" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 480.0
 offset_bottom = 270.0
-script = ExtResource("5_e481y")
+script = ExtResource("5_o0jnt")
 
-[node name="TextureRect" type="TextureRect" parent="Chapter2RocketTravellingOutroDialogue"]
+[node name="TextureRect" type="TextureRect" parent="Chapter3RocketTravellingOutroDialogue"]
 layout_mode = 0
 offset_right = 479.0
 offset_bottom = 269.0
 expand_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="Chapter2RocketTravellingOutroDialogue"]
+[node name="ColorRect" type="ColorRect" parent="Chapter3RocketTravellingOutroDialogue"]
 layout_mode = 0
 offset_top = 209.0
 offset_right = 480.0
 offset_bottom = 270.0
 color = Color(0, 0, 0, 0.588235)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Chapter2RocketTravellingOutroDialogue"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Chapter3RocketTravellingOutroDialogue"]
 z_index = 1
 layout_mode = 0
 offset_left = 32.0
@@ -144,22 +145,22 @@ offset_bottom = 262.0
 theme_override_font_sizes/normal_font_size = 9
 text = "Text"
 
-[node name="SpeakerLabel" type="Label" parent="Chapter2RocketTravellingOutroDialogue"]
+[node name="SpeakerLabel" type="Label" parent="Chapter3RocketTravellingOutroDialogue"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 215.0
 offset_right = 111.0
 offset_bottom = 230.0
-theme_override_fonts/font = ExtResource("6_20ltr")
+theme_override_fonts/font = ExtResource("5_8lxql")
 theme_override_font_sizes/font_size = 11
 text = "Text:"
 
-[node name="ContinueWarningLabel" type="Label" parent="Chapter2RocketTravellingOutroDialogue"]
+[node name="ContinueWarningLabel" type="Label" parent="Chapter3RocketTravellingOutroDialogue"]
 layout_mode = 0
 offset_left = 347.0
 offset_top = 255.0
 offset_right = 572.0
 offset_bottom = 270.0
-theme_override_fonts/font = ExtResource("6_20ltr")
+theme_override_fonts/font = ExtResource("5_8lxql")
 theme_override_font_sizes/font_size = 9
 text = "press spacebar to continue.."

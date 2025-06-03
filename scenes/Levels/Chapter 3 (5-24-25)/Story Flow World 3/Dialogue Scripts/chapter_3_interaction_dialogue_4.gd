@@ -30,23 +30,23 @@ var dialogue_data = {
 		"dialogue": [
 			{"speaker": "Cute Monitor", "text": "Beep Boop, My Name Is D."},
 			{"speaker": "You", "text": "Nice to meet you D! Call me traveller, and this is Pip! Anyway, what were you saying?"},
-			{"speaker": "Cute Monitor", "text": "Beep Boop, My Name Is D."},
+			{"speaker": "D", "text": "Beep Boop, My Name Is D."},
 			{"speaker": "Pip", "text": "You already said that, D! Are your memory banks okay?"},
-			{"speaker": "Cute Monitor", "text": "System Loop Detected. Recalibrating..."},
+			{"speaker": "D", "text": "System Loop Detected. Recalibrating..."},
 			{"speaker": "You", "text": "Looks like D’s having a little hiccup. Let’s give it a moment."},
-			{"speaker": "Cute Monitor", "text": "Recalibration Complete. Thank you, Traveller and Pip. As I was saying—"},
+			{"speaker": "D", "text": "Recalibration Complete. Thank you, Traveller and Pip. As I was saying—"},
 		]
 	},
 	
 	"cute_bot_to_corridors": {
 		"background": "res://textures/Visual Novel Images/Chapter 1/looking_at_tower.png",
 		"dialogue": [
-			{"speaker": "Cute Monitor", "text": "This facility has been running autonomously,"},
-			{"speaker": "Cute Monitor", "text": "but we're experiencing critical system gaps. We need assistance organizing vital operations."},
+			{"speaker": "D", "text": "This facility has been running autonomously,"},
+			{"speaker": "D", "text": "but we're experiencing critical system gaps. We need assistance organizing vital operations."},
 			{"speaker": "You", "text": "What kind of operations?"},
-			{"speaker": "Cute Monitor", "text": "Three main sectors: Mining, Water Filtering, and Agriculture. Each needs manual oversight to restore full functionality."},
+			{"speaker": "D", "text": "Three main sectors: Mining, Water Filtering, and Agriculture. Each needs manual oversight to restore full functionality."},
 			{"speaker": "Pip", "text": "Ooooh! I love puzzles! Let’s help!"},
-			{"speaker": "Cute Monitor", "text": "Just go to those corridors and you'll find the computer for maintaining task."}
+			{"speaker": "D", "text": "Just go to those corridors and you'll find the computer for maintaining task."}
 		]
 	}
 }

@@ -1,18 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8ry16b38txe4"]
+[gd_scene load_steps=2 format=3 uid="uid://jdwkyt5c0ts1"]
 
-[ext_resource type="Script" uid="uid://dblgxn67d1rcc" path="res://scenes/Levels/Chapter 3 (5-24-25)/Story Flow World 3/Dialogue Scripts/chapter_3_interaction_dialogue_1.gd" id="1_r54to"]
-[ext_resource type="FontFile" uid="uid://dywjttgy6mph5" path="res://textures/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="2_ciups"]
+[ext_resource type="FontFile" uid="uid://dywjttgy6mph5" path="res://textures/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="1_hnwf7"]
 
-[node name="Chapter3InteractionDialogue1" type="Control"]
+[node name="Chapter3InteractionDialogue8" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 480.0
 offset_bottom = 270.0
-script = ExtResource("1_r54to")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-z_index = 6
-layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 481.0
@@ -20,7 +16,6 @@ offset_bottom = 271.0
 pivot_offset = Vector2(240, 0)
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
 offset_top = 209.0
 offset_right = 480.0
 offset_bottom = 270.0
@@ -28,7 +23,6 @@ color = Color(0, 0, 0, 0.588235)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 z_index = 1
-layout_mode = 0
 offset_left = 32.0
 offset_top = 233.0
 offset_right = 406.0
@@ -37,21 +31,19 @@ theme_override_font_sizes/normal_font_size = 9
 text = "Text"
 
 [node name="SpeakerLabel" type="Label" parent="."]
-layout_mode = 0
 offset_left = 9.0
 offset_top = 215.0
 offset_right = 111.0
 offset_bottom = 230.0
-theme_override_fonts/font = ExtResource("2_ciups")
+theme_override_fonts/font = ExtResource("1_hnwf7")
 theme_override_font_sizes/font_size = 11
 text = "Text:"
 
 [node name="ContinueWarningLabel" type="Label" parent="."]
-layout_mode = 0
 offset_left = 347.0
 offset_top = 256.0
 offset_right = 572.0
 offset_bottom = 271.0
-theme_override_fonts/font = ExtResource("2_ciups")
+theme_override_fonts/font = ExtResource("1_hnwf7")
 theme_override_font_sizes/font_size = 9
 text = "press spacebar to continue.."
