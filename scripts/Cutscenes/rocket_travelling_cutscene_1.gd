@@ -33,6 +33,7 @@ func _on_dialogue_finished():
 		# We are unlocking Level 2, so the argument is 2.
 		# This updates CharacterData for the current session.
 		save_manager.unlock_level_in_character_data(2)
+		save_manager.unlock_book_and_minigame_in_character_data(1)
 		
 		# IMPORTANT: For this unlock to persist after quitting the game,
 		# you MUST save the game data.

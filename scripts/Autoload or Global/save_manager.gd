@@ -18,6 +18,10 @@ func get_default_slot_data() -> Dictionary:
 		"unlocked_level_2": false,
 		"unlocked_level_3": false,
 		"unlocked_level_4": false,
+		"unlocked_book_and_minigame_1": true, # Books/minigames unlock separately
+		"unlocked_book_and_minigame_2": false,
+		"unlocked_book_and_minigame_3": false,
+		"unlocked_book_and_minigame_4": false,
 		"timestamp": 0 # Unix timestamp of save
 	}
 
@@ -37,10 +41,17 @@ func save_game(slot_index: int, game_data: Dictionary) -> bool:
 	# Ensure core data from CharacterData is included
 	data_to_save["player_name"] = character_data_node.player_name
 	data_to_save["selected_gender"] = character_data_node.selected_gender
+	# Level selector unlocks
 	data_to_save["unlocked_level_1"] = character_data_node.unlocked_level_1
 	data_to_save["unlocked_level_2"] = character_data_node.unlocked_level_2
 	data_to_save["unlocked_level_3"] = character_data_node.unlocked_level_3
 	data_to_save["unlocked_level_4"] = character_data_node.unlocked_level_4
+	# Book/minigame unlocks
+	data_to_save["unlocked_book_and_minigame_1"] = character_data_node.unlocked_book_and_minigame_1
+	data_to_save["unlocked_book_and_minigame_2"] = character_data_node.unlocked_book_and_minigame_2
+	data_to_save["unlocked_book_and_minigame_3"] = character_data_node.unlocked_book_and_minigame_3
+	data_to_save["unlocked_book_and_minigame_4"] = character_data_node.unlocked_book_and_minigame_4
+	
 	data_to_save["current_scene_path"] = get_tree().current_scene.scene_file_path # Save current location
 	data_to_save["slot_in_use"] = true
 	data_to_save["timestamp"] = Time.get_unix_time_from_system()
@@ -96,7 +107,11 @@ func load_game(slot_index: int) -> bool:
 			loaded_data.get("unlocked_level_1", true),
 			loaded_data.get("unlocked_level_2", false),
 			loaded_data.get("unlocked_level_3", false),
-			loaded_data.get("unlocked_level_4", false)
+			loaded_data.get("unlocked_level_4", false),
+			loaded_data.get("unlocked_book_and_minigame_1", true),
+			loaded_data.get("unlocked_book_and_minigame_2", false),
+			loaded_data.get("unlocked_book_and_minigame_3", false),
+			loaded_data.get("unlocked_book_and_minigame_4", false)
 		)
 	else:
 		printerr("SaveManager: CharacterData node not found. Cannot apply loaded data.")
@@ -167,6 +182,7 @@ func are_all_slots_full() -> bool:
 			return false
 	return true
 
+# Unlock level selector levels (for world map/level selection)
 func unlock_level_in_character_data(level_number: int):
 	var character_data_node = get_node("/root/CharacterData")
 	if character_data_node:
@@ -177,6 +193,18 @@ func unlock_level_in_character_data(level_number: int):
 		print("SaveManager: Level %s unlocked in CharacterData for current session." % level_number)
 	else:
 		printerr("SaveManager: CharacterData not found. Cannot unlock level %s." % level_number)
+
+# Unlock book/minigame content (for Django learning system)
+func unlock_book_and_minigame_in_character_data(level_number: int):
+	var character_data_node = get_node("/root/CharacterData")
+	if character_data_node:
+		match level_number:
+			2: character_data_node.unlocked_book_and_minigame_2 = true
+			3: character_data_node.unlocked_book_and_minigame_3 = true
+			4: character_data_node.unlocked_book_and_minigame_4 = true
+		print("SaveManager: Book and Minigame %s unlocked in CharacterData for current session." % level_number)
+	else:
+		printerr("SaveManager: CharacterData not found. Cannot unlock book and minigame %s." % level_number)
 
 # Call this when a new game is truly started (e.g., after intro cutscene/name input)
 func prepare_new_game_session_data():

@@ -8,13 +8,13 @@
 noise_type = 0
 frequency = 0.3395
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qq17d"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u1w0l"]
 noise = SubResource("FastNoiseLite_fj7h8")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n44v5"]
 shader = ExtResource("1_j7mx2")
 shader_parameter/resolution = Vector2(600, 400)
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_qq17d")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_u1w0l")
 shader_parameter/density = 57.5
 shader_parameter/speed_x = 100.0
 shader_parameter/speed_y = 1.49012e-06
@@ -22,7 +22,6 @@ shader_parameter/layers = 10.0
 
 [node name="LevelSelectorUI" type="Control"]
 process_mode = 2
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 480.0
@@ -60,17 +59,20 @@ text = "Chapter 1 - Setting Up Django"
 [node name="Level2Button" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_b8uro")
-text = "Chapter 2 - URLs,  Views, Templates and Static Files"
+text = "Chapter 2 - URLs,  Views, 
+Templates and Static Files"
 
 [node name="Level3Button" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_b8uro")
-text = "Chapter 3 - Models, Database and Admin Panel"
+text = "Chapter 3 - Models,
+Database and Admin Panel"
 
 [node name="Level4Button" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_b8uro")
-text = "Chapter 4 - Return to Earth - Deployment
+text = "Chapter 4 - Return to
+Earth - Deployment
 "
 
 [node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer"]

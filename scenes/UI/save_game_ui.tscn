@@ -22,7 +22,6 @@ shader_parameter/layers = 10.0
 
 [node name="SaveGameUI" type="Control"]
 process_mode = 2
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 480.0

@@ -35,6 +35,7 @@ offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(47.5, 10.5)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_3qqpn")
 text = "Text"
 horizontal_alignment = 1
