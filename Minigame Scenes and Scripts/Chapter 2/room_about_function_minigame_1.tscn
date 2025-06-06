@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://b3gtitxkai0mh"]
 
-[ext_resource type="Script" uid="uid://cp5vgaka0dvfl" path="res://scripts/Levels/Chapter 2/Chapter 2 UI/room_about_function_minigame_1.gd" id="1_a0f12"]
+[ext_resource type="Script" uid="uid://orqv1viaalff" path="res://Minigame Scenes and Scripts/Chapter 2/Scripts/room_about_function_minigame_1.gd" id="1_a0f12"]
 [ext_resource type="Texture2D" uid="uid://deq3oambq81cw" path="res://textures/game UI.png" id="2_5tkeh"]
 [ext_resource type="Texture2D" uid="uid://c067ceuo2sux6" path="res://textures/Level 2/AboutRoom.png" id="3_u5sa1"]
 [ext_resource type="FontFile" uid="uid://duddy63vd4ld0" path="res://textures/Fonts/Pixelify_Sans/static/PixelifySans-Medium.ttf" id="4_vjlkc"]

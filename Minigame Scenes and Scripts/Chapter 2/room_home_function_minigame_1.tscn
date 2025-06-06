@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://rcnlth5bsedj"]
 
-[ext_resource type="Script" uid="uid://cw856m7vybcip" path="res://scripts/Levels/Chapter 2/Chapter 2 UI/room_home_fuction_minigame_1.gd" id="1_fbiol"]
+[ext_resource type="Script" uid="uid://c8jifl5kba2jk" path="res://Minigame Scenes and Scripts/Chapter 2/Scripts/room_home_fuction_minigame_1.gd" id="1_fbiol"]
 [ext_resource type="Texture2D" uid="uid://deq3oambq81cw" path="res://textures/game UI.png" id="2_qtple"]
 [ext_resource type="Texture2D" uid="uid://b7ravlm8oa5rl" path="res://textures/Level 2/HomeRoom.png" id="3_gwvp8"]
 [ext_resource type="FontFile" uid="uid://duddy63vd4ld0" path="res://textures/Fonts/Pixelify_Sans/static/PixelifySans-Medium.ttf" id="4_53yqx"]

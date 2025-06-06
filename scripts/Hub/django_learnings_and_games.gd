@@ -46,7 +46,7 @@ const GAME_NAMES = [
 # Game scene paths (replace with your actual game scene paths)
 const GAME_SCENE_PATHS = [
 	"res://Minigame Scenes and Scripts/Chapter 1/chapter_1_world_part_3_2nd_minigame.tscn",        # Replace with actual path
-	"res://scenes/Games/url_matching_game.tscn",        # Replace with actual path
+	"res://Minigame Scenes and Scripts/Chapter 2/chapter_2_world_part_4_1st_minigame_pt1.tscn",        # Replace with actual path
 	"res://scenes/Games/model_building_game.tscn",      # Replace with actual path
 	"res://scenes/Games/deployment_challenge.tscn"      # Replace with actual path
 ]

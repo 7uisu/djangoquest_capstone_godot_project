@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://cmeut4o4kvmb7"]
 
-[ext_resource type="Script" uid="uid://bsf372tjmptmf" path="res://scripts/Levels/Chapter 2/chapter_2_world_2nd_minigame_pt1.gd" id="1_gnp7e"]
+[ext_resource type="Script" uid="uid://c6aye2qmcsvwc" path="res://Minigame Scenes and Scripts/Chapter 2/Scripts/chapter_2_world_2nd_minigame_pt1.gd" id="1_gnp7e"]
 [ext_resource type="Texture2D" uid="uid://deq3oambq81cw" path="res://textures/game UI.png" id="2_012nt"]
 [ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="3_3lng0"]
 [ext_resource type="FontFile" uid="uid://d2st8v7vx3p07" path="res://textures/Fonts/CyberpunkCraftpixPixel.otf" id="4_waiti"]
