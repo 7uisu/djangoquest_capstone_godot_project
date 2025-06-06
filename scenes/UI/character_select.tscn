@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckuu086ojms1m"]
+[gd_scene load_steps=10 format=3 uid="uid://ckuu086ojms1m"]
 
 [ext_resource type="Script" uid="uid://bgqrvrdgkomvy" path="res://scripts/UI/character_selection.gd" id="1_0dtwr"]
 [ext_resource type="Shader" uid="uid://btjpurw470nhn" path="res://scenes/UI/main_menu_ui.gdshader" id="1_ql5lg"]
 [ext_resource type="FontFile" uid="uid://dywjttgy6mph5" path="res://textures/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="2_6e77h"]
+[ext_resource type="Texture2D" uid="uid://cmg4w35uvacdl" path="res://textures/Blue.jpg" id="3_2hfbg"]
+[ext_resource type="Texture2D" uid="uid://k1gjl8yiikik" path="res://textures/Red.jpg" id="4_i0pq7"]
+[ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="6_i0pq7"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_og2vi"]
 noise_type = 0
@@ -37,31 +40,49 @@ offset_right = 480.0
 offset_bottom = 270.0
 script = ExtResource("1_0dtwr")
 
-[node name="MaleButton" type="Button" parent="CharacterSelectUI"]
+[node name="Red" type="TextureRect" parent="CharacterSelectUI"]
 layout_mode = 0
-offset_left = 156.0
-offset_top = 125.0
-offset_right = 202.0
-offset_bottom = 156.0
-theme_override_fonts/font = ExtResource("2_6e77h")
-text = "Male"
+offset_left = 25.0
+offset_top = 54.0
+offset_right = 225.0
+offset_bottom = 254.0
+texture = ExtResource("3_2hfbg")
+expand_mode = 1
 
-[node name="FemaleButton" type="Button" parent="CharacterSelectUI"]
+[node name="Blue" type="TextureRect" parent="CharacterSelectUI"]
 layout_mode = 0
 offset_left = 255.0
-offset_top = 124.0
-offset_right = 319.0
-offset_bottom = 155.0
+offset_top = 56.0
+offset_right = 455.0
+offset_bottom = 256.0
+texture = ExtResource("4_i0pq7")
+expand_mode = 1
+
+[node name="MaleButton" type="Button" parent="CharacterSelectUI"]
+z_index = 1
+layout_mode = 0
+offset_left = 26.0
+offset_top = 54.0
+offset_right = 226.0
+offset_bottom = 254.0
 theme_override_fonts/font = ExtResource("2_6e77h")
-text = "Female"
+
+[node name="FemaleButton" type="Button" parent="CharacterSelectUI"]
+z_index = 1
+layout_mode = 0
+offset_left = 255.0
+offset_top = 56.0
+offset_right = 455.0
+offset_bottom = 256.0
+theme_override_fonts/font = ExtResource("2_6e77h")
 
 [node name="SelectionLabel" type="Label" parent="CharacterSelectUI"]
 layout_mode = 0
 offset_left = 163.0
-offset_top = 72.0
+offset_top = 17.0
 offset_right = 317.0
-offset_bottom = 95.0
-theme_override_fonts/font = ExtResource("2_6e77h")
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("6_i0pq7")
 text = "Select a Character"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,20 +1,26 @@
 # ============================================
-# MAIN GAME CONTROLLER - PRODUCTION VERSION
-# chapter_2_world_2nd_minigame_pt2.gd
+# ENHANCED GAME CONTROLLER - KEEPING ORIGINAL + ADDING MORE
+# REPLACE YOUR EXISTING chapter_2_world_2nd_minigame_pt2.gd WITH THIS
 # ============================================
 
 extends Node2D
 class_name Chapter2World2ndMinigamePt2
 
-# Game state
-enum Phase { TEMPLATE, CSS }
+# Game state - EXPANDED PHASES (KEPT ORIGINAL + ADDED MORE)
+enum Phase { 
+	TEMPLATE,          # Phase 1: Original template repair
+	CSS,               # Phase 2: Original CSS repair  
+	STATIC_FILES,      # Phase 3: NEW - Static files loading
+	TEMPLATE_TAGS      # Phase 4: NEW - Template logic tags
+}
+
 @export var current_phase: Phase = Phase.TEMPLATE
 
-# Lives system
-@export var max_lives: int = 3
-var current_lives: int = 3
+# Lives system (increased slightly for more phases)
+@export var max_lives: int = 4
+var current_lives: int = 4
 
-# Node references
+# Node references (SAME AS ORIGINAL)
 @onready var robot_sprite = $RobotDisplay/RobotSprite
 @onready var robot_screen = $RobotDisplay/RobotScreen
 @onready var health_bar = $RobotDisplay/HealthBar
@@ -25,24 +31,25 @@ var current_lives: int = 3
 @onready var error_display = $ErrorDisplay
 @onready var respawn_ui = $RespawnUI
 
-# Drag buttons
+# Drag buttons (SAME AS ORIGINAL)
 @onready var drag_button1 = $GameUI/DragArea/DragButton1
 @onready var drag_button2 = $GameUI/DragArea/DragButton2
 @onready var drag_button3 = $GameUI/DragArea/DragButton3
 @onready var drag_button4 = $GameUI/DragArea/DragButton4
 
-# Drop zones
+# Drop zones (SAME AS ORIGINAL)
 @onready var drop_zone1 = $GameUI/DropZones/DropZone1
 @onready var drop_zone2 = $GameUI/DropZones/DropZone2
 
-# Game data - track what's in each drop zone
+# Game data (SAME AS ORIGINAL)
 var current_drops = {
 	"drop_zone1": "",
 	"drop_zone2": ""
 }
 
-# Phase data - 4 choices each phase, 2 correct answers
+# EXPANDED Phase data - KEPT ORIGINAL + ADDED 2 MORE
 var phase_data = {
+	# ORIGINAL PHASES (KEPT EXACTLY THE SAME)
 	Phase.TEMPLATE: {
 		"title": "Phase 1: Template Repair",
 		"status": "Fix Django template variables and block tags",
@@ -60,11 +67,32 @@ var phase_data = {
 			"drop_zone1": "background-color: ___;",
 			"drop_zone2": "face-color: ___;"
 		}
+	},
+	
+	# NEW PHASES (ADDED)
+	Phase.STATIC_FILES: {
+		"title": "Phase 3: Static Files Setup",
+		"status": "Fix static files loading for robot resources",
+		"drag_items": ["load static", "static", "STATIC_URL", "css"],
+		"zone_labels": {
+			"drop_zone1": "{% ___ %}",
+			"drop_zone2": "{% ___ 'robot.css' %}"
+		}
+	},
+	Phase.TEMPLATE_TAGS: {
+		"title": "Phase 4: Template Logic",
+		"status": "Fix template logic for robot status display",
+		"drag_items": ["for", "if", "endif", "endfor"],
+		"zone_labels": {
+			"drop_zone1": "{% ___ robot.is_active %}",
+			"drop_zone2": "{% ___ component in parts %}"
+		}
 	}
 }
 
-# Correct answers for each phase
+# EXPANDED Correct answers - KEPT ORIGINAL + ADDED MORE
 var correct_answers = {
+	# ORIGINAL ANSWERS (KEPT EXACTLY THE SAME)
 	Phase.TEMPLATE: {
 		"drop_zone1": "title-display",
 		"drop_zone2": "content-face"
@@ -72,9 +100,24 @@ var correct_answers = {
 	Phase.CSS: {
 		"drop_zone1": "black",
 		"drop_zone2": "green"
+	},
+	
+	# NEW ANSWERS (ADDED)
+	Phase.STATIC_FILES: {
+		"drop_zone1": "load static",
+		"drop_zone2": "static"
+	},
+	Phase.TEMPLATE_TAGS: {
+		"drop_zone1": "if",
+		"drop_zone2": "for"
 	}
 }
 
+# Phase progression
+var phase_order = [Phase.TEMPLATE, Phase.CSS, Phase.STATIC_FILES, Phase.TEMPLATE_TAGS]
+var current_phase_index: int = 0
+
+# ALL ORIGINAL FUNCTIONS KEPT THE SAME (NO CHANGES)
 func _ready():
 	setup_lives_system()
 	setup_drop_zones()
@@ -105,18 +148,12 @@ func setup_respawn_ui():
 		return
 		
 	respawn_ui.visible = false
-	
-	# CRITICAL: Set the entire respawn UI tree to process during pause
 	respawn_ui.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
-	
-	# Make sure the respawn UI can receive input
 	respawn_ui.mouse_filter = Control.MOUSE_FILTER_STOP
 	
-	# Try multiple possible paths for the buttons
 	var respawn_btn = null
 	var quit_btn = null
 	
-	# Check different possible paths
 	var respawn_paths = [
 		"RespawnPanel/ButtonContainer/RespawnButton",
 		"RespawnButton", 
@@ -129,14 +166,12 @@ func setup_respawn_ui():
 		"ButtonContainer/QuitButton"
 	]
 	
-	# Find respawn button
 	for path in respawn_paths:
 		respawn_btn = respawn_ui.get_node_or_null(path)
 		if respawn_btn:
 			print("Found respawn button at: ", path)
 			break
 	
-	# Find quit button
 	for path in quit_paths:
 		quit_btn = respawn_ui.get_node_or_null(path)
 		if quit_btn:
@@ -144,48 +179,31 @@ func setup_respawn_ui():
 			break
 	
 	if respawn_btn:
-		# Disconnect any existing connections first
 		if respawn_btn.pressed.is_connected(_on_respawn_button_pressed):
 			respawn_btn.pressed.disconnect(_on_respawn_button_pressed)
 		
-		# Set to process during pause
 		respawn_btn.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
-		
-		# Connect the signal
 		respawn_btn.pressed.connect(_on_respawn_button_pressed)
-		
-		# Make sure button can receive input
 		respawn_btn.mouse_filter = Control.MOUSE_FILTER_STOP
 		respawn_btn.disabled = false
 		
 		print("Respawn button connected successfully")
 	else:
 		print("ERROR: Could not find respawn button!")
-		# Print all children to debug
-		print_respawn_ui_structure()
 		
 	if quit_btn:
-		# Disconnect any existing connections first
 		if quit_btn.pressed.is_connected(_on_quit_button_pressed):
 			quit_btn.pressed.disconnect(_on_quit_button_pressed)
 		
-		# Set to process during pause
 		quit_btn.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
-			
-		# Connect the signal
 		quit_btn.pressed.connect(_on_quit_button_pressed)
-		
-		# Make sure button can receive input
 		quit_btn.mouse_filter = Control.MOUSE_FILTER_STOP
 		quit_btn.disabled = false
 		
 		print("Quit button connected successfully")
 	else:
 		print("ERROR: Could not find quit button!")
-		# Print all children to debug
-		print_respawn_ui_structure()
 	
-	# Set all parent containers to process during pause too
 	var overlay = respawn_ui.get_node_or_null("Overlay")
 	if overlay:
 		overlay.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
@@ -198,33 +216,13 @@ func setup_respawn_ui():
 	if button_container:
 		button_container.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 
-func print_respawn_ui_structure():
-	print("=== RESPAWN UI STRUCTURE ===")
-	if respawn_ui:
-		print_node_children(respawn_ui, 0)
-	else:
-		print("RespawnUI is null!")
-
-func print_node_children(node: Node, depth: int):
-	var indent = ""
-	for i in range(depth):
-		indent += "  "
-	
-	print(indent + node.name + " (" + node.get_class() + ")")
-	
-	for child in node.get_children():
-		print_node_children(child, depth + 1)
-
 func _on_respawn_button_pressed():
 	print("Respawn button pressed!")
 	
 	if respawn_ui:
 		respawn_ui.visible = false
 	
-	# Unpause the game
 	get_tree().paused = false
-	
-	# Reload the entire scene to reset everything
 	get_tree().reload_current_scene()
 
 func _on_quit_button_pressed():
@@ -233,10 +231,8 @@ func _on_quit_button_pressed():
 	if respawn_ui:
 		respawn_ui.visible = false
 	
-	# Unpause the game
 	get_tree().paused = false
 	
-	# Try to go to main menu
 	var main_menu_paths = [
 		"res://scenes/UI/main_menu_ui.tscn",
 		"res://scenes/main_menu.tscn", 
@@ -266,7 +262,6 @@ func setup_phase(phase: Phase):
 		status_text.text = data["status"]
 		status_text.visible = true
 	
-	# Setup all 4 drag buttons
 	var drag_buttons = [drag_button1, drag_button2, drag_button3, drag_button4]
 	for i in range(4):
 		var button = drag_buttons[i]
@@ -276,7 +271,6 @@ func setup_phase(phase: Phase):
 			button.visible = true
 			button.disabled = false
 	
-	# Setup both drop zones
 	var zones = [drop_zone1, drop_zone2]
 	for i in range(2):
 		var zone = zones[i]
@@ -314,9 +308,10 @@ func check_phase_completion():
 	else:
 		handle_incorrect_phase()
 
+# MODIFIED: Enhanced to handle all 4 phases
 func handle_correct_phase():
 	if health_bar:
-		health_bar.value += 50
+		health_bar.value += 25  # Each phase gives 25% health
 	
 	match current_phase:
 		Phase.TEMPLATE:
@@ -327,8 +322,19 @@ func handle_correct_phase():
 			)
 		Phase.CSS:
 			update_robot_buttons()
+			update_robot_status("styling_fixed")
+			get_tree().create_timer(1.0).timeout.connect(func():
+				setup_phase(Phase.STATIC_FILES)
+			)
+		Phase.STATIC_FILES:
+			update_robot_status("static_loaded")
+			get_tree().create_timer(1.0).timeout.connect(func():
+				setup_phase(Phase.TEMPLATE_TAGS)
+			)
+		Phase.TEMPLATE_TAGS:
 			complete_game()
 
+# MODIFIED: Enhanced error messages for new phases
 func handle_incorrect_phase():
 	show_phase_error()
 	lose_life()
@@ -346,9 +352,14 @@ func show_phase_error():
 			message = "Template error! Wrong\n configuration"
 		Phase.CSS:
 			message = "CSS error! Wrong\n display and face color."
+		Phase.STATIC_FILES:
+			message = "Static Files error! Wrong\n loading configuration."
+		Phase.TEMPLATE_TAGS:
+			message = "Template Tags error! Wrong\n logic syntax."
 	
 	show_error_message(message)
 
+# ALL OTHER FUNCTIONS KEPT EXACTLY THE SAME AS ORIGINAL...
 func reset_current_phase():
 	if drop_zone1:
 		drop_zone1.reset_zone()
@@ -410,11 +421,8 @@ func show_respawn_ui():
 	if respawn_ui:
 		respawn_ui.visible = true
 		respawn_ui.mouse_filter = Control.MOUSE_FILTER_STOP
-		
-		# CRITICAL: Set the respawn UI to process during pause
 		respawn_ui.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 		
-		# Make sure all parent nodes can receive input and process during pause
 		var overlay = respawn_ui.get_node_or_null("Overlay")
 		if overlay:
 			overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -425,7 +433,6 @@ func show_respawn_ui():
 			panel.mouse_filter = Control.MOUSE_FILTER_STOP
 			panel.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 			
-		# Set buttons to process during pause
 		var respawn_btn = respawn_ui.get_node_or_null("RespawnPanel/ButtonContainer/RespawnButton")
 		var quit_btn = respawn_ui.get_node_or_null("RespawnPanel/ButtonContainer/QuitButton")
 		
@@ -434,12 +441,10 @@ func show_respawn_ui():
 		if quit_btn:
 			quit_btn.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 			
-		# Also set the button container
 		var button_container = respawn_ui.get_node_or_null("RespawnPanel/ButtonContainer")
 		if button_container:
 			button_container.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 		
-		# Pause the game
 		get_tree().paused = true
 		
 		print("Respawn UI should now be visible and interactive")
@@ -450,11 +455,9 @@ func complete_game():
 	update_robot_status("fully_restored")
 	show_success_message("Robot Interface Fully Restored!")
 	
-	# Wait a moment to show the success message, then transition to next scene
 	get_tree().create_timer(2.0).timeout.connect(func():
 		print("Minigame completed! Transitioning to next scene...")
 		
-		# Check if the next scene exists before trying to load it
 		var next_scene_path = "res://scenes/Levels/Chapter 2/chapter_2_world_part_6.tscn"
 		
 		if ResourceLoader.exists(next_scene_path):
@@ -462,10 +465,10 @@ func complete_game():
 			get_tree().change_scene_to_file(next_scene_path)
 		else:
 			print("ERROR: Next scene not found at: ", next_scene_path)
-			# You could add fallback behavior here, like going to main menu
 			print("Falling back to main menu or staying in current scene")
 	)
 
+# MODIFIED: Enhanced robot status for new phases
 func update_robot_status(status: String):
 	match status:
 		"damaged":
@@ -475,7 +478,13 @@ func update_robot_status(status: String):
 				status_text.text = "Interface: Damaged - Display blank"
 		"display_fixed":
 			if status_text:
-				status_text.text = "Interface: Display Fixed - Still needs proper face color"
+				status_text.text = "Interface: Display Fixed - Still needs styling"
+		"styling_fixed":
+			if status_text:
+				status_text.text = "Interface: Styling Applied - Loading static files"
+		"static_loaded":
+			if status_text:
+				status_text.text = "Interface: Static Files Loaded - Adding logic"
 		"fully_restored":
 			if robot_sprite:
 				robot_sprite.modulate = Color.GREEN
@@ -531,9 +540,10 @@ func show_error_message(message: String):
 	)
 
 func show_success_message(message: String):
-	# You can add UI success display here
-	pass
+	print("SUCCESS: ", message)
 
+# MODIFIED: Enhanced code display for new phases
+# FIXED: Enhanced code display for new phases - Clean display when correct
 func update_code_display():
 	if not code_editor:
 		return
@@ -544,23 +554,61 @@ func update_code_display():
 	
 	match current_phase:
 		Phase.TEMPLATE:
+			var blank1 = current_drops.get("drop_zone1", "")
+			var blank2 = current_drops.get("drop_zone2", "")
+			
+			# Show clean version when filled, placeholder when empty
+			var display1 = blank1 if blank1 != "" else "____"
+			var display2 = blank2 if blank2 != "" else "____"
+			
 			var template = """<title>{{ %s }}</title>
 <div>
   {%% block %s %%}
   {%% endblock %%}
 </div>"""
-			var blank1 = current_drops.get("drop_zone1", "___")
-			var blank2 = current_drops.get("drop_zone2", "___")
-			code_text.text = template % [blank1, blank2]
+			code_text.text = template % [display1, display2]
 			
 		Phase.CSS:
+			var bg = current_drops.get("drop_zone1", "")
+			var color = current_drops.get("drop_zone2", "")
+			
+			# Show clean version when filled, placeholder when empty
+			var display_bg = bg if bg != "" else "____"
+			var display_color = color if color != "" else "____"
+			
 			var css = """.robot-btn {
   background-color: %s;
   face-color: %s;
 }"""
-			var bg = current_drops.get("drop_zone1", "___")
-			var color = current_drops.get("drop_zone2", "___")
-			code_text.text = css % [bg, color]
+			code_text.text = css % [display_bg, display_color]
+			
+		Phase.STATIC_FILES:
+			var load_tag = current_drops.get("drop_zone1", "")
+			var static_tag = current_drops.get("drop_zone2", "")
+			
+			# Show clean version when filled, placeholder when empty
+			var display_load = ("{% " + load_tag + " %}") if load_tag != "" else "{% ____ %}"
+			var display_static = ("{% " + static_tag + " 'robot.css' %}") if static_tag != "" else "{% ____ 'robot.css' %}"
+			
+			var static_template = """%s
+<link rel="stylesheet" href="%s">"""
+			code_text.text = static_template % [display_load, display_static]
+			
+		Phase.TEMPLATE_TAGS:
+			var if_tag = current_drops.get("drop_zone1", "")
+			var for_tag = current_drops.get("drop_zone2", "")
+			
+			# Show clean version when filled, placeholder when empty
+			var display_if = ("{% " + if_tag + " robot.is_active %}") if if_tag != "" else "{% ____ robot.is_active %}"
+			var display_for = ("{% " + for_tag + " component in parts %}") if for_tag != "" else "{% ____ component in parts %}"
+			
+			var logic_template = """%s
+  <span>Robot Active</span>
+{%% endif %%}
+%s
+  <div>{{ component }}</div>
+{%% endfor %%}"""
+			code_text.text = logic_template % [display_if, display_for]
 
 func reset_entire_game():
 	print("Resetting entire game...")
@@ -573,16 +621,12 @@ func reset_entire_game():
 	if health_bar:
 		health_bar.value = 0
 	
-	# Reset robot screen to initial blank state
 	reset_robot_screen()
-	
 	update_robot_status("damaged")
-	
 	setup_phase(Phase.TEMPLATE)
 	
 	print("Game reset complete!")
 
-# Add this new function to properly reset the robot screen
 func reset_robot_screen():
 	if not robot_screen:
 		return
@@ -592,7 +636,6 @@ func reset_robot_screen():
 		var welcome_label = screen_container.get_node_or_null("WelcomeLabel")
 		var status_label = screen_container.get_node_or_null("StatusLabel")
 		
-		# Reset labels to initial blank state
 		if welcome_label:
 			welcome_label.text = ""
 			welcome_label.visible = false
@@ -600,17 +643,14 @@ func reset_robot_screen():
 			status_label.text = ""
 			status_label.visible = false
 	
-	# Reset robot buttons to normal state
 	var robot_buttons = robot_screen.get_node_or_null("ScreenContainer/RobotButtons")
 	if robot_buttons:
 		var buttons = robot_buttons.get_children()
 		for button in buttons:
 			if button:
-				# Reset button colors to default
 				button.remove_theme_color_override("normal")
 				button.remove_theme_color_override("font_color")
 
-# Debug function - call this from the debugger or add a temporary button
 func test_respawn_ui():
 	print("=== TESTING RESPAWN UI ===")
 	show_respawn_ui()

@@ -41,11 +41,13 @@ offset_right = 480.0
 offset_bottom = 270.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 480.0
 offset_bottom = 270.0
 color = Color(0, 0, 0, 0.231373)
 
 [node name="DjangoBookSprite" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 9.0
 offset_top = -42.0
 offset_right = 139.0
@@ -76,6 +78,7 @@ text = "Chapter 3 - Models,"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="DjangoBookPages"]
+layout_mode = 0
 offset_left = 97.0
 offset_top = 49.0
 offset_right = 224.0
@@ -87,6 +90,7 @@ text = "Database and"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="DjangoBookPages"]
+layout_mode = 0
 offset_left = 97.0
 offset_top = 62.0
 offset_right = 224.0
