@@ -155,7 +155,7 @@ func on_countdown_tick():
 	else:
 		countdown_timer.stop()
 		# Load the next scene (you can change this path to where you want to go next)
-		get_tree().change_scene_to_file("res://scenes/Levels/Chapter 3 (5-24-25)/wiretest/control.tscn")
+		get_tree().change_scene_to_file("res://Minigame Scenes and Scripts/Chapter 3/wiretest/control.tscn")
 
 func update_countdown_display():
 	question_label.text = "Minigame Complete!\nNext Task in " + str(countdown_value) + "..."

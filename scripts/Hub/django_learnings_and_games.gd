@@ -30,8 +30,8 @@ var current_open_chapter: Control = null
 # Define book chapter names
 const BOOK_CHAPTER_NAMES = [
 	"Setting Up Django",
-	"URLs,  Views,\nTemplates and Static Files",
-	"Models, Database\nand Admin Panel",
+	"URLs,  Views, Templates\nand Static Files",
+	"Models, Databaseand\nAdmin Panel",
 	"Return to\nEarth - Deployment"
 ]
 
@@ -40,14 +40,14 @@ const GAME_NAMES = [
 	"Setting Up Django",
 	"URLs,  Views, Templates\nand Static Files",
 	"Models, Databaseand\nAdmin Panel",
-	"Return to Earth\n- Deployment"
+	"Return to\nEarth - Deployment"
 ]
 
 # Game scene paths (replace with your actual game scene paths)
 const GAME_SCENE_PATHS = [
 	"res://Minigame Scenes and Scripts/Chapter 1/chapter_1_world_part_3_2nd_minigame.tscn",        # Replace with actual path
 	"res://Minigame Scenes and Scripts/Chapter 2/chapter_2_world_part_4_1st_minigame_pt1.tscn",        # Replace with actual path
-	"res://scenes/Games/model_building_game.tscn",      # Replace with actual path
+	"res://Minigame Scenes and Scripts/Chapter 3/Vari and Table assign minigame test/control.tscn",      # Replace with actual path
 	"res://scenes/Games/deployment_challenge.tscn"      # Replace with actual path
 ]
 

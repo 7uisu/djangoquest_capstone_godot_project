@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=4 uid="uid://dsqj5gpiifnlq"]
 
-[ext_resource type="Script" uid="uid://dpcy3qaale71t" path="res://scenes/Levels/Chapter 3 (5-24-25)/Vari and Table assign minigame test/control.gd" id="1_m6uiy"]
+[ext_resource type="Script" uid="uid://dplkhr3oh85cu" path="res://Minigame Scenes and Scripts/Chapter 3/Vari and Table assign minigame test/control.gd" id="1_m6uiy"]
 [ext_resource type="Texture2D" uid="uid://deq3oambq81cw" path="res://textures/game UI.png" id="2_1y7jl"]
 [ext_resource type="Texture2D" uid="uid://denkajucia6q3" path="res://scenes/Levels/Chapter 3 (5-24-25)/chapter 3 new assets/Texture/minerlogo.jpg" id="3_052d8"]
 [ext_resource type="Texture2D" uid="uid://co6h5rqgbq0ri" path="res://scenes/Levels/Chapter 3 (5-24-25)/chapter 3 new assets/Texture/waterfiltlogo.jpg" id="4_aal8m"]
