@@ -10,6 +10,16 @@ signal dialogue_finished
 @onready var color_rect: ColorRect = $ColorRect
 
 var dialogue_data = {
+	"d_has_chapter_3": {
+		"background": "res://textures/Plain Color BG/Sky-Blue.png",
+		"dialogue": [
+			{"speaker": "Narrator", "text": "Chapter 3 complete! Let's review what you discovered in the mines..."},
+			{"speaker": "D", "text": "Beep. I have something for you. Boop."},
+			{"speaker": "Narrator", "text": "*Hands you the Chapter 3 of the Django Book*"},
+			{"speaker": "You", "text": "Woah!!! OMG We needed this! We didn't know it was on this planet!"},
+			{"speaker": "Pip", "text": "Were that lucky I guess, hehe!"},
+		]
+	},
 	"chapter_3_discovery": {
 		"background": "",
 		"dialogue": [
@@ -60,7 +70,7 @@ var is_typing: bool = false
 var displaying_text: bool = false
 var full_text: String = ""
 var current_sequence: int = 0
-var dialogue_sequences: Array = ["chapter_3_discovery", "models_reflection", "database_connection", "migrations_explanation", "admin_interface", "chapter_completion"]
+var dialogue_sequences: Array = ["d_has_chapter_3", "chapter_3_discovery", "models_reflection", "database_connection", "migrations_explanation", "admin_interface", "chapter_completion"]
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

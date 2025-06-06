@@ -15,10 +15,16 @@ signal dialogue_finished
 var dialogue_data = {
 	"purple_discovery": {
 		"dialogue": [
-			{"speaker": "You", "text": "What is happening? This place is turning purple!"},
-			{"speaker": "Pip", "text": "That's... odd. Maybe that jsut how it si in this world."},
-			{"speaker": "You", "text": "C'mon, we might find some things if we look further."},
-			{"speaker": "You", "text": "Alright, but if things get too weird, we're getting out of here!"}
+			{"speaker": "You", "text": "Heyya! We finished your task!"},
+			{"speaker": "D", "text": "Beep Beep. Thank you for Help. Boop. You can have your reward. Beep."},
+			{"speaker": "You", "text": "Thanks! Why don't you come with us?"},
+			{"speaker": "D", "text": "Beep Beep. Why?"},
+			{"speaker": "You", "text": "I mean, you already have all the people here, they can get the job done."},
+			{"speaker": "D", "text": "Beep Beep. Can I really? Beep?"},
+			{"speaker": "Pip", "text": "Come with us!"},
+			{"speaker": "D", "text": "Beep Beep. Recalibrating. Thinking..."},
+			{"speaker": "D", "text": "Beep Beep. Recaliberation Complete. Decision Placed. I'll go with you guys. Beep."},
+			{"speaker": "You", "text": "Yayyyyy! Lets go now quick! We got a new passenger of the Django Rocket!"}
 		]
 	}
 }

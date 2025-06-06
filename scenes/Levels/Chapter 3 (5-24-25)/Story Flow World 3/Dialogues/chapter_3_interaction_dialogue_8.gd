@@ -15,15 +15,12 @@ signal dialogue_finished
 # !!! REPLACE THIS WITH YOUR ACTUAL DIALOGUE !!!
 var dialogue_data = {
 	"initial_greeting_part_1": {
-		"background": "res://textures/Plain Color BG/Sky-Blue.png",  # Background image path
+		"background": "",  # Background image path
 		"dialogue": [
-			{"speaker": "You", "text": "Woah! this place looks gorgeous!"},
-			{"speaker": "Pip", "text": "I think while landing here, I saw a ruined temple nearby"},
-			{"speaker": "You", "text": "C'mon then, lets go check it out!"},
-			{"speaker": "Pip", "text": "I really hope that while looking for resources, we just randomly find the Chapter 3 of the Django Book.."},
-			{"speaker": "You", "text": "Well, what are the odds of that happening?"},
-			{"speaker": "Pip", "text": "It's not 0, thats for sure."},
-			{"speaker": "You", "text": "Well, anyway, lets get goin! TO THE TEMPLE!"}
+			{"speaker": "You", "text": "You ready D?"},
+			{"speaker": "D", "text": "Beep, Yes, Affirmative."},
+			{"speaker": "You", "text": "C'mon in, welcome to the Django Rocket!"},
+			{"speaker": "Pip", "text": "Hope that you'll feel like at home, hehe"}
 		],
 		# Optional: Add specific images for each dialogue line
 		"images": [

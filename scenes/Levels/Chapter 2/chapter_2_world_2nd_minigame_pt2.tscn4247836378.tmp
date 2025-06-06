@@ -1,20 +1,20 @@
-[gd_scene load_steps=15 format=4 uid="uid://dydtq11otqiyq"]
+[gd_scene load_steps=15 format=4 uid="uid://blwrc0eckpg0h"]
 
-[ext_resource type="Script" uid="uid://bgiyw53y5nt1m" path="res://Minigame Scenes and Scripts/Chapter 2/Scripts/chapter_2_world_2nd_minigame_pt2.gd" id="1_8cwcc"]
-[ext_resource type="Texture2D" uid="uid://deq3oambq81cw" path="res://textures/game UI.png" id="2_jgc0e"]
-[ext_resource type="PackedScene" uid="uid://ducpbhkoin24r" path="res://scenes/Levels/Chapter 2/microwave.tscn" id="3_extsx"]
-[ext_resource type="FontFile" uid="uid://duddy63vd4ld0" path="res://textures/Fonts/Pixelify_Sans/static/PixelifySans-Medium.ttf" id="4_ny08k"]
-[ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="5_lefi0"]
-[ext_resource type="Texture2D" uid="uid://btmgm33nmlddx" path="res://textures/Heart/WholeHeart.png" id="6_i3mcx"]
-[ext_resource type="FontFile" uid="uid://dlx8tj2skpj00" path="res://textures/Fonts/Pixelify_Sans/static/PixelifySans-SemiBold.ttf" id="7_oewov"]
-[ext_resource type="Script" uid="uid://c1fesm7g8bmf" path="res://Minigame Scenes and Scripts/Chapter 2/Scripts/DragButton.gd" id="8_jgc0e"]
-[ext_resource type="Script" uid="uid://bauokinan2of3" path="res://Minigame Scenes and Scripts/Chapter 2/Scripts/DropPanel.gd" id="9_extsx"]
-[ext_resource type="Texture2D" uid="uid://cae2o1uxmthte" path="res://textures/WarningSign03.png" id="10_ul3yn"]
-[ext_resource type="FontFile" uid="uid://tyx50xl5dux2" path="res://textures/Fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="11_i6xld"]
-[ext_resource type="FontFile" uid="uid://duufeiqpx8lht" path="res://textures/Fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="12_vx46d"]
+[ext_resource type="Script" uid="uid://cwvymspn71dtg" path="res://scripts/Levels/Chapter 2/chapter_2_world_2nd_minigame_pt2.gd" id="1_x2snm"]
+[ext_resource type="Texture2D" uid="uid://deq3oambq81cw" path="res://textures/game UI.png" id="2_ol48q"]
+[ext_resource type="PackedScene" uid="uid://ducpbhkoin24r" path="res://scenes/Levels/Chapter 2/microwave.tscn" id="3_og7jp"]
+[ext_resource type="FontFile" uid="uid://duddy63vd4ld0" path="res://textures/Fonts/Pixelify_Sans/static/PixelifySans-Medium.ttf" id="4_8kxyo"]
+[ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="5_bdm3x"]
+[ext_resource type="FontFile" uid="uid://dlx8tj2skpj00" path="res://textures/Fonts/Pixelify_Sans/static/PixelifySans-SemiBold.ttf" id="5_fxxu5"]
+[ext_resource type="Texture2D" uid="uid://btmgm33nmlddx" path="res://textures/Heart/WholeHeart.png" id="6_764lw"]
+[ext_resource type="FontFile" uid="uid://tyx50xl5dux2" path="res://textures/Fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="7_bdm3x"]
+[ext_resource type="Script" uid="uid://b4y5vbsxjoyxd" path="res://scripts/Levels/Chapter 2/DragButton Script/DragButton.gd" id="7_fxxu5"]
+[ext_resource type="FontFile" uid="uid://duufeiqpx8lht" path="res://textures/Fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="8_66is0"]
+[ext_resource type="Script" uid="uid://di3x2y75ls8xj" path="res://scripts/Levels/Chapter 2/DropZone Script/DropPanel.gd" id="8_764lw"]
+[ext_resource type="Texture2D" uid="uid://cae2o1uxmthte" path="res://textures/WarningSign03.png" id="10_66is0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_neh76"]
-texture = ExtResource("2_jgc0e")
+texture = ExtResource("2_ol48q")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1914,7 +1914,7 @@ texture = ExtResource("2_jgc0e")
 sources/0 = SubResource("TileSetAtlasSource_neh76")
 
 [node name="Chapter2World2ndMinigamePt2" type="Node2D"]
-script = ExtResource("1_8cwcc")
+script = ExtResource("1_x2snm")
 current_phase = null
 max_lives = null
 
@@ -1938,7 +1938,7 @@ position = Vector2(0, 1)
 tile_map_data = PackedByteArray("AAAAAAAAAAACACYAAAABAAAAAAADACYAAAACAAAAAAAEACYAAAADAAAAAAAEACYAAAAEAAAAAAAEACYAAAAFAAAAAAAEACYAAAAGAAAAAAAEACYAAAAHAAAAAAAEACYAAAAIAAAAAAAFACYAAAAAAAEAAAACACcAAAAIAAEAAAAFACgAAAABAAEAAAADACcAAAACAAEAAAADACcAAAADAAEAAAADACcAAAAEAAEAAAADACcAAAAFAAEAAAADACcAAAAGAAEAAAADACcAAAAHAAEAAAADACcAAAAAAAIAAAACACcAAAAAAAMAAAACACcAAAAAAAQAAAACACcAAAAAAAUAAAACACkAAAAIAAIAAAAFACgAAAAIAAMAAAAFACgAAAAIAAQAAAAFACcAAAAIAAUAAAAFACkAAAAGAAUAAAADACkAAAAFAAUAAAADACkAAAAEAAUAAAADACkAAAADAAUAAAADACkAAAACAAUAAAADACkAAAABAAUAAAADACkAAAAGAAQAAAADACcAAAAHAAUAAAADACkAAAAFAAQAAAADACcAAAAEAAQAAAADACcAAAACAAQAAAADACcAAAACAAMAAAADACcAAAABAAQAAAADACcAAAABAAMAAAADACcAAAABAAIAAAADACcAAAACAAIAAAADACcAAAADAAIAAAADACcAAAAEAAIAAAADACcAAAAFAAIAAAADACcAAAAGAAMAAAADACcAAAADAAQAAAADACcAAAADAAMAAAADACcAAAAGAAIAAAADACcAAAAHAAIAAAADACcAAAAHAAMAAAADACcAAAAHAAQAAAADACcAAAAEAAMAAAADACcAAAAFAAMAAAADACcAAAA=")
 tile_set = SubResource("TileSet_0slme")
 
-[node name="RobotSprite" parent="RobotDisplay" instance=ExtResource("3_extsx")]
+[node name="RobotSprite" parent="RobotDisplay" instance=ExtResource("3_og7jp")]
 position = Vector2(67, 22)
 
 [node name="RobotScreen" type="Panel" parent="RobotDisplay"]
@@ -1958,7 +1958,7 @@ layout_mode = 2
 
 [node name="WelcomeLabel" type="Label" parent="RobotDisplay/RobotScreen/ScreenContainer/ScreenContent"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_ny08k")
+theme_override_fonts/font = ExtResource("4_8kxyo")
 theme_override_font_sizes/font_size = 10
 text = "GRIT Interface Active"
 horizontal_alignment = 1
@@ -1970,7 +1970,7 @@ offset_left = 6.0
 offset_top = 55.0
 offset_right = 136.0
 offset_bottom = 82.0
-theme_override_fonts/font = ExtResource("5_lefi0")
+theme_override_fonts/font = ExtResource("5_bdm3x")
 
 [node name="GameUI" type="Control" parent="."]
 layout_mode = 3
@@ -1995,17 +1995,17 @@ offset_bottom = 38.0
 
 [node name="Heart1" type="TextureRect" parent="GameUI/LivesDisplay"]
 layout_mode = 2
-texture = ExtResource("6_i3mcx")
+texture = ExtResource("6_764lw")
 expand_mode = 2
 
 [node name="Heart2" type="TextureRect" parent="GameUI/LivesDisplay"]
 layout_mode = 2
-texture = ExtResource("6_i3mcx")
+texture = ExtResource("6_764lw")
 expand_mode = 2
 
 [node name="Heart3" type="TextureRect" parent="GameUI/LivesDisplay"]
 layout_mode = 2
-texture = ExtResource("6_i3mcx")
+texture = ExtResource("6_764lw")
 expand_mode = 2
 
 [node name="PhasePanel" type="Panel" parent="GameUI"]
@@ -2020,7 +2020,7 @@ layout_mode = 0
 offset_left = -1.0
 offset_right = 143.0
 offset_bottom = 16.0
-theme_override_fonts/font = ExtResource("4_ny08k")
+theme_override_fonts/font = ExtResource("4_8kxyo")
 theme_override_font_sizes/font_size = 11
 text = "Phase 1: Template Repair"
 horizontal_alignment = 1
@@ -2032,7 +2032,7 @@ offset_left = 1.0
 offset_top = 13.0
 offset_right = 112.0
 offset_bottom = 28.0
-theme_override_fonts/font = ExtResource("4_ny08k")
+theme_override_fonts/font = ExtResource("4_8kxyo")
 theme_override_font_sizes/font_size = 11
 text = "Current objective"
 horizontal_alignment = 1
@@ -2051,10 +2051,10 @@ offset_left = 12.0
 offset_top = -52.0
 offset_right = 71.0
 offset_bottom = -27.0
-theme_override_fonts/font = ExtResource("7_oewov")
+theme_override_fonts/font = ExtResource("5_fxxu5")
 theme_override_font_sizes/font_size = 14
 text = "Choice1"
-script = ExtResource("8_jgc0e")
+script = ExtResource("7_fxxu5")
 
 [node name="DragButton2" type="Button" parent="GameUI/DragArea"]
 layout_mode = 0
@@ -2062,10 +2062,10 @@ offset_left = 12.0
 offset_top = -21.0
 offset_right = 73.0
 offset_bottom = 4.0
-theme_override_fonts/font = ExtResource("7_oewov")
+theme_override_fonts/font = ExtResource("5_fxxu5")
 theme_override_font_sizes/font_size = 14
 text = "Choice2"
-script = ExtResource("8_jgc0e")
+script = ExtResource("7_fxxu5")
 
 [node name="DragButton3" type="Button" parent="GameUI/DragArea"]
 layout_mode = 0
@@ -2073,10 +2073,10 @@ offset_left = 12.0
 offset_top = 13.0
 offset_right = 73.0
 offset_bottom = 38.0
-theme_override_fonts/font = ExtResource("7_oewov")
+theme_override_fonts/font = ExtResource("5_fxxu5")
 theme_override_font_sizes/font_size = 14
 text = "Choice3"
-script = ExtResource("8_jgc0e")
+script = ExtResource("7_fxxu5")
 
 [node name="DragButton4" type="Button" parent="GameUI/DragArea"]
 layout_mode = 0
@@ -2084,10 +2084,10 @@ offset_left = 12.0
 offset_top = 44.0
 offset_right = 73.0
 offset_bottom = 69.0
-theme_override_fonts/font = ExtResource("7_oewov")
+theme_override_fonts/font = ExtResource("5_fxxu5")
 theme_override_font_sizes/font_size = 14
 text = "Choice4"
-script = ExtResource("8_jgc0e")
+script = ExtResource("7_fxxu5")
 
 [node name="DropZones" type="Control" parent="GameUI"]
 layout_mode = 3
@@ -2103,7 +2103,7 @@ offset_left = 10.0
 offset_top = 4.0
 offset_right = 156.0
 offset_bottom = 20.0
-theme_override_fonts/font = ExtResource("4_ny08k")
+theme_override_fonts/font = ExtResource("4_8kxyo")
 theme_override_font_sizes/font_size = 12
 text = "Drop your answers here:"
 horizontal_alignment = 1
@@ -2115,7 +2115,7 @@ offset_left = 8.0
 offset_top = 26.0
 offset_right = 151.0
 offset_bottom = 50.0
-script = ExtResource("9_extsx")
+script = ExtResource("8_764lw")
 
 [node name="Label" type="Label" parent="GameUI/DropZones/DropZone1"]
 layout_mode = 0
@@ -2123,7 +2123,7 @@ offset_left = 10.0
 offset_top = 3.0
 offset_right = 69.0
 offset_bottom = 19.0
-theme_override_fonts/font = ExtResource("4_ny08k")
+theme_override_fonts/font = ExtResource("4_8kxyo")
 theme_override_font_sizes/font_size = 12
 text = "Drop Here"
 horizontal_alignment = 1
@@ -2135,7 +2135,7 @@ offset_left = 158.0
 offset_top = 26.0
 offset_right = 287.0
 offset_bottom = 50.0
-script = ExtResource("9_extsx")
+script = ExtResource("8_764lw")
 
 [node name="Label" type="Label" parent="GameUI/DropZones/DropZone2"]
 layout_mode = 0
@@ -2143,7 +2143,7 @@ offset_left = 10.0
 offset_top = 3.0
 offset_right = 69.0
 offset_bottom = 19.0
-theme_override_fonts/font = ExtResource("4_ny08k")
+theme_override_fonts/font = ExtResource("4_8kxyo")
 theme_override_font_sizes/font_size = 12
 text = "Drop Here"
 horizontal_alignment = 1
@@ -2165,7 +2165,7 @@ offset_bottom = 124.0
 layout_mode = 0
 offset_right = 294.0
 offset_bottom = 124.0
-theme_override_fonts/normal_font = ExtResource("7_oewov")
+theme_override_fonts/normal_font = ExtResource("5_fxxu5")
 
 [node name="CodeBlanks" type="Control" parent="GameUI/CodeEditor"]
 anchors_preset = 0
@@ -2185,7 +2185,7 @@ offset_left = 22.0
 offset_top = 23.0
 offset_right = 81.0
 offset_bottom = 79.0
-texture = ExtResource("10_ul3yn")
+texture = ExtResource("10_66is0")
 
 [node name="ErrorText" type="Label" parent="ErrorDisplay"]
 layout_mode = 0
@@ -2193,7 +2193,7 @@ offset_left = 85.0
 offset_top = 34.0
 offset_right = 308.0
 offset_bottom = 57.0
-theme_override_fonts/font = ExtResource("11_i6xld")
+theme_override_fonts/font = ExtResource("7_bdm3x")
 text = "Game Over! No lives remaining"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -2225,7 +2225,7 @@ offset_left = 23.0
 offset_top = 46.0
 offset_right = 246.0
 offset_bottom = 69.0
-theme_override_fonts/font = ExtResource("11_i6xld")
+theme_override_fonts/font = ExtResource("7_bdm3x")
 text = "Game Over! No lives remaining"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -2239,13 +2239,13 @@ offset_bottom = 127.0
 
 [node name="QuitButton" type="Button" parent="RespawnUI/RespawnPanel/ButtonContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("12_vx46d")
+theme_override_fonts/font = ExtResource("8_66is0")
 text = "Quit
 "
 
 [node name="RespawnButton" type="Button" parent="RespawnUI/RespawnPanel/ButtonContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("12_vx46d")
+theme_override_fonts/font = ExtResource("8_66is0")
 text = "Respawn"
 
 [connection signal="pressed" from="RespawnUI/RespawnPanel/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]

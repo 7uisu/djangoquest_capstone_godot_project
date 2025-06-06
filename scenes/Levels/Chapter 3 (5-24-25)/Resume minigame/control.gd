@@ -71,7 +71,7 @@ func on_job_button_pressed(selected_job):
 
 func transition_to_next_scene():
 	# Update this path to your target scene
-	var next_scene_path = "res://scenes/Hub Area/hub_area.tscn"
+	var next_scene_path = "res://scenes/Levels/Chapter 3 (5-24-25)/Story Flow World 3/chapter_3_world_part_3.tscn"
 	
 	print("Transitioning to: ", next_scene_path)
 	var error_code = get_tree().change_scene_to_file(next_scene_path)

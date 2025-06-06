@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="2_wvob6"]
 [ext_resource type="FontFile" uid="uid://duufeiqpx8lht" path="res://textures/Fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="3_c8mlh"]
 [ext_resource type="FontFile" uid="uid://tyx50xl5dux2" path="res://textures/Fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf" id="4_hk5ev"]
+[ext_resource type="Script" uid="uid://cea5gi1n1eb2o" path="res://Minigame Scenes and Scripts/Chapter 3/wiretest/wires.gd" id="4_wvob6"]
 
 [sub_resource type="GDScript" id="GDScript_i507m"]
 script/source = "extends Control
@@ -4104,28 +4105,6 @@ texture = ExtResource("1_ds3v3")
 [sub_resource type="TileSet" id="TileSet_bp7eg"]
 sources/0 = SubResource("TileSetAtlasSource_hlh0k")
 
-[sub_resource type="GDScript" id="GDScript_lvnun"]
-script/source = "extends Node2D
-
-@onready var wire_game = get_parent()
-
-func _draw():
-	for line in wire_game.connected_lines:
-		var color = Color.YELLOW # <-- default color is YELLOW before validation!
-
-		if line[\"is_correct\"] == true:
-			color = Color.GREEN
-		elif line[\"is_correct\"] == false:
-			color = Color.RED
-		# else: still yellow if not validated
-
-		draw_line(line[\"start\"], line[\"end\"], color, 4)
-
-	# Draw dragging line (while dragging)
-	if wire_game.dragging and wire_game.start_button:
-		draw_line(wire_game.start_position, wire_game.temp_line_end, Color.YELLOW, 2)
-"
-
 [node name="WireGame" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -4208,7 +4187,7 @@ theme_override_font_sizes/font_size = 13
 text = "Farming"
 
 [node name="Wires" type="Node2D" parent="."]
-script = SubResource("GDScript_lvnun")
+script = ExtResource("4_wvob6")
 
 [node name="FeedbackLabel" type="Label" parent="."]
 layout_mode = 0

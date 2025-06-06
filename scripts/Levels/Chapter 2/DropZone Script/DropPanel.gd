@@ -5,7 +5,7 @@
 
 # DropPanel.gd
 extends Panel
-class_name DropPanel
+class_name DropPanelFixed
 
 @export var zone_id: String = ""
 var current_data: String = ""

@@ -16,10 +16,11 @@ signal dialogue_finished
 var dialogue_data = {
 	"initial_greeting_part_1": {
 		"dialogue": [
-			{"speaker": "You", "text": "What just happened!?"},
-			{"speaker": "Pip", "text": "The door shut behind us."},
-			{"speaker": "You", "text": "Great. Looks like we’re committed now."},
-			{"speaker": "Pip", "text": "Let's see what this temple has in stored for us."}
+			{"speaker": "You", "text": "Whooo! That was stressful, so many connections and whatnot."},
+			{"speaker": "Pip", "text": "Well, at the very least we get to finish it now."},
+			{"speaker": "You", "text": "Yep, it was fun though, not gonna lie."},
+			{"speaker": "You", "text": "Lets get back to D and tell em we finished the task."},
+			{"speaker": "Pip", "text": "Lets goooo!."}
 		]
 	}
 }

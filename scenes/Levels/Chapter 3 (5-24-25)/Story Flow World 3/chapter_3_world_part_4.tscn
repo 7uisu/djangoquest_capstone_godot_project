@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cp47kyrcmnspn"]
+[gd_scene load_steps=34 format=4 uid="uid://cp47kyrcmnspn"]
 
 [ext_resource type="Texture2D" uid="uid://ccpk86d8ojly7" path="res://scenes/Levels/Chapter 3 (5-24-25)/chapter 3 new assets/Texture/TX Tileset Grass.png" id="2_tivb2"]
 [ext_resource type="Texture2D" uid="uid://ctmndkhc1byh8" path="res://scenes/Levels/Chapter 3 (5-24-25)/chapter 3 new assets/Texture/TX Tileset Stone Ground.png" id="3_t8nev"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://jdwkyt5c0ts1" path="res://scenes/Levels/Chapter 3 (5-24-25)/Story Flow World 3/Dialogues/chapter_3_interaction_dialogue_8.tscn" id="12_t8nev"]
 [ext_resource type="Script" uid="uid://cc502p3ohdypx" path="res://scenes/Levels/Chapter 3 (5-24-25)/Story Flow World 3/Dialogues/chapter_3_interaction_dialogue_8.gd" id="13_bk0eb"]
 [ext_resource type="PackedScene" uid="uid://dqfo58pg2kr52" path="res://scenes/Levels/Chapter 2/pip_cat_interactable.tscn" id="13_mfnd2"]
+[ext_resource type="PackedScene" uid="uid://cnwoqit4mb7fl" path="res://scenes/Levels/Chapter 3 (5-24-25)/Interactables/cute_bot_interactable.tscn" id="14_t8nev"]
+[ext_resource type="Script" uid="uid://bxb8ia7sudk0b" path="res://scenes/Levels/Chapter 3 (5-24-25)/Interactables/cute_bot_interactable2.gd" id="15_bk0eb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dpi5d"]
 texture = ExtResource("2_tivb2")
@@ -2891,5 +2893,9 @@ position = Vector2(446, 143)
 
 [node name="PipCatInteractable" parent="." instance=ExtResource("13_mfnd2")]
 position = Vector2(359, 141)
+
+[node name="CuteBotInteractable" parent="." instance=ExtResource("14_t8nev")]
+position = Vector2(337, 110)
+script = ExtResource("15_bk0eb")
 
 [editable path="Doors/Door_S"]

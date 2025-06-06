@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c3lrjanr5d2ua"]
+[gd_scene load_steps=20 format=3 uid="uid://c3lrjanr5d2ua"]
 
 [ext_resource type="Script" uid="uid://d0nfqfh2t801p" path="res://scenes/Levels/Chapter 3 (5-24-25)/Story Flow World 3/Dialogue Scripts/chapter_3_rocket_travelling_outro.gd" id="1_rcvs7"]
 [ext_resource type="Shader" uid="uid://btjpurw470nhn" path="res://scenes/UI/main_menu_ui.gdshader" id="1_s1hym"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dw6cdj8uk42vy" path="res://textures/DjangoRocket/Rocket 64x64.png" id="3_o0jnt"]
 [ext_resource type="FontFile" uid="uid://dywjttgy6mph5" path="res://textures/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="5_8lxql"]
 [ext_resource type="Script" uid="uid://dijpccgrtqsln" path="res://scenes/Levels/Chapter 3 (5-24-25)/Story Flow World 3/Dialogue Scripts/chapter_3_rocket_travelling_outro_dialogue.gd" id="5_o0jnt"]
+[ext_resource type="PackedScene" uid="uid://ungf54xojke7" path="res://scenes/DjangoBookScenes/django_book_chapter_3.tscn" id="7_o0jnt"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_l2v0x"]
 noise_type = 0
@@ -164,3 +165,6 @@ offset_bottom = 270.0
 theme_override_fonts/font = ExtResource("5_8lxql")
 theme_override_font_sizes/font_size = 9
 text = "press spacebar to continue.."
+
+[node name="DjangoBookChapter3" parent="." instance=ExtResource("7_o0jnt")]
+visible = false

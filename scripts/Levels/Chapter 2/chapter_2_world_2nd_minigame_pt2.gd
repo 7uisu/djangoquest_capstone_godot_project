@@ -4,7 +4,7 @@
 # ============================================
 
 extends Node2D
-class_name Chapter2World2ndMinigamePt2
+class_name Chapter2World2ndMinigamePt2Fixed
 
 # Game state - EXPANDED PHASES (KEPT ORIGINAL + ADDED MORE)
 enum Phase { 
@@ -458,6 +458,7 @@ func complete_game():
 	get_tree().create_timer(2.0).timeout.connect(func():
 		print("Minigame completed! Transitioning to next scene...")
 		
+		# Choose the destination based on which version you want
 		var next_scene_path = "res://scenes/Levels/Chapter 2/chapter_2_world_part_6.tscn"
 		
 		if ResourceLoader.exists(next_scene_path):

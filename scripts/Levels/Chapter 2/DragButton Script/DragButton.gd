@@ -5,7 +5,7 @@
 
 # DragButton.gd
 extends Button
-class_name DragButton
+class_name DragButtonFixed
 
 @export var drag_data: String = ""
 var original_position: Vector2
