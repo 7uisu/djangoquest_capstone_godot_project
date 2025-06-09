@@ -1,9 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://cp2ii5erusfuk"]
+[gd_scene load_steps=42 format=3 uid="uid://cp2ii5erusfuk"]
 
 [ext_resource type="Script" uid="uid://cw30w8xqouty8" path="res://scripts/Player/player.gd" id="1_1kbk7"]
 [ext_resource type="Texture2D" uid="uid://djuvjwtbdmts2" path="res://textures/Player/Sprites/The Adventurer - Free/Female/Shadow.png" id="2_c4h5g"]
 [ext_resource type="SpriteFrames" uid="uid://drsil5pv62mvl" path="res://animations/Player/player_animation.tres" id="2_gqjuk"]
 [ext_resource type="FontFile" uid="uid://hke21ckgccrf" path="res://textures/Fonts/superstar-memesbruh03/superstar_memesbruh03.ttf" id="4_c4h5g"]
+[ext_resource type="FontFile" uid="uid://smeo6rj7dcbl" path="res://textures/Fonts/04b_03/04B_03__.TTF" id="5_uiqp4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wt17y"]
 radius = 5.0
@@ -590,6 +591,17 @@ theme_override_fonts/font = ExtResource("4_c4h5g")
 theme_override_font_sizes/font_size = 14
 text = "run away from python while grabbing the pages.
 F to grab Pages that are on the way."
+
+[node name="PlayerName" type="Label" parent="Camera2D"]
+offset_left = -18.0
+offset_top = -32.0
+offset_right = 22.0
+offset_bottom = -9.0
+theme_override_fonts/font = ExtResource("5_uiqp4")
+theme_override_font_sizes/font_size = 8
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="InteractionArea" type="Area2D" parent="."]
 

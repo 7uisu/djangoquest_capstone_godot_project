@@ -1,7 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://p4tdedeoajeq"]
+[gd_scene load_steps=6 format=3 uid="uid://p4tdedeoajeq"]
 
 [ext_resource type="Script" uid="uid://dy6l6wrong7mt" path="res://scripts/Cutscenes/introduction_cutscene.gd" id="1_0snnd"]
-[ext_resource type="FontFile" uid="uid://dywjttgy6mph5" path="res://textures/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="1_j1x0g"]
+[ext_resource type="FontFile" uid="uid://smeo6rj7dcbl" path="res://textures/Fonts/04b_03/04B_03__.TTF" id="2_0snnd"]
+[ext_resource type="StyleBox" uid="uid://bxlj6y3excv30" path="res://scenes/Skip Button/skip_button_style.tres" id="3_m58j4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_woc8c"]
+bg_color = Color(0.666569, 0.666569, 0.666569, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlyvf"]
+bg_color = Color(0.298039, 0.298039, 0.298039, 0.780392)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Introduction_Cutscene" type="Control"]
 layout_mode = 3
@@ -18,39 +41,76 @@ offset_right = 479.0
 offset_bottom = 269.0
 expand_mode = 1
 
+[node name="CharacterImageLeft" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 149.0
+offset_right = 85.0
+offset_bottom = 210.0
+expand_mode = 1
+
+[node name="CharacterImageRight" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 149.0
+offset_right = 453.0
+offset_bottom = 210.0
+expand_mode = 1
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 202.0
+offset_right = 472.0
+offset_bottom = 263.0
+
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_top = 208.0
-offset_right = 480.0
-offset_bottom = 269.0
-color = Color(0, 0, 0, 0.588235)
+offset_left = 9.0
+offset_top = 204.0
+offset_right = 470.0
+offset_bottom = 261.0
+color = Color(0, 0, 0, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 z_index = 1
 layout_mode = 0
-offset_left = 32.0
-offset_top = 232.0
-offset_right = 406.0
-offset_bottom = 261.0
-theme_override_font_sizes/normal_font_size = 9
+offset_left = 34.0
+offset_top = 226.0
+offset_right = 408.0
+offset_bottom = 255.0
+theme_override_fonts/normal_font = ExtResource("2_0snnd")
+theme_override_font_sizes/normal_font_size = 12
 text = "Text"
 
 [node name="SpeakerLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 214.0
-offset_right = 111.0
-offset_bottom = 229.0
-theme_override_fonts/font = ExtResource("1_j1x0g")
+offset_left = 17.0
+offset_top = 211.0
+offset_right = 119.0
+offset_bottom = 226.0
+theme_override_fonts/font = ExtResource("2_0snnd")
 theme_override_font_sizes/font_size = 11
 text = "Text:"
 
 [node name="ContinueWarningLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 347.0
-offset_top = 255.0
-offset_right = 572.0
-offset_bottom = 270.0
-theme_override_fonts/font = ExtResource("1_j1x0g")
-theme_override_font_sizes/font_size = 9
+offset_left = 344.0
+offset_top = 248.0
+offset_right = 569.0
+offset_bottom = 263.0
+theme_override_fonts/font = ExtResource("2_0snnd")
+theme_override_font_sizes/font_size = 8
 text = "press spacebar to continue.."
+
+[node name="SkipButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 13.0
+offset_right = 467.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("2_0snnd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_woc8c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hlyvf")
+theme_override_styles/normal = ExtResource("3_m58j4")
+text = "SKIP"

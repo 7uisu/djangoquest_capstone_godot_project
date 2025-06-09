@@ -4,7 +4,8 @@ extends CharacterBody2D
 const MOVEMENT_SPEED = 120.0
 
 @onready var pages_label = $Camera2D/Guide1Label
-@onready var guide2_label = $Camera2D/Guide2Label  # Add this line near the top with other onready vars
+@onready var guide2_label = $Camera2D/Guide2Label
+@onready var player_name_label = $Camera2D/PlayerName  # Add reference to PlayerName label
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var interaction_area: Area2D = $InteractionArea
 @onready var camera: Camera2D = $Camera2D
@@ -25,6 +26,7 @@ func _ready():
 	if tutorial_manager:
 		tutorial_manager.page_collected.connect(_on_page_collected)
 	update_pages_label()
+	update_player_name_label()  # Update player name on ready
 
 func _process(_delta):
 	if not can_move:
@@ -100,7 +102,16 @@ func update_pages_label():
 	if tutorial_manager and pages_label:
 		var collected = tutorial_manager.get_all_collected_pages().size()
 		pages_label.text = "Pages: " + str(collected) + "/6"
-		
+
+func update_player_name_label():
+	if player_name_label and character_data:
+		if character_data.player_name != "":
+			player_name_label.text = character_data.player_name
+			player_name_label.visible = true
+		else:
+			player_name_label.text = "Player"  # Default text if no name is set
+			player_name_label.visible = true
+
 func show_guide2_message(text: String, duration: float = 3.0):
 	if guide2_label:
 		guide2_label.text = text
@@ -114,3 +125,7 @@ func get_collected_pages() -> int:
 	if tutorial_manager:
 		return tutorial_manager.get_all_collected_pages().size()
 	return 0
+
+# Call this method when the player name changes (e.g., from a name input scene)
+func refresh_player_name():
+	update_player_name_label()
